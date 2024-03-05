@@ -14,6 +14,8 @@
 #define BAUDRATE 115200L
 #define SARCLK 18000000L
 
+unsigned char overflow_count;
+
 char _c51_external_startup (void)
 {
 	// Disable Watchdog with key sequence
@@ -72,6 +74,8 @@ char _c51_external_startup (void)
 		#error Timer 0 reload value is incorrect because (SYSCLK/BAUDRATE)/(2L*12L) > 0xFF
 	#endif
 	SCON0 = 0x10;
+	CKCON0 |= 0b_0000_0000 ; // Timer 1 uses the system clock divided by 12.
+
 	TH1 = 0x100-((SYSCLK/BAUDRATE)/(2L*12L));
 	TL1 = TH1;      // Init Timer1
 	TMOD &= ~0xf0;  // TMOD: timer 1 in 8-bit auto-reload
@@ -151,6 +155,21 @@ void waitms (unsigned int ms)
 
 #define VDD 3.3035 // The measured value of VDD in volts
 
+void TIMER0_Init(void)
+{
+	TMOD&=0b_1111_0000; // Set the bits of Timer/Counter 0 to zero
+	TMOD|=0b_0000_0001; // Timer/Counter 0 used as a 16-bit timer
+	TR0=0; // Stop Timer/Counter 0
+}
+
+unsigned int Get_ADC (void)
+{
+	ADINT = 0;
+	ADBUSY = 1;
+	while (!ADINT);
+	return(ADC0);
+}
+
 void InitPinADC (unsigned char portno, unsigned char pinno)
 {
 	unsigned char mask;
@@ -196,6 +215,10 @@ void main (void)
 {
 	float v[4];
 
+	float period;
+	float half_period;
+	TIMER0_Init();
+
     waitms(500); // Give PuTTy a chance to start before sending
 	printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
 	
@@ -212,12 +235,41 @@ void main (void)
 
 	while(1)
 	{
+		// TR0=0; // Stop timer 0
+		// TMOD=0B_0000_0001; // Set timer 0 as 16-bit timer
+		// TH0=0; TL0=0; // Reset the timer
+		
 	    // Read 14-bit value from the pins configured as analog inputs
 		v[0] = Volts_at_Pin(QFP32_MUX_P2_2);
 		v[1] = Volts_at_Pin(QFP32_MUX_P2_3);
 		v[2] = Volts_at_Pin(QFP32_MUX_P2_4);
 		v[3] = Volts_at_Pin(QFP32_MUX_P2_5);
 		printf ("V@P2.2=%7.5fV, V@P2.3=%7.5fV, V@P2.4=%7.5fV, V@P2.5=%7.5fV\r", v[0], v[1], v[2], v[3]);
+		
+		// while(v[0]==1);
+		// while(v[0]==0);
+		// TR0=0;
+		// Period=(TH0*0x100+TL0)*2;
+		// printf( "\rT=%f ms    ", period*1000.0);
+
+		// Start tracking the reference signal
+		ADC0MX=QFP32_MUX_P2_2;
+		ADINT = 0;
+		ADBUSY=1;
+		while (!ADINT); // Wait for conversion to complete
+		// Reset the timer
+		TL0=0;
+		TH0=0;
+		while (Get_ADC()!=0); // Wait for the signal to be zero
+		while (Get_ADC()==0); // Wait for the signal to be positive
+		TR0=1; // Start the timer 0
+		while (Get_ADC()!=0); // Wait for the signal to be zero again
+		TR0=0; // Stop timer 0
+		half_period=TH0*256.0+TL0; // The 16-bit number [TH0-TL0]
+		// Time from the beginning of the sine wave to its peak
+		overflow_count=65536-(half_period/2);
+		printf("\rT=%f ms    ", half_period*2);
+
 		waitms(500);
 	 }  
 }	

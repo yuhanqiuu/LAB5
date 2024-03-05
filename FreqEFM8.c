@@ -64,7 +64,7 @@ char _c51_external_startup (void)
 	
 	P0MDOUT |= 0x10; // Enable UART0 TX as push-pull output
 	XBR0     = 0x01; // Enable UART0 on P0.4(TX) and P0.5(RX)                     
-	XBR1     = 0X10; // Enable T0 on P0.0
+	XBR1     = 0X07; // Enable T0 on P0.0
 	XBR2     = 0x40; // Enable crossbar and weak pull-ups
 
 	#if (((SYSCLK/BAUDRATE)/(2L*12L))>0xFFL)

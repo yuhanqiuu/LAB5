@@ -1,7 +1,7 @@
 0000              1   ;--------------------------------------------------------
 0000              2   ; File Created by C51
 0000              3   ; Version 1.0.0 #1170 (Feb 16 2022) (MSVC)
-0000              4   ; This file was generated Mon Mar 04 16:52:05 2024
+0000              4   ; This file was generated Mon Mar 04 18:23:01 2024
 0000              5   ;--------------------------------------------------------
                   5   $name FreqEFM8
                   6   $optc51 --model-small
@@ -580,8 +580,8 @@
 002E 43A410     580            orl     _P0MDOUT,#0x10
 0031            581   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:66: XBR0     = 0x01; // Enable UART0 on P0.4(TX) and P0.5(RX)                     
 0031 75E101     582            mov     _XBR0,#0x01
-0034            583   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:67: XBR1     = 0X10; // Enable T0 on P0.0
-0034 75E210     584            mov     _XBR1,#0x10
+0034            583   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:67: XBR1     = 0X07; // Enable T0 on P0.0
+0034 75E207     584            mov     _XBR1,#0x07
 0037            585   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:68: XBR2     = 0x40; // Enable crossbar and weak pull-ups
 0037 75E340     586            mov     _XBR2,#0x40
 003A            587   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:74: SCON0 = 0x10;
@@ -921,8 +921,8 @@
      303234
 0097 00         896            db 0x00
 0098            897   __str_4:
-0098 31363A35   898            db '16:52:05'
-     323A3035
+0098 31383A32   898            db '18:23:01'
+     333A3031
 00A0 00         899            db 0x00
 00A1            900   __str_5:
 00A1 0D         901            db 0x0D

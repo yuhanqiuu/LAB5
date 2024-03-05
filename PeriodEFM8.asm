@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by C51
 ; Version 1.0.0 #1170 (Feb 16 2022) (MSVC)
-; This file was generated Mon Mar 04 17:15:12 2024
+; This file was generated Mon Mar 04 17:40:23 2024
 ;--------------------------------------------------------
 $name PeriodEFM8
 $optc51 --model-small
@@ -539,69 +539,69 @@ _overflow_count:
 ;Allocation info for local variables in function '_c51_external_startup'
 ;------------------------------------------------------------
 ;------------------------------------------------------------
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:17: char _c51_external_startup (void)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:16: char _c51_external_startup (void)
 ;	-----------------------------------------
 ;	 function _c51_external_startup
 ;	-----------------------------------------
 __c51_external_startup:
 	using	0
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:20: SFRPAGE = 0x00;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:19: SFRPAGE = 0x00;
 	mov	_SFRPAGE,#0x00
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:21: WDTCN = 0xDE; //First key
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:20: WDTCN = 0xDE; //First key
 	mov	_WDTCN,#0xDE
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:22: WDTCN = 0xAD; //Second key
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:21: WDTCN = 0xAD; //Second key
 	mov	_WDTCN,#0xAD
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:24: VDM0CN |= 0x80;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:23: VDM0CN |= 0x80;
 	orl	_VDM0CN,#0x80
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:25: RSTSRC = 0x02;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:24: RSTSRC = 0x02;
 	mov	_RSTSRC,#0x02
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:32: SFRPAGE = 0x10;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:31: SFRPAGE = 0x10;
 	mov	_SFRPAGE,#0x10
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:33: PFE0CN  = 0x20; // SYSCLK < 75 MHz.
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:32: PFE0CN  = 0x20; // SYSCLK < 75 MHz.
 	mov	_PFE0CN,#0x20
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:34: SFRPAGE = 0x00;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:33: SFRPAGE = 0x00;
 	mov	_SFRPAGE,#0x00
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:54: CLKSEL = 0x00;
+	mov	_CLKSEL,#0x00
 ;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:55: CLKSEL = 0x00;
 	mov	_CLKSEL,#0x00
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:56: CLKSEL = 0x00;
-	mov	_CLKSEL,#0x00
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:57: while ((CLKSEL & 0x80) == 0);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:56: while ((CLKSEL & 0x80) == 0);
 L002001?:
 	mov	a,_CLKSEL
 	jnb	acc.7,L002001?
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:57: CLKSEL = 0x03;
+	mov	_CLKSEL,#0x03
 ;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:58: CLKSEL = 0x03;
 	mov	_CLKSEL,#0x03
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:59: CLKSEL = 0x03;
-	mov	_CLKSEL,#0x03
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:60: while ((CLKSEL & 0x80) == 0);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:59: while ((CLKSEL & 0x80) == 0);
 L002004?:
 	mov	a,_CLKSEL
 	jnb	acc.7,L002004?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:65: P0MDOUT |= 0x10; // Enable UART0 TX as push-pull output
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:64: P0MDOUT |= 0x10; // Enable UART0 TX as push-pull output
 	orl	_P0MDOUT,#0x10
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:66: XBR0     = 0x01; // Enable UART0 on P0.4(TX) and P0.5(RX)                     
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:65: XBR0     = 0x01; // Enable UART0 on P0.4(TX) and P0.5(RX)                     
 	mov	_XBR0,#0x01
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:67: XBR1     = 0X00;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:66: XBR1     = 0X00;
 	mov	_XBR1,#0x00
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:68: XBR2     = 0x40; // Enable crossbar and weak pull-ups
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:67: XBR2     = 0x40; // Enable crossbar and weak pull-ups
 	mov	_XBR2,#0x40
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:74: SCON0 = 0x10;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:73: SCON0 = 0x10;
 	mov	_SCON0,#0x10
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:75: CKCON0 |= 0b_0000_0000 ; // Timer 1 uses the system clock divided by 12.
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:74: CKCON0 |= 0b_0000_0000 ; // Timer 1 uses the system clock divided by 12.
 	mov	_CKCON0,_CKCON0
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:76: TH1 = 0x100-((SYSCLK/BAUDRATE)/(2L*12L));
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:75: TH1 = 0x100-((SYSCLK/BAUDRATE)/(2L*12L));
 	mov	_TH1,#0xE6
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:77: TL1 = TH1;      // Init Timer1
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:76: TL1 = TH1;      // Init Timer1
 	mov	_TL1,_TH1
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:78: TMOD &= ~0xf0;  // TMOD: timer 1 in 8-bit auto-reload
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:77: TMOD &= ~0xf0;  // TMOD: timer 1 in 8-bit auto-reload
 	anl	_TMOD,#0x0F
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:79: TMOD |=  0x20;                       
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:78: TMOD |=  0x20;                       
 	orl	_TMOD,#0x20
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:80: TR1 = 1; // START Timer1
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:79: TR1 = 1; // START Timer1
 	setb	_TR1
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:81: TI = 1;  // Indicate TX0 ready
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:80: TI = 1;  // Indicate TX0 ready
 	setb	_TI
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:83: return 0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:82: return 0;
 	mov	dpl,#0x00
 	ret
 ;------------------------------------------------------------
@@ -610,40 +610,40 @@ L002004?:
 ;us                        Allocated to registers r2 
 ;i                         Allocated to registers r3 
 ;------------------------------------------------------------
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:87: void Timer3us(unsigned char us)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:86: void Timer3us(unsigned char us)
 ;	-----------------------------------------
 ;	 function Timer3us
 ;	-----------------------------------------
 _Timer3us:
 	mov	r2,dpl
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:92: CKCON0|=0b_0100_0000;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:91: CKCON0|=0b_0100_0000;
 	orl	_CKCON0,#0x40
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:95: TMR3RL = (-(SYSCLK)/1000000L); // Set Timer3 to overflow in 1us.
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:93: TMR3RL = (-(SYSCLK)/1000000L); // Set Timer3 to overflow in 1us.
 	mov	_TMR3RL,#0xB8
 	mov	(_TMR3RL >> 8),#0xFF
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:96: TMR3 = TMR3RL;                 // Initialize Timer3 for first overflow
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:94: TMR3 = TMR3RL;                 // Initialize Timer3 for first overflow
 	mov	_TMR3,_TMR3RL
 	mov	(_TMR3 >> 8),(_TMR3RL >> 8)
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:98: TMR3CN0 = 0x04;                 // Sart Timer3 and clear overflow flag
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:96: TMR3CN0 = 0x04;                 // Sart Timer3 and clear overflow flag
 	mov	_TMR3CN0,#0x04
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:99: for (i = 0; i < us; i++)       // Count <us> overflows
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:97: for (i = 0; i < us; i++)       // Count <us> overflows
 	mov	r3,#0x00
 L003004?:
 	clr	c
 	mov	a,r3
 	subb	a,r2
 	jnc	L003007?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:101: while (!(TMR3CN0 & 0x80));  // Wait for overflow
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:99: while (!(TMR3CN0 & 0x80));  // Wait for overflow
 L003001?:
 	mov	a,_TMR3CN0
 	jnb	acc.7,L003001?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:102: TMR3CN0 &= ~(0x80);         // Clear overflow indicator
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:100: TMR3CN0 &= ~(0x80);         // Clear overflow indicator
 	anl	_TMR3CN0,#0x7F
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:99: for (i = 0; i < us; i++)       // Count <us> overflows
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:97: for (i = 0; i < us; i++)       // Count <us> overflows
 	inc	r3
 	sjmp	L003004?
 L003007?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:104: TMR3CN0 = 0 ;                   // Stop Timer3 and clear overflow flag
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:102: TMR3CN0 = 0 ;                   // Stop Timer3 and clear overflow flag
 	mov	_TMR3CN0,#0x00
 	ret
 ;------------------------------------------------------------
@@ -652,36 +652,36 @@ L003007?:
 ;ms                        Allocated to registers r2 r3 
 ;j                         Allocated to registers r2 r3 
 ;------------------------------------------------------------
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:107: void waitms (unsigned int ms)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:105: void waitms (unsigned int ms)
 ;	-----------------------------------------
 ;	 function waitms
 ;	-----------------------------------------
 _waitms:
 	mov	r2,dpl
 	mov	r3,dph
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:110: for(j=ms; j!=0; j--)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:108: for(j=ms; j!=0; j--)
 L004001?:
 	cjne	r2,#0x00,L004010?
 	cjne	r3,#0x00,L004010?
 	ret
 L004010?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:112: Timer3us(249);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:110: Timer3us(249);
 	mov	dpl,#0xF9
 	push	ar2
 	push	ar3
 	lcall	_Timer3us
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:113: Timer3us(249);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:111: Timer3us(249);
 	mov	dpl,#0xF9
 	lcall	_Timer3us
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:114: Timer3us(249);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:112: Timer3us(249);
 	mov	dpl,#0xF9
 	lcall	_Timer3us
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:115: Timer3us(250);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:113: Timer3us(250);
 	mov	dpl,#0xFA
 	lcall	_Timer3us
 	pop	ar3
 	pop	ar2
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:110: for(j=ms; j!=0; j--)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:108: for(j=ms; j!=0; j--)
 	dec	r2
 	cjne	r2,#0xff,L004011?
 	dec	r3
@@ -691,16 +691,16 @@ L004011?:
 ;Allocation info for local variables in function 'TIMER0_Init'
 ;------------------------------------------------------------
 ;------------------------------------------------------------
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:119: void TIMER0_Init(void)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:117: void TIMER0_Init(void)
 ;	-----------------------------------------
 ;	 function TIMER0_Init
 ;	-----------------------------------------
 _TIMER0_Init:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:121: TMOD&=0b_1111_0000; // Set the bits of Timer/Counter 0 to zero
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:119: TMOD&=0b_1111_0000; // Set the bits of Timer/Counter 0 to zero
 	anl	_TMOD,#0xF0
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:122: TMOD|=0b_0000_0001; // Timer/Counter 0 used as a 16-bit timer
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:120: TMOD|=0b_0000_0001; // Timer/Counter 0 used as a 16-bit timer
 	orl	_TMOD,#0x01
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:123: TR0=0; // Stop Timer/Counter 0
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:121: TR0=0; // Stop Timer/Counter 0
 	clr	_TR0
 	ret
 ;------------------------------------------------------------
@@ -708,17 +708,17 @@ _TIMER0_Init:
 ;------------------------------------------------------------
 ;period                    Allocated to registers r2 r3 r4 r5 
 ;------------------------------------------------------------
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:126: void main (void) 
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:124: void main (void) 
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:130: TIMER0_Init();
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:128: TIMER0_Init();
 	lcall	_TIMER0_Init
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:132: waitms(500); // Give PuTTY a chance to start.
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:130: waitms(500); // Give PuTTY a chance to start.
 	mov	dptr,#0x01F4
 	lcall	_waitms
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:133: printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:131: printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
 	mov	a,#__str_0
 	push	acc
 	mov	a,#(__str_0 >> 8)
@@ -729,8 +729,8 @@ _main:
 	dec	sp
 	dec	sp
 	dec	sp
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:138: __FILE__, __DATE__, __TIME__);
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:137: "Compiled: %s, %s\n\n",
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:136: __FILE__, __DATE__, __TIME__);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:135: "Compiled: %s, %s\n\n",
 	mov	a,#__str_4
 	push	acc
 	mov	a,#(__str_4 >> 8)
@@ -759,165 +759,50 @@ _main:
 	mov	a,sp
 	add	a,#0xf4
 	mov	sp,a
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:140: while (1)
-L006018?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:143: TL0=0; 
-	mov	_TL0,#0x00
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:144: TH0=0;
-	mov	_TH0,#0x00
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:145: TF0=0;
-	clr	_TF0
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:146: overflow_count=0;
-	mov	_overflow_count,#0x00
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:148: while(P0_1!=0); // Wait for the signal to be zero
-L006001?:
-	jb	_P0_1,L006001?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:149: while(P0_1!=1); // Wait for the signal to be one
-L006004?:
-	jnb	_P0_1,L006004?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:151: TR0=1; // Start the timer
-	setb	_TR0
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:152: while(P0_1!=0) // Wait for the signal to be zero
-L006009?:
-	jnb	_P0_1,L006014?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:154: if(TF0==1) // Did the 16-bit timer overflow?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:156: TF0=0;
-	jbc	_TF0,L006035?
-	sjmp	L006009?
-L006035?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:157: overflow_count++;
-	inc	_overflow_count
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:160: while(P0_1!=1) // Wait for the signal to be one
-	sjmp	L006009?
-L006014?:
-	jb	_P0_1,L006016?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:162: if(TF0==1) // Did the 16-bit timer overflow?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:164: TF0=0;
-	jbc	_TF0,L006037?
-	sjmp	L006014?
-L006037?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:165: overflow_count++;
-	inc	_overflow_count
-	sjmp	L006014?
-L006016?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:168: TR0=0; // Stop timer 0, the 24-bit number [overflow_count-TH0-TL0] has the period!
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:138: while (1)
+L006011?:
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:141: TR0=0; // Stop timer 0
 	clr	_TR0
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:169: period=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
-	mov	dpl,_overflow_count
-	lcall	___uchar2fs
-	mov	r2,dpl
-	mov	r3,dph
-	mov	r4,b
-	mov	r5,a
-	push	ar2
-	push	ar3
-	push	ar4
-	push	ar5
-	mov	dptr,#0x0000
-	mov	b,#0x80
-	mov	a,#0x47
-	lcall	___fsmul
-	mov	r2,dpl
-	mov	r3,dph
-	mov	r4,b
-	mov	r5,a
-	mov	a,sp
-	add	a,#0xfc
-	mov	sp,a
-	mov	dpl,_TH0
-	push	ar2
-	push	ar3
-	push	ar4
-	push	ar5
-	lcall	___uchar2fs
-	mov	r6,dpl
-	mov	r7,dph
-	mov	r0,b
-	mov	r1,a
-	push	ar6
-	push	ar7
-	push	ar0
-	push	ar1
-	mov	dptr,#0x0000
-	mov	b,#0x80
-	mov	a,#0x43
-	lcall	___fsmul
-	mov	r6,dpl
-	mov	r7,dph
-	mov	r0,b
-	mov	r1,a
-	mov	a,sp
-	add	a,#0xfc
-	mov	sp,a
-	pop	ar5
-	pop	ar4
-	pop	ar3
-	pop	ar2
-	push	ar6
-	push	ar7
-	push	ar0
-	push	ar1
-	mov	dpl,r2
-	mov	dph,r3
-	mov	b,r4
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:142: TMOD=0B_0000_0001; // Set timer 0 as 16-bit timer
+	mov	_TMOD,#0x01
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:143: TH0=0; TL0=0; // Reset the timer
+	mov	_TH0,#0x00
+	mov	_TL0,#0x00
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:144: while (P2_2==1); // Wait for the signal to be zero
+L006001?:
+	jb	_P2_2,L006001?
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:145: while (P2_2==0); // Wait for the signal to be one
+L006004?:
+	jnb	_P2_2,L006004?
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:146: TR0=1; // Start timing
+	setb	_TR0
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:147: while (P2_2==1); // Wait for the signal to be zero
+L006007?:
+	jb	_P2_2,L006007?
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:148: TR0=0; // Stop timer 0
+	clr	_TR0
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:150: period=(TH0*0x100+TL0)*2;
+	mov	r3,_TH0
+	mov	r2,#0x00
+	mov	r4,_TL0
+	mov	r5,#0x00
+	mov	a,r4
+	add	a,r2
+	mov	r2,a
 	mov	a,r5
-	lcall	___fsadd
-	mov	r2,dpl
-	mov	r3,dph
-	mov	r4,b
-	mov	r5,a
-	mov	a,sp
-	add	a,#0xfc
-	mov	sp,a
-	mov	r6,_TL0
-	mov	r7,#0x00
-	mov	dpl,r6
-	mov	dph,r7
-	push	ar2
-	push	ar3
-	push	ar4
-	push	ar5
+	addc	a,r3
+	mov	dpl,r2
+	xch	a,dpl
+	add	a,acc
+	xch	a,dpl
+	rlc	a
+	mov	dph,a
 	lcall	___sint2fs
-	mov	r6,dpl
-	mov	r7,dph
-	mov	r0,b
-	mov	r1,a
-	pop	ar5
-	pop	ar4
-	pop	ar3
-	pop	ar2
-	push	ar6
-	push	ar7
-	push	ar0
-	push	ar1
-	mov	dpl,r2
-	mov	dph,r3
-	mov	b,r4
-	mov	a,r5
-	lcall	___fsadd
 	mov	r2,dpl
 	mov	r3,dph
 	mov	r4,b
 	mov	r5,a
-	mov	a,sp
-	add	a,#0xfc
-	mov	sp,a
-	push	ar2
-	push	ar3
-	push	ar4
-	push	ar5
-	mov	dptr,#0xF4FC
-	mov	b,#0x32
-	mov	a,#0x34
-	lcall	___fsmul
-	mov	r2,dpl
-	mov	r3,dph
-	mov	r4,b
-	mov	r5,a
-	mov	a,sp
-	add	a,#0xfc
-	mov	sp,a
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:171: printf( "\rT=%f ms    ", period*1000.0);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\PeriodEFM8.c:151: printf( "\rT=%f ms    ", period*1000.0);
 	push	ar2
 	push	ar3
 	push	ar4
@@ -947,7 +832,7 @@ L006016?:
 	mov	a,sp
 	add	a,#0xf9
 	mov	sp,a
-	ljmp	L006018?
+	ljmp	L006011?
 	rseg R_CSEG
 
 	rseg R_XINIT
@@ -987,7 +872,7 @@ __str_3:
 	db 'Mar  4 2024'
 	db 0x00
 __str_4:
-	db '17:15:12'
+	db '17:40:23'
 	db 0x00
 __str_5:
 	db 0x0D

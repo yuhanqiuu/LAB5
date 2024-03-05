@@ -5,7 +5,6 @@
 // The next line clears the "C51 command line options:" field when compiling with CrossIDE
 //  ~C51~  
 
-
 #include <EFM8LB1.h>
 #include <stdio.h>
 
@@ -16,7 +15,7 @@ unsigned char overflow_count;
 
 char _c51_external_startup (void)
 {
-	// Disable Watchdog with key sequencet
+	// Disable Watchdog with key sequence
 	SFRPAGE = 0x00;
 	WDTCN = 0xDE; //First key
 	WDTCN = 0xAD; //Second key
@@ -91,7 +90,6 @@ void Timer3us(unsigned char us)
 	// The input for Timer 3 is selected as SYSCLK by setting T3ML (bit 6) of CKCON0:
 	CKCON0|=0b_0100_0000;
 	
-	
 	TMR3RL = (-(SYSCLK)/1000000L); // Set Timer3 to overflow in 1us.
 	TMR3 = TMR3RL;                 // Initialize Timer3 for first overflow
 	
@@ -139,37 +137,18 @@ void main (void)
 
     while (1)
     {
-    	// Reset the counter
-		TL0=0; 
-		TH0=0;
-		TF0=0;
-		overflow_count=0;
-		
-		while(P0_1!=0); // Wait for the signal to be zero
-		while(P0_1!=1); // Wait for the signal to be one
-		
-		TR0=1; // Start the timer
-		while(P0_1!=0) // Wait for the signal to be zero
-		{
-			if(TF0==1) // Did the 16-bit timer overflow?
-			{
-				TF0=0;
-				overflow_count++;
-			}
-		}
-		while(P0_1!=1) // Wait for the signal to be one
-		{
-			if(TF0==1) // Did the 16-bit timer overflow?
-			{
-				TF0=0;
-				overflow_count++;
-			}
-		}
-		TR0=0; // Stop timer 0, the 24-bit number [overflow_count-TH0-TL0] has the period!
-		period=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
-		// Send the period to the serial port
+    	// Measure half period at pin P1.0 using timer 0
+		TR0=0; // Stop timer 0
+		TMOD=0B_0000_0001; // Set timer 0 as 16-bit timer
+		TH0=0; TL0=0; // Reset the timer
+		while (P2_2==1); // Wait for the signal to be zero
+		while (P2_2==0); // Wait for the signal to be one
+		TR0=1; // Start timing
+		while (P2_2==1); // Wait for the signal to be zero
+		TR0=0; // Stop timer 0
+		// [TH0,TL0] is half the period in multiples of 12/CLK, so:
+		period=(TH0*0x100+TL0)*2;
 		printf( "\rT=%f ms    ", period*1000.0);
-		
     }
 	
 }

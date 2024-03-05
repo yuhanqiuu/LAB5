@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by C51
 ; Version 1.0.0 #1170 (Feb 16 2022) (MSVC)
-; This file was generated Mon Mar 04 16:52:05 2024
+; This file was generated Mon Mar 04 18:23:01 2024
 ;--------------------------------------------------------
 $name FreqEFM8
 $optc51 --model-small
@@ -580,8 +580,8 @@ L002004?:
 	orl	_P0MDOUT,#0x10
 ;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:66: XBR0     = 0x01; // Enable UART0 on P0.4(TX) and P0.5(RX)                     
 	mov	_XBR0,#0x01
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:67: XBR1     = 0X10; // Enable T0 on P0.0
-	mov	_XBR1,#0x10
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:67: XBR1     = 0X07; // Enable T0 on P0.0
+	mov	_XBR1,#0x07
 ;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:68: XBR2     = 0x40; // Enable crossbar and weak pull-ups
 	mov	_XBR2,#0x40
 ;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:74: SCON0 = 0x10;
@@ -895,7 +895,7 @@ __str_3:
 	db 'Mar  4 2024'
 	db 0x00
 __str_4:
-	db '16:52:05'
+	db '18:23:01'
 	db 0x00
 __str_5:
 	db 0x0D
