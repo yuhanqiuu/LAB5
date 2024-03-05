@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by C51
 ; Version 1.0.0 #1170 (Feb 16 2022) (MSVC)
-; This file was generated Mon Mar 04 16:40:59 2024
+; This file was generated Mon Mar 04 16:52:05 2024
 ;--------------------------------------------------------
 $name FreqEFM8
 $optc51 --model-small
@@ -895,7 +895,7 @@ __str_3:
 	db 'Mar  4 2024'
 	db 0x00
 __str_4:
-	db '16:40:59'
+	db '16:52:05'
 	db 0x00
 __str_5:
 	db 0x0D

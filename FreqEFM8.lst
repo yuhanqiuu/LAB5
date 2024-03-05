@@ -1,7 +1,7 @@
 0000              1   ;--------------------------------------------------------
 0000              2   ; File Created by C51
 0000              3   ; Version 1.0.0 #1170 (Feb 16 2022) (MSVC)
-0000              4   ; This file was generated Mon Mar 04 16:40:59 2024
+0000              4   ; This file was generated Mon Mar 04 16:52:05 2024
 0000              5   ;--------------------------------------------------------
                   5   $name FreqEFM8
                   6   $optc51 --model-small
@@ -567,7 +567,7 @@
 001E            567   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:57: while ((CLKSEL & 0x80) == 0);
 001E            568   L002001?:
 001E E5A9       569            mov     a,_CLKSEL
-0020 30E748     570            jnb     acc.7,L002001?
+0020 30E7C8     570            jnb     acc.7,L002001?
 0023            571   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:58: CLKSEL = 0x03;
 0023 75A903     572            mov     _CLKSEL,#0x03
 0026            573   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:59: CLKSEL = 0x03;
@@ -575,7 +575,7 @@
 0029            575   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:60: while ((CLKSEL & 0x80) == 0);
 0029            576   L002004?:
 0029 E5A9       577            mov     a,_CLKSEL
-002B 30E7C8     578            jnb     acc.7,L002004?
+002B 30E748     578            jnb     acc.7,L002004?
 002E            579   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:65: P0MDOUT |= 0x10; // Enable UART0 TX as push-pull output
 002E 43A410     580            orl     _P0MDOUT,#0x10
 0031            581   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:66: XBR0     = 0x01; // Enable UART0 on P0.4(TX) and P0.5(RX)                     
@@ -635,16 +635,16 @@
 006F            635   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:100: while (!(TMR3CN0 & 0x80));  // Wait for overflow
 006F            636   L003001?:
 006F E591       637            mov     a,_TMR3CN0
-0071 30E7C8     638            jnb     acc.7,L003001?
+0071 30E748     638            jnb     acc.7,L003001?
 0074            639   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:101: TMR3CN0 &= ~(0x80);         // Clear overflow indicator
 0074 53917F     640            anl     _TMR3CN0,#0x7F
 0077            641   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:102: if (TF0)
 0077            642   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:104: TF0=0;
-0077 108D08     643            jbc     _TF0,L003019?
+0077 108D88     643            jbc     _TF0,L003019?
 007A 8000       644            sjmp    L003008?
 007C            645   L003019?:
 007C            646   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:105: overflow_count++;
-007C 0508       647            inc     _overflow_count
+007C 0588       647            inc     _overflow_count
 007E            648   L003008?:
 007E            649   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:98: for (i = 0; i < us; i++)       // Count <us> overflows
 007E 0B         650            inc     r3
@@ -668,8 +668,8 @@
 0087 AB83       668            mov     r3,dph
 0089            669   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:114: for(j=ms; j!=0; j--)
 0089            670   L004001?:
-0089 BA0008     671            cjne    r2,#0x00,L004010?
-008C BB0008     672            cjne    r3,#0x00,L004010?
+0089 BA0088     671            cjne    r2,#0x00,L004010?
+008C BB0088     672            cjne    r3,#0x00,L004010?
 008F 22         673            ret
 0090            674   L004010?:
 0090            675   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:116: Timer3us(249);
@@ -690,7 +690,7 @@
 00AE D002       690            pop     ar2
 00B0            691   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:114: for(j=ms; j!=0; j--)
 00B0 1A         692            dec     r2
-00B1 BAFF48     693            cjne    r2,#0xff,L004011?
+00B1 BAFFC8     693            cjne    r2,#0xff,L004011?
 00B4 1B         694            dec     r3
 00B5            695   L004011?:
 00B5 8000       696            sjmp    L004001?
@@ -726,7 +726,7 @@
 00C3 9001F4     726            mov     dptr,#0x01F4
 00C6 120000     727            lcall   _waitms
 00C9            728   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:137: printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
-00C9 7488       729            mov     a,#__str_0
+00C9 7408       729            mov     a,#__str_0
 00CB C0E0       730            push    acc
 00CD 74B1       731            mov     a,#(__str_0 >> 8)
 00CF C0E0       732            push    acc
@@ -738,27 +738,27 @@
 00DC 1581       738            dec     sp
 00DE            739   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:142: __FILE__, __DATE__, __TIME__);
 00DE            740   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:141: "Compiled: %s, %s\n\n",
-00DE 7448       741            mov     a,#__str_4
+00DE 74C8       741            mov     a,#__str_4
 00E0 C0E0       742            push    acc
-00E2 74B2       743            mov     a,#(__str_4 >> 8)
+00E2 74B1       743            mov     a,#(__str_4 >> 8)
 00E4 C0E0       744            push    acc
 00E6 7480       745            mov     a,#0x80
 00E8 C0E0       746            push    acc
-00EA 7488       747            mov     a,#__str_3
+00EA 7408       747            mov     a,#__str_3
 00EC C0E0       748            push    acc
 00EE 74B2       749            mov     a,#(__str_3 >> 8)
 00F0 C0E0       750            push    acc
 00F2 7480       751            mov     a,#0x80
 00F4 C0E0       752            push    acc
-00F6 74C8       753            mov     a,#__str_2
+00F6 7448       753            mov     a,#__str_2
 00F8 C0E0       754            push    acc
 00FA 74B2       755            mov     a,#(__str_2 >> 8)
 00FC C0E0       756            push    acc
 00FE 7480       757            mov     a,#0x80
 0100 C0E0       758            push    acc
-0102 7408       759            mov     a,#__str_1
+0102 7488       759            mov     a,#__str_1
 0104 C0E0       760            push    acc
-0106 74B3       761            mov     a,#(__str_1 >> 8)
+0106 74B2       761            mov     a,#(__str_1 >> 8)
 0108 C0E0       762            push    acc
 010A 7480       763            mov     a,#0x80
 010C C0E0       764            push    acc
@@ -773,7 +773,7 @@
 011A            773   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:147: TH0=0;
 011A 758C00     774            mov     _TH0,#0x00
 011D            775   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:148: overflow_count=0;
-011D 750800     776            mov     _overflow_count,#0x00
+011D 758800     776            mov     _overflow_count,#0x00
 0120            777   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:149: TF0=0;
 0120 C28D       778            clr     _TF0
 0122            779   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:150: TR0=1; // Start Timer/Counter 0
@@ -784,7 +784,7 @@
 012A            784   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:152: TR0=0; // Stop Timer/Counter 0
 012A C28C       785            clr     _TR0
 012C            786   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:153: F=overflow_count*0x10000L+TH0*0x100L+TL0;
-012C AA08       787            mov     r2,_overflow_count
+012C AA88       787            mov     r2,_overflow_count
 012E 7B00       788            mov     r3,#0x00
 0130 8B05       789            mov     ar5,r3
 0132 8A04       790            mov     ar4,r2
@@ -833,7 +833,7 @@
 0169 C003       833            push    ar3
 016B C004       834            push    ar4
 016D C005       835            push    ar5
-016F 7488       836            mov     a,#__str_5
+016F 7408       836            mov     a,#__str_5
 0171 C0E0       837            push    acc
 0173 74B3       838            mov     a,#(__str_5 >> 8)
 0175 C0E0       839            push    acc
@@ -844,7 +844,7 @@
 0180 24F9       844            add     a,#0xf9
 0182 F581       845            mov     sp,a
 0184            846   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\FreqEFM8.c:156: printf("\x1b[0K"); // ANSI: Clear from cursor to end of line.
-0184 74C8       847            mov     a,#__str_6
+0184 7448       847            mov     a,#__str_6
 0186 C0E0       848            push    acc
 0188 74B3       849            mov     a,#(__str_6 >> 8)
 018A C0E0       850            push    acc
@@ -921,8 +921,8 @@
      303234
 0097 00         896            db 0x00
 0098            897   __str_4:
-0098 31363A34   898            db '16:40:59'
-     303A3539
+0098 31363A35   898            db '16:52:05'
+     323A3035
 00A0 00         899            db 0x00
 00A1            900   __str_5:
 00A1 0D         901            db 0x0D
