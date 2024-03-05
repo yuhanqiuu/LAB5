@@ -249,7 +249,7 @@ void main (void)
 		v[0] = Volts_at_Pin(QFP32_MUX_P1_6);
 		v[1] = Volts_at_Pin(QFP32_MUX_P1_7);
 		printf ("V@P2.2=%7.5fV, V@P2.3=%7.5fV", v[0], v[1]);
-		// Start tracking the reference signal
+		// Start tracking the reference signalt
 
 		while (P0_1==1); // Wait for the signal to be zero
 		while (P0_1==0); // Wait for the signal to be one

@@ -155,15 +155,6 @@ void waitms (unsigned int ms)
 
 
 
-void TIMER0_Init(void)
-{
-	TMOD&=0b_1111_0000; // Set the bits of Timer/Counter 0 to zero
-	TMOD|=0b_0000_0001; // Timer/Counter 0 used as a 16-bit timer
-	TR0=0; // Stop Timer/Counter 0
-}
-
-
-
 void InitPinADC (unsigned char portno, unsigned char pinno)
 {
 	unsigned char mask;
@@ -214,16 +205,14 @@ unsigned int Get_ADC (void)
 	return (ADC0);
 }
 
+
 void main (void)
 {
 	float v[2];
 
-	float period;
-	float half_period;
-	float v_ref;
-	float v_test;
-	float frequency;
-	TIMER0_Init();
+	unsigned int period;
+	
+	//TIMER0_Init();
 
     waitms(500); // Give PuTTy a chance to start before sending
 	printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
@@ -233,64 +222,41 @@ void main (void)
 	        "Compiled: %s, %s\n\n",
 	        __FILE__, __DATE__, __TIME__);
 	
-	InitPinADC(1, 6); // Configure P2.2 as analog input
-	InitPinADC(1, 7); // Configure P2.3 as analog input
+	//InitPinADC(1, 6); // Configure P2.2 as analog input
+	//InitPinADC(1, 7); // Configure P2.3 as analog input
 
-    InitADC();
+    //InitADC();
+    
+    // Measure half period at pin P1.0 using timer 0
+    TMOD&=0b_1111_0000; // Set the bits of Timer/Counter 0 to zero
+    TMOD|=0b_0000_0001;
+		
 
 	while(1)
 	{ 
-		// // Measure half period at pin P1.0 using timer 0
-		// TR0=0; // Stop timer 0
-		// TMOD=0B_0000_0001; // Set timer 0 as 16-bit timer
-		// TH0=0; TL0=0; // Reset the timer
 
 	    // Read 14-bit value from the pins configured as analog inputs
-		v[0] = Volts_at_Pin(QFP32_MUX_P1_6);
-		v[1] = Volts_at_Pin(QFP32_MUX_P1_7);
-		//printf ("\nV@P2.2=%7.5fV, V@P2.3=%7.5fV", v[0], v[1]);
-		// Start tracking the reference signal
-
-		// while (P0_1==1); // Wait for the signal to be zero
-		// while (P0_1==0); // Wait for the signal to be one
-		// TR0=1; // Start timing
-		// while (P0_1==1); // Wait for the signal to be zero
-		// TR0=0; // Stop timer 0
-		// // [TH0,TL0] is half the period in multiples of 12/CLK, so:
-		// Period=(TH0*0x100+TL0)*2; // Assume Period is unsigned int
-
-		// printf( "\n\rT=%f ms    ", Period*1000.0);
-
-		// Reset the counter
-		TL0=0; 
-		TH0=0;
-		TF0=0;
-		overflow_count=0;
+		//v[0] = Volts_at_Pin(QFP32_MUX_P1_6);
+		//v[1] = Volts_at_Pin(QFP32_MUX_P1_7);
+		//printf ("V@P2.2=%7.5fV, V@P2.3=%7.5fV", v[0], v[1]);
+		// Start tracking the reference signalt
+		TR0=0; // Stop timer 0
 		
-		while(P0_1!=0); // Wait for the signal to be zero
-		while(P0_1!=1); // Wait for the signal to be one
-		TR0=1; // Start the timer
-		while(P0_1!=0) // Wait for the signal to be zero
-		{
-			if(TF0==1) // Did the 16-bit timer overflow?
-			{
-				TF0=0;
-				overflow_count++;
-			}
-		}
-		while(P0_1!=1) // Wait for the signal to be one
-		{
-			if(TF0==1) // Did the 16-bit timer overflow?
-			{
-				TF0=0;
-				overflow_count++;
-			}
-		}
-		TR0=0; // Stop timer 0, the 24-bit number [overflow_count-TH0-TL0] has the period!
-		period=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
-		// Send the period to the serial port
-		printf( "\r\nT=%7.2f ms", period*1000.0);
-		waitms(1);
+		TH0=0; TL0=0; // Reset the timer
+	
+		while (P0_1==1); // Wait for the signal to be zero
+		while (P0_1==0); // Wait for the signal to be one
+		TR0=1; // Start timing
+		while (P0_1==1); // Wait for the signal to be zero
+		TR0=0; // Stop timer 0]
+		// [TH0,TL0] is half the period in multiples of 12/CLK, so:
+		printf( "\n%d", TH0);
+		printf( "\n%d", TL0);
+		period=(TH0*0x100+TL0)*2; // Assume Period is unsigned int
+			
+			
+		printf( "\n\rT=%d ms    ", period);
+		waitms(100);
 	 }  
 }	
 
