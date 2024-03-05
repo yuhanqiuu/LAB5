@@ -147,6 +147,7 @@ void main (void)
 		
 		while(P0_1!=0); // Wait for the signal to be zero
 		while(P0_1!=1); // Wait for the signal to be one
+		
 		TR0=1; // Start the timer
 		while(P0_1!=0) // Wait for the signal to be zero
 		{
@@ -166,7 +167,6 @@ void main (void)
 		}
 		TR0=0; // Stop timer 0, the 24-bit number [overflow_count-TH0-TL0] has the period!
 		period=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
-		heart_beat= 600000/period;
 		// Send the period to the serial port
 		printf( "\rT=%f ms    ", period*1000.0);
 		
