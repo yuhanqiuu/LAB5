@@ -1,7 +1,7 @@
 0000              1   ;--------------------------------------------------------
 0000              2   ; File Created by C51
 0000              3   ; Version 1.0.0 #1170 (Feb 16 2022) (MSVC)
-0000              4   ; This file was generated Mon Mar 04 20:10:35 2024
+0000              4   ; This file was generated Mon Mar 04 20:56:16 2024
 0000              5   ;--------------------------------------------------------
                   5   $name Yuhan_Yuqian_lab5
                   6   $optc51 --model-small
@@ -763,13 +763,13 @@
 00DC            763   ;portno                    Allocated to registers r2 
 00DC            764   ;mask                      Allocated to registers r3 
 00DC            765   ;------------------------------------------------------------
-00DC            766   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:165: void InitPinADC (unsigned char portno, unsigned char pinno)
+00DC            766   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:167: void InitPinADC (unsigned char portno, unsigned char pinno)
 00DC            767   ;        -----------------------------------------
 00DC            768   ;         function InitPinADC
 00DC            769   ;        -----------------------------------------
 00DC            770   _InitPinADC:
 00DC AA82       771            mov     r2,dpl
-00DE            772   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:169: mask=1<<pinno;
+00DE            772   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:171: mask=1<<pinno;
 00DE 8548F0     773            mov     b,_InitPinADC_PARM_2
 00E1 05F0       774            inc     b
 00E3 7401       775            mov     a,#0x01
@@ -779,54 +779,54 @@
 00E9            779   L007013?:
 00E9 D5F098     780            djnz    b,L007011?
 00EC FB         781            mov     r3,a
-00ED            782   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:171: SFRPAGE = 0x20;
+00ED            782   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:173: SFRPAGE = 0x20;
 00ED 75A720     783            mov     _SFRPAGE,#0x20
-00F0            784   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:172: switch (portno)
+00F0            784   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:174: switch (portno)
 00F0 BA00D8     785            cjne    r2,#0x00,L007014?
 00F3 8000       786            sjmp    L007001?
 00F5            787   L007014?:
 00F5 BA0158     788            cjne    r2,#0x01,L007015?
 00F8 8000       789            sjmp    L007002?
 00FA            790   L007015?:
-00FA            791   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:174: case 0:
+00FA            791   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:176: case 0:
 00FA BA02D8     792            cjne    r2,#0x02,L007005?
 00FD 8000       793            sjmp    L007003?
 00FF            794   L007001?:
-00FF            795   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:175: P0MDIN &= (~mask); // Set pin as analog input
+00FF            795   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:177: P0MDIN &= (~mask); // Set pin as analog input
 00FF EB         796            mov     a,r3
 0100 F4         797            cpl     a
 0101 FA         798            mov     r2,a
 0102 52F1       799            anl     _P0MDIN,a
-0104            800   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:176: P0SKIP |= mask; // Skip Crossbar decoding for this pin
+0104            800   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:178: P0SKIP |= mask; // Skip Crossbar decoding for this pin
 0104 EB         801            mov     a,r3
 0105 42D4       802            orl     _P0SKIP,a
-0107            803   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:177: break;
-0107            804   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:178: case 1:
+0107            803   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:179: break;
+0107            804   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:180: case 1:
 0107 8000       805            sjmp    L007005?
 0109            806   L007002?:
-0109            807   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:179: P1MDIN &= (~mask); // Set pin as analog input
+0109            807   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:181: P1MDIN &= (~mask); // Set pin as analog input
 0109 EB         808            mov     a,r3
 010A F4         809            cpl     a
 010B FA         810            mov     r2,a
 010C 52F2       811            anl     _P1MDIN,a
-010E            812   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:180: P1SKIP |= mask; // Skip Crossbar decoding for this pin
+010E            812   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:182: P1SKIP |= mask; // Skip Crossbar decoding for this pin
 010E EB         813            mov     a,r3
 010F 42D5       814            orl     _P1SKIP,a
-0111            815   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:181: break;
-0111            816   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:182: case 2:
+0111            815   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:183: break;
+0111            816   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:184: case 2:
 0111 8000       817            sjmp    L007005?
 0113            818   L007003?:
-0113            819   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:183: P2MDIN &= (~mask); // Set pin as analog input
+0113            819   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:185: P2MDIN &= (~mask); // Set pin as analog input
 0113 EB         820            mov     a,r3
 0114 F4         821            cpl     a
 0115 FA         822            mov     r2,a
 0116 52F3       823            anl     _P2MDIN,a
-0118            824   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:184: P2SKIP |= mask; // Skip Crossbar decoding for this pin
+0118            824   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:186: P2SKIP |= mask; // Skip Crossbar decoding for this pin
 0118 EB         825            mov     a,r3
 0119 42CC       826            orl     _P2SKIP,a
-011B            827   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:188: }
+011B            827   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:190: }
 011B            828   L007005?:
-011B            829   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:189: SFRPAGE = 0x00;
+011B            829   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:191: SFRPAGE = 0x00;
 011B 75A700     830            mov     _SFRPAGE,#0x00
 011E 22         831            ret
 011F            832   ;------------------------------------------------------------
@@ -834,20 +834,20 @@
 011F            834   ;------------------------------------------------------------
 011F            835   ;pin                       Allocated to registers 
 011F            836   ;------------------------------------------------------------
-011F            837   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:192: unsigned int ADC_at_Pin(unsigned char pin)
+011F            837   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:195: unsigned int ADC_at_Pin(unsigned char pin)
 011F            838   ;        -----------------------------------------
 011F            839   ;         function ADC_at_Pin
 011F            840   ;        -----------------------------------------
 011F            841   _ADC_at_Pin:
 011F 8582BB     842            mov     _ADC0MX,dpl
-0122            843   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:195: ADINT = 0;
+0122            843   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:198: ADINT = 0;
 0122 C2ED       844            clr     _ADINT
-0124            845   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:196: ADBUSY = 1;     // Convert voltage at the pin
+0124            845   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:199: ADBUSY = 1;     // Convert voltage at the pin
 0124 D2EC       846            setb    _ADBUSY
-0126            847   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:197: while (!ADINT); // Wait for conversion to complete
+0126            847   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:200: while (!ADINT); // Wait for conversion to complete
 0126            848   L008001?:
 0126 30ED58     849            jnb     _ADINT,L008001?
-0129            850   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:198: return (ADC0);
+0129            850   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:201: return (ADC0);
 0129 85BD82     851            mov     dpl,_ADC0
 012C 85BE83     852            mov     dph,(_ADC0 >> 8)
 012F 22         853            ret
@@ -856,12 +856,12 @@
 0130            856   ;------------------------------------------------------------
 0130            857   ;pin                       Allocated to registers r2 
 0130            858   ;------------------------------------------------------------
-0130            859   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:201: float Volts_at_Pin(unsigned char pin)
+0130            859   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:204: float Volts_at_Pin(unsigned char pin)
 0130            860   ;        -----------------------------------------
 0130            861   ;         function Volts_at_Pin
 0130            862   ;        -----------------------------------------
 0130            863   _Volts_at_Pin:
-0130            864   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:203: return ((ADC_at_Pin(pin)*VDD)/0b_0011_1111_1111_1111);
+0130            864   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:206: return ((ADC_at_Pin(pin)*VDD)/0b_0011_1111_1111_1111);
 0130 120000     865            lcall   _ADC_at_Pin
 0133 120000     866            lcall   ___uint2fs
 0136 AA82       867            mov     r2,dpl
@@ -912,19 +912,19 @@
 018B            912   ;Allocation info for local variables in function 'Get_ADC'
 018B            913   ;------------------------------------------------------------
 018B            914   ;------------------------------------------------------------
-018B            915   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:206: unsigned int Get_ADC (void)
+018B            915   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:209: unsigned int Get_ADC (void)
 018B            916   ;        -----------------------------------------
 018B            917   ;         function Get_ADC
 018B            918   ;        -----------------------------------------
 018B            919   _Get_ADC:
-018B            920   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:208: ADINT = 0;
+018B            920   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:211: ADINT = 0;
 018B C2ED       921            clr     _ADINT
-018D            922   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:209: ADBUSY = 1;
+018D            922   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:212: ADBUSY = 1;
 018D D2EC       923            setb    _ADBUSY
-018F            924   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:210: while (!ADINT); // Wait for conversion to complete
+018F            924   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:213: while (!ADINT); // Wait for conversion to complete
 018F            925   L010001?:
 018F 30ED98     926            jnb     _ADINT,L010001?
-0192            927   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:211: return (ADC0);
+0192            927   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:214: return (ADC0);
 0192 85BD82     928            mov     dpl,_ADC0
 0195 85BE83     929            mov     dph,(_ADC0 >> 8)
 0198 22         930            ret
@@ -939,17 +939,17 @@
 0199            939   ;frequency                 Allocated with name '_main_frequency_1_63'
 0199            940   ;sloc0                     Allocated with name '_main_sloc0_1_0'
 0199            941   ;------------------------------------------------------------
-0199            942   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:214: void main (void)
+0199            942   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:217: void main (void)
 0199            943   ;        -----------------------------------------
 0199            944   ;         function main
 0199            945   ;        -----------------------------------------
 0199            946   _main:
-0199            947   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:223: TIMER0_Init();
+0199            947   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:226: TIMER0_Init();
 0199 120000     948            lcall   _TIMER0_Init
-019C            949   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:225: waitms(500); // Give PuTTy a chance to start before sending
+019C            949   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:228: waitms(500); // Give PuTTy a chance to start before sending
 019C 9001F4     950            mov     dptr,#0x01F4
 019F 120000     951            lcall   _waitms
-01A2            952   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:226: printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
+01A2            952   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:229: printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
 01A2 74D8       953            mov     a,#__str_0
 01A4 C0E0       954            push    acc
 01A6 74B6       955            mov     a,#(__str_0 >> 8)
@@ -960,8 +960,8 @@
 01B1 1581       960            dec     sp
 01B3 1581       961            dec     sp
 01B5 1581       962            dec     sp
-01B7            963   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:231: __FILE__, __DATE__, __TIME__);
-01B7            964   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:230: "Compiled: %s, %s\n\n",
+01B7            963   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:234: __FILE__, __DATE__, __TIME__);
+01B7            964   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:233: "Compiled: %s, %s\n\n",
 01B7 7458       965            mov     a,#__str_4
 01B9 C0E0       966            push    acc
 01BB 74B7       967            mov     a,#(__str_4 >> 8)
@@ -990,19 +990,19 @@
 01EA E581       990            mov     a,sp
 01EC 24F4       991            add     a,#0xf4
 01EE F581       992            mov     sp,a
-01F0            993   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:233: InitPinADC(1, 6); // Configure P2.2 as analog input
+01F0            993   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:236: InitPinADC(1, 6); // Configure P2.2 as analog input
 01F0 754806     994            mov     _InitPinADC_PARM_2,#0x06
 01F3 758201     995            mov     dpl,#0x01
 01F6 120000     996            lcall   _InitPinADC
-01F9            997   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:234: InitPinADC(1, 7); // Configure P2.3 as analog input
+01F9            997   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:237: InitPinADC(1, 7); // Configure P2.3 as analog input
 01F9 754807     998            mov     _InitPinADC_PARM_2,#0x07
 01FC 758201     999            mov     dpl,#0x01
 01FF 120000    1000            lcall   _InitPinADC
-0202           1001   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:238: InitADC();
+0202           1001   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:239: InitADC();
 0202 120000    1002            lcall   _InitADC
-0205           1003   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:240: while(1)
+0205           1003   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:241: while(1)
 0205           1004   L011018?:
-0205           1005   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:244: v[0] = Volts_at_Pin(QFP32_MUX_P1_6);
+0205           1005   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:249: v[0] = Volts_at_Pin(QFP32_MUX_P1_6);
 0205 75820C    1006            mov     dpl,#0x0C
 0208 120000    1007            lcall   _Volts_at_Pin
 020B AA82      1008            mov     r2,dpl
@@ -1013,7 +1013,7 @@
 0214 8B19      1013            mov     (_main_v_1_63 + 1),r3
 0216 8C1A      1014            mov     (_main_v_1_63 + 2),r4
 0218 8D1B      1015            mov     (_main_v_1_63 + 3),r5
-021A           1016   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:245: v[1] = Volts_at_Pin(QFP32_MUX_P1_7);
+021A           1016   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:250: v[1] = Volts_at_Pin(QFP32_MUX_P1_7);
 021A 75820D    1017            mov     dpl,#0x0D
 021D 120000    1018            lcall   _Volts_at_Pin
 0220 AA82      1019            mov     r2,dpl
@@ -1024,48 +1024,48 @@
 0229 8B1D      1024            mov     ((_main_v_1_63 + 0x0004) + 1),r3
 022B 8C1E      1025            mov     ((_main_v_1_63 + 0x0004) + 2),r4
 022D 8D1F      1026            mov     ((_main_v_1_63 + 0x0004) + 3),r5
-022F           1027   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:249: TL0=0; 
+022F           1027   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:265: TL0=0; 
 022F 758A00    1028            mov     _TL0,#0x00
-0232           1029   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:250: TH0=0;
+0232           1029   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:266: TH0=0;
 0232 758C00    1030            mov     _TH0,#0x00
-0235           1031   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:251: TF0=0;
+0235           1031   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:267: TF0=0;
 0235 C28D      1032            clr     _TF0
-0237           1033   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:252: overflow_count=0;
+0237           1033   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:268: overflow_count=0;
 0237 751800    1034            mov     _overflow_count,#0x00
-023A           1035   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:254: while(P1_7!=0); // Wait for the signal to be zero
+023A           1035   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:270: while(P0_1!=0); // Wait for the signal to be zero
 023A           1036   L011001?:
-023A 209798    1037            jb      _P1_7,L011001?
-023D           1038   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:255: while(P1_7!=1); // Wait for the signal to be one
+023A 208198    1037            jb      _P0_1,L011001?
+023D           1038   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:271: while(P0_1!=1); // Wait for the signal to be one
 023D           1039   L011004?:
-023D 3097D8    1040            jnb     _P1_7,L011004?
-0240           1041   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:256: TR0=1; // Start the timer
+023D 3081D8    1040            jnb     _P0_1,L011004?
+0240           1041   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:272: TR0=1; // Start the timer
 0240 D28C      1042            setb    _TR0
-0242           1043   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:257: while(P1_7!=0) // Wait for the signal to be zero
+0242           1043   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:273: while(P0_1!=0) // Wait for the signal to be zero
 0242           1044   L011009?:
-0242 309758    1045            jnb     _P1_7,L011014?
-0245           1046   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:259: if(TF0==1) // Did the 16-bit timer overflow?
-0245           1047   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:261: TF0=0;
+0242 308158    1045            jnb     _P0_1,L011014?
+0245           1046   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:275: if(TF0==1) // Did the 16-bit timer overflow?
+0245           1047   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:277: TF0=0;
 0245 108D98    1048            jbc     _TF0,L011035?
 0248 8000      1049            sjmp    L011009?
 024A           1050   L011035?:
-024A           1051   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:262: overflow_count++;
+024A           1051   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:278: overflow_count++;
 024A 0518      1052            inc     _overflow_count
-024C           1053   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:265: while(P1_7!=1) // Wait for the signal to be one
+024C           1053   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:281: while(P0_1!=1) // Wait for the signal to be one
 024C 8000      1054            sjmp    L011009?
 024E           1055   L011014?:
-024E 2097D8    1056            jb      _P1_7,L011016?
-0251           1057   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:267: if(TF0==1) // Did the 16-bit timer overflow?
-0251           1058   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:269: TF0=0;
+024E 2081D8    1056            jb      _P0_1,L011016?
+0251           1057   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:283: if(TF0==1) // Did the 16-bit timer overflow?
+0251           1058   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:285: TF0=0;
 0251 108D18    1059            jbc     _TF0,L011037?
 0254 8000      1060            sjmp    L011014?
 0256           1061   L011037?:
-0256           1062   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:270: overflow_count++;
+0256           1062   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:286: overflow_count++;
 0256 0518      1063            inc     _overflow_count
 0258 8000      1064            sjmp    L011014?
 025A           1065   L011016?:
-025A           1066   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:273: TR0=0; // Stop timer 0, the 24-bit number [overflow_count-TH0-TL0] has the period!
+025A           1066   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:289: TR0=0; // Stop timer 0, the 24-bit number [overflow_count-TH0-TL0] has the period!
 025A C28C      1067            clr     _TR0
-025C           1068   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:274: period=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
+025C           1068   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:290: period=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
 025C 851882    1069            mov     dpl,_overflow_count
 025F 120000    1070            lcall   ___uchar2fs
 0262 AA82      1071            mov     r2,dpl
@@ -1164,7 +1164,7 @@
 0330 E581      1164            mov     a,sp
 0332 24FC      1165            add     a,#0xfc
 0334 F581      1166            mov     sp,a
-0336           1167   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:276: printf( "\n\rT=%f ms    ", period*1000.0);
+0336           1167   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:292: printf( "\r\nT=%7.2f ms", period*1000.0);
 0336 C002      1168            push    ar2
 0338 C003      1169            push    ar3
 033A C004      1170            push    ar4
@@ -1194,8 +1194,8 @@
 036D E581      1194            mov     a,sp
 036F 24F9      1195            add     a,#0xf9
 0371 F581      1196            mov     sp,a
-0373           1197   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:278: waitms(500);
-0373 9001F4    1198            mov     dptr,#0x01F4
+0373           1197   ;        C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\Yuhan_Yuqian_lab5.c:293: waitms(1);
+0373 900001    1198            mov     dptr,#0x0001
 0376 120000    1199            lcall   _waitms
 0379 020000    1200            ljmp    L011018?
 037C           1201            rseg R_CSEG
@@ -1257,17 +1257,17 @@
      303234
 007F 00        1239            db 0x00
 0080           1240   __str_4:
-0080 32303A31  1241            db '20:10:35'
-     303A3335
+0080 32303A35  1241            db '20:56:16'
+     363A3136
 0088 00        1242            db 0x00
 0089           1243   __str_5:
-0089 0A        1244            db 0x0A
-008A 0D        1245            db 0x0D
-008B 543D2566  1246            db 'T=%f ms    '
-     206D7320
-     202020
-0096 00        1247            db 0x00
-0097           1248   
+0089 0D        1244            db 0x0D
+008A 0A        1245            db 0x0A
+008B 543D2537  1246            db 'T=%7.2f ms'
+     2E326620
+     6D73
+0095 00        1247            db 0x00
+0096           1248   
 0003           1249            CSEG
 0003           1250   
 0003           1251   end

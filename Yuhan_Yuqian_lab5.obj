@@ -15,7 +15,7 @@ R_GSINIT,code,0000,NO
 R_BSEG,bit,0000,NO
 R_XSEG,xdata,0000,NO
 BIT_BANK,data,0000,OV
-R_CONST,code,0097,NO
+R_CONST,code,0096,NO
 rbank0,data,0000,OV
 R_PSEG,xdata,0000,NO
 R_DINIT,code,0000,NO
@@ -385,15 +385,15 @@ FD
 75 8C 00
 C2 8D
 75 data8(_overflow_count;) 00
-20 97 rel3(L011001?;)
-30 97 rel3(L011004?;)
+20 81 rel3(L011001?;)
+30 81 rel3(L011004?;)
 D2 8C
-30 97 rel3(L011014?;)
+30 81 rel3(L011014?;)
 10 8D rel3(L011035?;)
 80 rel2(L011009?;)
 05 data8(_overflow_count;)
 80 rel2(L011009?;)
-20 97 rel3(L011016?;)
+20 81 rel3(L011016?;)
 10 8D rel3(L011037?;)
 80 rel2(L011014?;)
 05 data8(_overflow_count;)
@@ -526,7 +526,7 @@ C0 E0
 E5 81
 24 F9
 F5 81
-90 01 F4
+90 00 01
 12 addr16(_waitms;)  
 02 addr16(L011018?;)  
 </CODE>
@@ -568,11 +568,11 @@ F5 81
 00
 4D 61 72 20 20 34 20 32 30 32 34 
 00
-32 30 3A 31 30 3A 33 35 
+32 30 3A 35 36 3A 31 36 
 00
-0A
 0D
-54 3D 25 66 20 6D 73 20 20 20 20 
+0A
+54 3D 25 37 2E 32 66 20 6D 73 
 00
 </CODE>
 
