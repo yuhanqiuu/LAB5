@@ -153,7 +153,7 @@ void waitms (unsigned int ms)
 		for (k=0; k<4; k++) Timer3us(250);
 }
 
-#define VDD 3.3035 // The measured value of VDD in volts
+
 
 void TIMER0_Init(void)
 {
@@ -161,6 +161,8 @@ void TIMER0_Init(void)
 	TMOD|=0b_0000_0001; // Timer/Counter 0 used as a 16-bit timer
 	TR0=0; // Stop Timer/Counter 0
 }
+
+
 
 void InitPinADC (unsigned char portno, unsigned char pinno)
 {
@@ -189,6 +191,7 @@ void InitPinADC (unsigned char portno, unsigned char pinno)
 	SFRPAGE = 0x00;
 }
 
+#define VDD 3.3000 // The measured value of VDD in volts
 unsigned int ADC_at_Pin(unsigned char pin)
 {
 	ADC0MX = pin;   // Select input from pin
@@ -203,11 +206,23 @@ float Volts_at_Pin(unsigned char pin)
 	 return ((ADC_at_Pin(pin)*VDD)/0b_0011_1111_1111_1111);
 }
 
+unsigned int Get_ADC (void)
+{
+	ADINT = 0;
+	ADBUSY = 1;
+	while (!ADINT); // Wait for conversion to complete
+	return (ADC0);
+}
+
 void main (void)
 {
-	float v[4];
+	float v[2];
 
 	float period;
+	float half_period;
+	float v_ref;
+	float v_test;
+	float frequency;
 	TIMER0_Init();
 
     waitms(500); // Give PuTTy a chance to start before sending
@@ -218,31 +233,33 @@ void main (void)
 	        "Compiled: %s, %s\n\n",
 	        __FILE__, __DATE__, __TIME__);
 	
-	InitPinADC(2, 2); // Configure P2.2 as analog input
-	InitPinADC(2, 3); // Configure P2.3 as analog input
-	InitPinADC(2, 4); // Configure P2.4 as analog input
-	InitPinADC(2, 5); // Configure P2.5 as analog input
+	InitPinADC(1, 6); // Configure P2.2 as analog input
+	InitPinADC(1, 7); // Configure P2.3 as analog input
+
     InitADC();
 
 	while(1)
-	{
+	{ 
+		// Measure half period at pin P1.0 using timer 0
 		TR0=0; // Stop timer 0
 		TMOD=0B_0000_0001; // Set timer 0 as 16-bit timer
 		TH0=0; TL0=0; // Reset the timer
-		
-	    // Read 14-bit value from the pins configured as analog inputs
-		v[0] = Volts_at_Pin(QFP32_MUX_P2_2);
-		v[1] = Volts_at_Pin(QFP32_MUX_P2_3);
-		v[2] = Volts_at_Pin(QFP32_MUX_P2_4);
-		v[3] = Volts_at_Pin(QFP32_MUX_P2_5);
-		printf ("V@P2.2=%7.5fV, V@P2.3=%7.5fV, V@P2.4=%7.5fV, V@P2.5=%7.5fV\r", v[0], v[1], v[2], v[3]);
-		
-		while(P2_2==0);
-		while(P2_2==1);
-		TR0=1;
-		period=(TH0*0x100+TL0)*2;
-		printf( "\rT=%f ms    ", period*1000.0);
 
+	    // Read 14-bit value from the pins configured as analog inputs
+		v[0] = Volts_at_Pin(QFP32_MUX_P1_6);
+		v[1] = Volts_at_Pin(QFP32_MUX_P1_7);
+		printf ("V@P2.2=%7.5fV, V@P2.3=%7.5fV", v[0], v[1]);
+		// Start tracking the reference signal
+
+		while (P0_1==1); // Wait for the signal to be zero
+		while (P0_1==0); // Wait for the signal to be one
+		TR0=1; // Start timing
+		while (P0_1==1); // Wait for the signal to be zero
+		TR0=0; // Stop timer 0
+		// [TH0,TL0] is half the period in multiples of 12/CLK, so:
+		Period=(TH0*0x100+TL0)*2; // Assume Period is unsigned int
+		
+		printf( "\n\rT=%f ms    ", Period*1000.0);
 		waitms(500);
 	 }  
 }	
