@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by C51
 ; Version 1.0.0 #1170 (Feb 16 2022) (MSVC)
-; This file was generated Mon Mar 04 17:23:50 2024
+; This file was generated Mon Mar 04 17:25:07 2024
 ;--------------------------------------------------------
 $name Yuhan_Yuqian_lab5
 $optc51 --model-small
@@ -1072,7 +1072,7 @@ __str_3:
 	db 'Mar  4 2024'
 	db 0x00
 __str_4:
-	db '17:23:50'
+	db '17:25:07'
 	db 0x00
 __str_5:
 	db 'V@P2.2=%7.5fV, V@P2.3=%7.5fV, V@P2.4=%7.5fV, V@P2.5=%7.5fV'
