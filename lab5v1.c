@@ -214,36 +214,6 @@ unsigned int Get_ADC (void)
 	return (ADC0);
 }
 
-float Get_Period(void) {
-	 // Reset the counter
-        TL0=0; 
-        TH0=0;
-        TF0=0;
-        overflow_count=0;
-        float p;
-        while(P0_1!=0); // Wait for the signal to be zero
-        while(P0_1!=1); // Wait for the signal to be one
-        TR0=1; // Start the timer
-        while(P0_1!=0) // Wait for the signal to be zero
-        {
-            if(TF0==1) // Did the 16-bit timer overflow?
-            {
-                TF0=0;
-                overflow_count++;
-            }
-        }
-        while(P0_1!=1) // Wait for the signal to be one
-        {
-            if(TF0==1) // Did the 16-bit timer overflow?
-            {
-                TF0=0;
-                overflow_count++;
-            }
-        }
-        TR0=0; // Stop timer 0, the 24-bit number [overflow_count-TH0-TL0] has the period!
-        p=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
-        return p;
-}
 
 
 void main (void)
@@ -270,11 +240,38 @@ void main (void)
     InitADC();
 
 	for (int i = 0; i < 10; i++){
-		p2 = Get_Period();
-		if (p2 > max) 
-			max = p2;
-			printf("\r\n%3.2f",max*1000);
-		    waitms(1);
+		// Reset the counter
+        TL0=0; 
+        TH0=0;
+        TF0=0;
+        overflow_count=0;
+        float p;
+        while(P0_1!=0); // Wait for the signal to be zero
+        while(P0_1!=1); // Wait for the signal to be one
+        TR0=1; // Start the timer
+        while(P0_1!=0) // Wait for the signal to be zero
+        {
+            if(TF0==1) // Did the 16-bit timer overflow?
+            {
+                TF0=0;
+                overflow_count++;
+            }
+        }
+        while(P0_1!=1) // Wait for the signal to be one
+        {
+            if(TF0==1) // Did the 16-bit timer overflow?
+            {
+                TF0=0;
+                overflow_count++;
+            }
+        }
+        TR0=0; // Stop timer 0, the 24-bit number [overflow_count-TH0-TL0] has the period!
+        p=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
+		
+		if (p > max) max = p;
+
+		printf("\r\n%3.2f",max*1000);
+		waitms(1);
 		    
 	}
 		
