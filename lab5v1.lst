@@ -1,7 +1,7 @@
 0000              1   ;--------------------------------------------------------
 0000              2   ; File Created by C51
 0000              3   ; Version 1.0.0 #1170 (Feb 16 2022) (MSVC)
-0000              4   ; This file was generated Wed Mar 06 11:32:47 2024
+0000              4   ; This file was generated Wed Mar 06 11:55:14 2024
 0000              5   ;--------------------------------------------------------
                   5   $name lab5v1
                   6   $optc51 --model-small
@@ -1282,20 +1282,20 @@
 035B 75F080    1282            mov     b,#0x80
 035E 120000    1283            lcall   _LCDprint
 0361           1284   ;        D:\clone\LAB5\lab5v1.c:322: for (i = 0; i < 10; i++){
-0361           1285   L017061?:
+0361           1285   L017062?:
 0361 E4        1286            clr     a
 0362 F5F0      1287            mov     _main_i_1_75,a
 0364 F5F1      1288            mov     (_main_i_1_75 + 1),a
-0366           1289   L017040?:
+0366           1289   L017041?:
 0366 C3        1290            clr     c
 0367 E5F0      1291            mov     a,_main_i_1_75
 0369 940A      1292            subb    a,#0x0A
 036B E5F1      1293            mov     a,(_main_i_1_75 + 1)
 036D 6480      1294            xrl     a,#0x80
 036F 9480      1295            subb    a,#0x80
-0371 4000      1296            jc      L017075?
-0373 020000    1297            ljmp    L017043?
-0376           1298   L017075?:
+0371 4000      1296            jc      L017077?
+0373 020000    1297            ljmp    L017044?
+0376           1298   L017077?:
 0376           1299   ;        D:\clone\LAB5\lab5v1.c:324: TL0=0; 
 0376 758A00    1300            mov     _TL0,#0x00
 0379           1301   ;        D:\clone\LAB5\lab5v1.c:325: TH0=0;
@@ -1317,9 +1317,9 @@
 0389 308110    1317            jnb     _P0_1,L017014?
 038C           1318   ;        D:\clone\LAB5\lab5v1.c:333: if(TF0==1) // Did the 16-bit timer overflow?
 038C           1319   ;        D:\clone\LAB5\lab5v1.c:335: TF0=0;
-038C 108D50    1320            jbc     _TF0,L017079?
+038C 108D50    1320            jbc     _TF0,L017081?
 038F 8000      1321            sjmp    L017009?
-0391           1322   L017079?:
+0391           1322   L017081?:
 0391           1323   ;        D:\clone\LAB5\lab5v1.c:336: overflow_count++;
 0391 05B0      1324            inc     _overflow_count
 0393           1325   ;        D:\clone\LAB5\lab5v1.c:339: while(P0_1!=1) // Wait for the signal to be one
@@ -1328,9 +1328,9 @@
 0395 208190    1328            jb      _P0_1,L017016?
 0398           1329   ;        D:\clone\LAB5\lab5v1.c:341: if(TF0==1) // Did the 16-bit timer overflow?
 0398           1330   ;        D:\clone\LAB5\lab5v1.c:343: TF0=0;
-0398 108DD0    1331            jbc     _TF0,L017081?
+0398 108DD0    1331            jbc     _TF0,L017083?
 039B 8000      1332            sjmp    L017014?
-039D           1333   L017081?:
+039D           1333   L017083?:
 039D           1334   ;        D:\clone\LAB5\lab5v1.c:344: overflow_count++;
 039D 05B0      1335            inc     _overflow_count
 039F 8000      1336            sjmp    L017014?
@@ -1472,24 +1472,24 @@
 04B8           1472   ;        D:\clone\LAB5\lab5v1.c:322: for (i = 0; i < 10; i++){
 04B8 05F0      1473            inc     _main_i_1_75
 04BA E4        1474            clr     a
-04BB B5F050    1475            cjne    a,_main_i_1_75,L017083?
+04BB B5F050    1475            cjne    a,_main_i_1_75,L017085?
 04BE 05F1      1476            inc     (_main_i_1_75 + 1)
-04C0           1477   L017083?:
-04C0 020000    1478            ljmp    L017040?
-04C3           1479   L017043?:
+04C0           1477   L017085?:
+04C0 020000    1478            ljmp    L017041?
+04C3           1479   L017044?:
 04C3           1480   ;        D:\clone\LAB5\lab5v1.c:354: for(i=0;i<20;i++){
 04C3 7A00      1481            mov     r2,#0x00
 04C5 7B00      1482            mov     r3,#0x00
-04C7           1483   L017044?:
+04C7           1483   L017045?:
 04C7 C3        1484            clr     c
 04C8 EA        1485            mov     a,r2
 04C9 9414      1486            subb    a,#0x14
 04CB EB        1487            mov     a,r3
 04CC 6480      1488            xrl     a,#0x80
 04CE 9480      1489            subb    a,#0x80
-04D0 4000      1490            jc      L017084?
-04D2 020000    1491            ljmp    L017047?
-04D5           1492   L017084?:
+04D0 4000      1490            jc      L017086?
+04D2 020000    1491            ljmp    L017048?
+04D5           1492   L017086?:
 04D5           1493   ;        D:\clone\LAB5\lab5v1.c:355: v[0] = Volts_at_Pin(QFP32_MUX_P1_4);
 04D5 75820A    1494            mov     dpl,#0x0A
 04D8 C002      1495            push    ar2
@@ -1605,11 +1605,11 @@
 059B D002      1605            pop     ar2
 059D           1606   ;        D:\clone\LAB5\lab5v1.c:354: for(i=0;i<20;i++){
 059D 0A        1607            inc     r2
-059E BA0010    1608            cjne    r2,#0x00,L017087?
+059E BA0010    1608            cjne    r2,#0x00,L017089?
 05A1 0B        1609            inc     r3
-05A2           1610   L017087?:
-05A2 020000    1611            ljmp    L017044?
-05A5           1612   L017047?:
+05A2           1610   L017089?:
+05A2 020000    1611            ljmp    L017045?
+05A5           1612   L017048?:
 05A5           1613   ;        D:\clone\LAB5\lab5v1.c:365: printf("\nperiod=%3.2f\r",mst*1000);
 05A5 C0B0      1614            push    _main_mst_1_75
 05A7 C0B1      1615            push    (_main_mst_1_75 + 1)
@@ -1671,259 +1671,260 @@
 0615           1671   L017026?:
 0615 308110    1672            jnb     _P0_1,L017026?
 0618           1673   ;        D:\clone\LAB5\lab5v1.c:372: while(P0_1==1){
-0618           1674   L017034?:
-0618 308190    1675            jnb     _P0_1,L017036?
-061B           1676   ;        D:\clone\LAB5\lab5v1.c:373: while(P0_2==0){
-061B           1677   L017031?:
-061B 208210    1678            jb      _P0_2,L017033?
-061E           1679   ;        D:\clone\LAB5\lab5v1.c:374: TR0=1;
-061E D28C      1680            setb    _TR0
-0620           1681   ;        D:\clone\LAB5\lab5v1.c:375: if(TF0==1) // Did the 16-bit timer overflow?
-0620           1682   ;        D:\clone\LAB5\lab5v1.c:377: TF0=0;
-0620 108D50    1683            jbc     _TF0,L017092?
-0623 8000      1684            sjmp    L017031?
-0625           1685   L017092?:
-0625           1686   ;        D:\clone\LAB5\lab5v1.c:378: overflow_count++;
-0625 05B0      1687            inc     _overflow_count
-0627 8000      1688            sjmp    L017031?
-0629           1689   L017033?:
-0629           1690   ;        D:\clone\LAB5\lab5v1.c:381: TR0=0; 
-0629 C28C      1691            clr     _TR0
-062B 8000      1692            sjmp    L017034?
-062D           1693   L017036?:
-062D           1694   ;        D:\clone\LAB5\lab5v1.c:383: phase_diff=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
-062D 85B082    1695            mov     dpl,_overflow_count
-0630 120000    1696            lcall   ___uchar2fs
-0633 AA82      1697            mov     r2,dpl
-0635 AB83      1698            mov     r3,dph
-0637 ACF0      1699            mov     r4,b
-0639 FD        1700            mov     r5,a
-063A C002      1701            push    ar2
-063C C003      1702            push    ar3
-063E C004      1703            push    ar4
-0640 C005      1704            push    ar5
-0642 900000    1705            mov     dptr,#0x0000
-0645 75F080    1706            mov     b,#0x80
-0648 7447      1707            mov     a,#0x47
-064A 120000    1708            lcall   ___fsmul
-064D 8582D0    1709            mov     _main_sloc0_1_0,dpl
-0650 8583D1    1710            mov     (_main_sloc0_1_0 + 1),dph
-0653 85F0D2    1711            mov     (_main_sloc0_1_0 + 2),b
-0656 F5D3      1712            mov     (_main_sloc0_1_0 + 3),a
-0658 E581      1713            mov     a,sp
-065A 24FC      1714            add     a,#0xfc
-065C F581      1715            mov     sp,a
-065E 858C82    1716            mov     dpl,_TH0
-0661 120000    1717            lcall   ___uchar2fs
-0664 AE82      1718            mov     r6,dpl
-0666 AF83      1719            mov     r7,dph
-0668 AAF0      1720            mov     r2,b
-066A FB        1721            mov     r3,a
-066B C006      1722            push    ar6
-066D C007      1723            push    ar7
-066F C002      1724            push    ar2
-0671 C003      1725            push    ar3
-0673 900000    1726            mov     dptr,#0x0000
-0676 75F080    1727            mov     b,#0x80
-0679 7443      1728            mov     a,#0x43
-067B 120000    1729            lcall   ___fsmul
-067E AA82      1730            mov     r2,dpl
-0680 AB83      1731            mov     r3,dph
-0682 ACF0      1732            mov     r4,b
-0684 FD        1733            mov     r5,a
-0685 E581      1734            mov     a,sp
-0687 24FC      1735            add     a,#0xfc
-0689 F581      1736            mov     sp,a
-068B C002      1737            push    ar2
-068D C003      1738            push    ar3
-068F C004      1739            push    ar4
-0691 C005      1740            push    ar5
-0693 85D082    1741            mov     dpl,_main_sloc0_1_0
-0696 85D183    1742            mov     dph,(_main_sloc0_1_0 + 1)
-0699 85D2F0    1743            mov     b,(_main_sloc0_1_0 + 2)
-069C E5D3      1744            mov     a,(_main_sloc0_1_0 + 3)
-069E 120000    1745            lcall   ___fsadd
-06A1 8582D0    1746            mov     _main_sloc0_1_0,dpl
-06A4 8583D1    1747            mov     (_main_sloc0_1_0 + 1),dph
-06A7 85F0D2    1748            mov     (_main_sloc0_1_0 + 2),b
-06AA F5D3      1749            mov     (_main_sloc0_1_0 + 3),a
-06AC E581      1750            mov     a,sp
-06AE 24FC      1751            add     a,#0xfc
-06B0 F581      1752            mov     sp,a
-06B2 AE8A      1753            mov     r6,_TL0
-06B4 7F00      1754            mov     r7,#0x00
-06B6 8E82      1755            mov     dpl,r6
-06B8 8F83      1756            mov     dph,r7
-06BA 120000    1757            lcall   ___sint2fs
-06BD AE82      1758            mov     r6,dpl
-06BF AF83      1759            mov     r7,dph
-06C1 AAF0      1760            mov     r2,b
-06C3 FB        1761            mov     r3,a
-06C4 C006      1762            push    ar6
-06C6 C007      1763            push    ar7
-06C8 C002      1764            push    ar2
-06CA C003      1765            push    ar3
-06CC 85D082    1766            mov     dpl,_main_sloc0_1_0
-06CF 85D183    1767            mov     dph,(_main_sloc0_1_0 + 1)
-06D2 85D2F0    1768            mov     b,(_main_sloc0_1_0 + 2)
-06D5 E5D3      1769            mov     a,(_main_sloc0_1_0 + 3)
-06D7 120000    1770            lcall   ___fsadd
-06DA AA82      1771            mov     r2,dpl
-06DC AB83      1772            mov     r3,dph
-06DE ACF0      1773            mov     r4,b
-06E0 FD        1774            mov     r5,a
-06E1 E581      1775            mov     a,sp
-06E3 24FC      1776            add     a,#0xfc
-06E5 F581      1777            mov     sp,a
-06E7 C002      1778            push    ar2
-06E9 C003      1779            push    ar3
-06EB C004      1780            push    ar4
-06ED C005      1781            push    ar5
-06EF 90F4FC    1782            mov     dptr,#0xF4FC
-06F2 75F032    1783            mov     b,#0x32
-06F5 7434      1784            mov     a,#0x34
-06F7 120000    1785            lcall   ___fsmul
-06FA AA82      1786            mov     r2,dpl
-06FC AB83      1787            mov     r3,dph
-06FE ACF0      1788            mov     r4,b
-0700 FD        1789            mov     r5,a
-0701 E581      1790            mov     a,sp
-0703 24FC      1791            add     a,#0xfc
-0705 F581      1792            mov     sp,a
-0707           1793   ;        D:\clone\LAB5\lab5v1.c:384: degrees = phase_diff*360/mst ;
-0707 C002      1794            push    ar2
-0709 C003      1795            push    ar3
-070B C004      1796            push    ar4
-070D C005      1797            push    ar5
-070F 900000    1798            mov     dptr,#0x0000
-0712 75F0B4    1799            mov     b,#0xB4
-0715 7443      1800            mov     a,#0x43
-0717 120000    1801            lcall   ___fsmul
-071A AA82      1802            mov     r2,dpl
-071C AB83      1803            mov     r3,dph
-071E ACF0      1804            mov     r4,b
-0720 FD        1805            mov     r5,a
-0721 E581      1806            mov     a,sp
-0723 24FC      1807            add     a,#0xfc
-0725 F581      1808            mov     sp,a
-0727 C0B0      1809            push    _main_mst_1_75
-0729 C0B1      1810            push    (_main_mst_1_75 + 1)
-072B C0B2      1811            push    (_main_mst_1_75 + 2)
-072D C0B3      1812            push    (_main_mst_1_75 + 3)
-072F 8A82      1813            mov     dpl,r2
-0731 8B83      1814            mov     dph,r3
-0733 8CF0      1815            mov     b,r4
-0735 ED        1816            mov     a,r5
-0736 120000    1817            lcall   ___fsdiv
-0739 AA82      1818            mov     r2,dpl
-073B AB83      1819            mov     r3,dph
-073D ACF0      1820            mov     r4,b
-073F FD        1821            mov     r5,a
-0740 E581      1822            mov     a,sp
-0742 24FC      1823            add     a,#0xfc
-0744 F581      1824            mov     sp,a
-0746           1825   ;        D:\clone\LAB5\lab5v1.c:386: printf("\r\ndegrees: %f", degrees);
-0746 C002      1826            push    ar2
-0748 C003      1827            push    ar3
-074A C004      1828            push    ar4
-074C C005      1829            push    ar5
-074E 7490      1830            mov     a,#__str_9
-0750 C0E0      1831            push    acc
-0752 74C5      1832            mov     a,#(__str_9 >> 8)
-0754 C0E0      1833            push    acc
-0756 7480      1834            mov     a,#0x80
-0758 C0E0      1835            push    acc
-075A 120000    1836            lcall   _printf
-075D E581      1837            mov     a,sp
-075F 24F9      1838            add     a,#0xf9
-0761 F581      1839            mov     sp,a
-0763           1840   ;        D:\clone\LAB5\lab5v1.c:388: waitms(500); 
-0763 9001F4    1841            mov     dptr,#0x01F4
-0766 120000    1842            lcall   _waitms
-0769 020000    1843            ljmp    L017061?
-076C           1844            rseg R_CSEG
-076C           1845   
-0000           1846            rseg R_XINIT
-0000           1847   
-0000           1848            rseg R_CONST
-0000           1849   __str_0:
-0000 1B        1850            db 0x1B
-0001 5B324A    1851            db '[2J'
-0004 00        1852            db 0x00
-0005           1853   __str_1:
-0005 41444320  1854            db 'ADC test program'
+0618           1674   L017035?:
+0618 308190    1675            jnb     _P0_1,L017037?
+061B           1676   ;        D:\clone\LAB5\lab5v1.c:373: while(P0_2==0&&P0_1==1){
+061B           1677   L017032?:
+061B 208210    1678            jb      _P0_2,L017034?
+061E 308110    1679            jnb     _P0_1,L017034?
+0621           1680   ;        D:\clone\LAB5\lab5v1.c:374: TR0=1;
+0621 D28C      1681            setb    _TR0
+0623           1682   ;        D:\clone\LAB5\lab5v1.c:375: if(TF0==1) // Did the 16-bit timer overflow?
+0623           1683   ;        D:\clone\LAB5\lab5v1.c:377: TF0=0;
+0623 108D50    1684            jbc     _TF0,L017095?
+0626 8000      1685            sjmp    L017032?
+0628           1686   L017095?:
+0628           1687   ;        D:\clone\LAB5\lab5v1.c:378: overflow_count++;
+0628 05B0      1688            inc     _overflow_count
+062A 8000      1689            sjmp    L017032?
+062C           1690   L017034?:
+062C           1691   ;        D:\clone\LAB5\lab5v1.c:382: TR0=0; 
+062C C28C      1692            clr     _TR0
+062E 8000      1693            sjmp    L017035?
+0630           1694   L017037?:
+0630           1695   ;        D:\clone\LAB5\lab5v1.c:384: phase_diff=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
+0630 85B082    1696            mov     dpl,_overflow_count
+0633 120000    1697            lcall   ___uchar2fs
+0636 AA82      1698            mov     r2,dpl
+0638 AB83      1699            mov     r3,dph
+063A ACF0      1700            mov     r4,b
+063C FD        1701            mov     r5,a
+063D C002      1702            push    ar2
+063F C003      1703            push    ar3
+0641 C004      1704            push    ar4
+0643 C005      1705            push    ar5
+0645 900000    1706            mov     dptr,#0x0000
+0648 75F080    1707            mov     b,#0x80
+064B 7447      1708            mov     a,#0x47
+064D 120000    1709            lcall   ___fsmul
+0650 8582D0    1710            mov     _main_sloc0_1_0,dpl
+0653 8583D1    1711            mov     (_main_sloc0_1_0 + 1),dph
+0656 85F0D2    1712            mov     (_main_sloc0_1_0 + 2),b
+0659 F5D3      1713            mov     (_main_sloc0_1_0 + 3),a
+065B E581      1714            mov     a,sp
+065D 24FC      1715            add     a,#0xfc
+065F F581      1716            mov     sp,a
+0661 858C82    1717            mov     dpl,_TH0
+0664 120000    1718            lcall   ___uchar2fs
+0667 AE82      1719            mov     r6,dpl
+0669 AF83      1720            mov     r7,dph
+066B AAF0      1721            mov     r2,b
+066D FB        1722            mov     r3,a
+066E C006      1723            push    ar6
+0670 C007      1724            push    ar7
+0672 C002      1725            push    ar2
+0674 C003      1726            push    ar3
+0676 900000    1727            mov     dptr,#0x0000
+0679 75F080    1728            mov     b,#0x80
+067C 7443      1729            mov     a,#0x43
+067E 120000    1730            lcall   ___fsmul
+0681 AA82      1731            mov     r2,dpl
+0683 AB83      1732            mov     r3,dph
+0685 ACF0      1733            mov     r4,b
+0687 FD        1734            mov     r5,a
+0688 E581      1735            mov     a,sp
+068A 24FC      1736            add     a,#0xfc
+068C F581      1737            mov     sp,a
+068E C002      1738            push    ar2
+0690 C003      1739            push    ar3
+0692 C004      1740            push    ar4
+0694 C005      1741            push    ar5
+0696 85D082    1742            mov     dpl,_main_sloc0_1_0
+0699 85D183    1743            mov     dph,(_main_sloc0_1_0 + 1)
+069C 85D2F0    1744            mov     b,(_main_sloc0_1_0 + 2)
+069F E5D3      1745            mov     a,(_main_sloc0_1_0 + 3)
+06A1 120000    1746            lcall   ___fsadd
+06A4 8582D0    1747            mov     _main_sloc0_1_0,dpl
+06A7 8583D1    1748            mov     (_main_sloc0_1_0 + 1),dph
+06AA 85F0D2    1749            mov     (_main_sloc0_1_0 + 2),b
+06AD F5D3      1750            mov     (_main_sloc0_1_0 + 3),a
+06AF E581      1751            mov     a,sp
+06B1 24FC      1752            add     a,#0xfc
+06B3 F581      1753            mov     sp,a
+06B5 AE8A      1754            mov     r6,_TL0
+06B7 7F00      1755            mov     r7,#0x00
+06B9 8E82      1756            mov     dpl,r6
+06BB 8F83      1757            mov     dph,r7
+06BD 120000    1758            lcall   ___sint2fs
+06C0 AE82      1759            mov     r6,dpl
+06C2 AF83      1760            mov     r7,dph
+06C4 AAF0      1761            mov     r2,b
+06C6 FB        1762            mov     r3,a
+06C7 C006      1763            push    ar6
+06C9 C007      1764            push    ar7
+06CB C002      1765            push    ar2
+06CD C003      1766            push    ar3
+06CF 85D082    1767            mov     dpl,_main_sloc0_1_0
+06D2 85D183    1768            mov     dph,(_main_sloc0_1_0 + 1)
+06D5 85D2F0    1769            mov     b,(_main_sloc0_1_0 + 2)
+06D8 E5D3      1770            mov     a,(_main_sloc0_1_0 + 3)
+06DA 120000    1771            lcall   ___fsadd
+06DD AA82      1772            mov     r2,dpl
+06DF AB83      1773            mov     r3,dph
+06E1 ACF0      1774            mov     r4,b
+06E3 FD        1775            mov     r5,a
+06E4 E581      1776            mov     a,sp
+06E6 24FC      1777            add     a,#0xfc
+06E8 F581      1778            mov     sp,a
+06EA C002      1779            push    ar2
+06EC C003      1780            push    ar3
+06EE C004      1781            push    ar4
+06F0 C005      1782            push    ar5
+06F2 90F4FC    1783            mov     dptr,#0xF4FC
+06F5 75F032    1784            mov     b,#0x32
+06F8 7434      1785            mov     a,#0x34
+06FA 120000    1786            lcall   ___fsmul
+06FD AA82      1787            mov     r2,dpl
+06FF AB83      1788            mov     r3,dph
+0701 ACF0      1789            mov     r4,b
+0703 FD        1790            mov     r5,a
+0704 E581      1791            mov     a,sp
+0706 24FC      1792            add     a,#0xfc
+0708 F581      1793            mov     sp,a
+070A           1794   ;        D:\clone\LAB5\lab5v1.c:385: degrees = phase_diff*360/mst ;
+070A C002      1795            push    ar2
+070C C003      1796            push    ar3
+070E C004      1797            push    ar4
+0710 C005      1798            push    ar5
+0712 900000    1799            mov     dptr,#0x0000
+0715 75F0B4    1800            mov     b,#0xB4
+0718 7443      1801            mov     a,#0x43
+071A 120000    1802            lcall   ___fsmul
+071D AA82      1803            mov     r2,dpl
+071F AB83      1804            mov     r3,dph
+0721 ACF0      1805            mov     r4,b
+0723 FD        1806            mov     r5,a
+0724 E581      1807            mov     a,sp
+0726 24FC      1808            add     a,#0xfc
+0728 F581      1809            mov     sp,a
+072A C0B0      1810            push    _main_mst_1_75
+072C C0B1      1811            push    (_main_mst_1_75 + 1)
+072E C0B2      1812            push    (_main_mst_1_75 + 2)
+0730 C0B3      1813            push    (_main_mst_1_75 + 3)
+0732 8A82      1814            mov     dpl,r2
+0734 8B83      1815            mov     dph,r3
+0736 8CF0      1816            mov     b,r4
+0738 ED        1817            mov     a,r5
+0739 120000    1818            lcall   ___fsdiv
+073C AA82      1819            mov     r2,dpl
+073E AB83      1820            mov     r3,dph
+0740 ACF0      1821            mov     r4,b
+0742 FD        1822            mov     r5,a
+0743 E581      1823            mov     a,sp
+0745 24FC      1824            add     a,#0xfc
+0747 F581      1825            mov     sp,a
+0749           1826   ;        D:\clone\LAB5\lab5v1.c:387: printf("\r\ndegrees: %f", degrees);
+0749 C002      1827            push    ar2
+074B C003      1828            push    ar3
+074D C004      1829            push    ar4
+074F C005      1830            push    ar5
+0751 7490      1831            mov     a,#__str_9
+0753 C0E0      1832            push    acc
+0755 74C5      1833            mov     a,#(__str_9 >> 8)
+0757 C0E0      1834            push    acc
+0759 7480      1835            mov     a,#0x80
+075B C0E0      1836            push    acc
+075D 120000    1837            lcall   _printf
+0760 E581      1838            mov     a,sp
+0762 24F9      1839            add     a,#0xf9
+0764 F581      1840            mov     sp,a
+0766           1841   ;        D:\clone\LAB5\lab5v1.c:389: waitms(500); 
+0766 9001F4    1842            mov     dptr,#0x01F4
+0769 120000    1843            lcall   _waitms
+076C 020000    1844            ljmp    L017062?
+076F           1845            rseg R_CSEG
+076F           1846   
+0000           1847            rseg R_XINIT
+0000           1848   
+0000           1849            rseg R_CONST
+0000           1850   __str_0:
+0000 1B        1851            db 0x1B
+0001 5B324A    1852            db '[2J'
+0004 00        1853            db 0x00
+0005           1854   __str_1:
+0005 41444320  1855            db 'ADC test program'
      74657374
      2070726F
      6772616D
-0015 0A        1855            db 0x0A
-0016 46696C65  1856            db 'File: %s'
+0015 0A        1856            db 0x0A
+0016 46696C65  1857            db 'File: %s'
      3A202573
-001E 0A        1857            db 0x0A
-001F 436F6D70  1858            db 'Compiled: %s, %s'
+001E 0A        1858            db 0x0A
+001F 436F6D70  1859            db 'Compiled: %s, %s'
      696C6564
      3A202573
      2C202573
-002F 0A        1859            db 0x0A
-0030 0A        1860            db 0x0A
-0031 00        1861            db 0x00
-0032           1862   __str_2:
-0032 443A      1863            db 'D:'
-0034 5C        1864            db 0x5C
-0035 636C6F6E  1865            db 'clone'
+002F 0A        1860            db 0x0A
+0030 0A        1861            db 0x0A
+0031 00        1862            db 0x00
+0032           1863   __str_2:
+0032 443A      1864            db 'D:'
+0034 5C        1865            db 0x5C
+0035 636C6F6E  1866            db 'clone'
      65
-003A 5C        1866            db 0x5C
-003B 4C414235  1867            db 'LAB5'
-003F 5C        1868            db 0x5C
-0040 6C616235  1869            db 'lab5v1.c'
+003A 5C        1867            db 0x5C
+003B 4C414235  1868            db 'LAB5'
+003F 5C        1869            db 0x5C
+0040 6C616235  1870            db 'lab5v1.c'
      76312E63
-0048 00        1870            db 0x00
-0049           1871   __str_3:
-0049 4D617220  1872            db 'Mar  6 2024'
+0048 00        1871            db 0x00
+0049           1872   __str_3:
+0049 4D617220  1873            db 'Mar  6 2024'
      20362032
      303234
-0054 00        1873            db 0x00
-0055           1874   __str_4:
-0055 31313A33  1875            db '11:32:47'
-     323A3437
-005D 00        1876            db 0x00
-005E           1877   __str_5:
-005E 76723A20  1878            db 'vr:     f:    Hz'
+0054 00        1874            db 0x00
+0055           1875   __str_4:
+0055 31313A35  1876            db '11:55:13'
+     353A3133
+005D 00        1877            db 0x00
+005E           1878   __str_5:
+005E 76723A20  1879            db 'vr:     f:    Hz'
      20202020
      663A2020
      2020487A
-006E 00        1879            db 0x00
-006F           1880   __str_6:
-006F 76743A20  1881            db 'vt:     pha:    '
+006E 00        1880            db 0x00
+006F           1881   __str_6:
+006F 76743A20  1882            db 'vt:     pha:    '
      20202020
      7068613A
      20202020
-007F 00        1882            db 0x00
-0080           1883   __str_7:
-0080 0A        1884            db 0x0A
-0081 70657269  1885            db 'period=%3.2f'
+007F 00        1883            db 0x00
+0080           1884   __str_7:
+0080 0A        1885            db 0x0A
+0081 70657269  1886            db 'period=%3.2f'
      6F643D25
      332E3266
-008D 0D        1886            db 0x0D
-008E 00        1887            db 0x00
-008F           1888   __str_8:
-008F 0A        1889            db 0x0A
-0090 56405031  1890            db 'V@P1_4=%7.5fV, V@P1_5=%7.5fV'
+008D 0D        1887            db 0x0D
+008E 00        1888            db 0x00
+008F           1889   __str_8:
+008F 0A        1890            db 0x0A
+0090 56405031  1891            db 'V@P1_4=%7.5fV, V@P1_5=%7.5fV'
      5F343D25
      372E3566
      562C2056
      4050315F
      353D2537
      2E356656
-00AC 0D        1891            db 0x0D
-00AD 00        1892            db 0x00
-00AE           1893   __str_9:
-00AE 0D        1894            db 0x0D
-00AF 0A        1895            db 0x0A
-00B0 64656772  1896            db 'degrees: %f'
+00AC 0D        1892            db 0x0D
+00AD 00        1893            db 0x00
+00AE           1894   __str_9:
+00AE 0D        1895            db 0x0D
+00AF 0A        1896            db 0x0A
+00B0 64656772  1897            db 'degrees: %f'
      6565733A
      202566
-00BB 00        1897            db 0x00
-00BC           1898   
-0003           1899            CSEG
-0003           1900   
-0003           1901   end
+00BB 00        1898            db 0x00
+00BC           1899   
+0003           1900            CSEG
+0003           1901   
+0003           1902   end

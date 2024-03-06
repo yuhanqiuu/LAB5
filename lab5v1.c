@@ -370,7 +370,7 @@ void main (void)
     while(P0_1==1);
     while(P0_1==0);
     while(P0_1==1){
-        while(P0_2==0){
+        while(P0_2==0&&P0_1==1){
             TR0=1;
             if(TF0==1) // Did the 16-bit timer overflow?
             {
