@@ -314,7 +314,7 @@ void main (void)
     LCDprint("vr:     f:    Hz",1,1);
     LCDprint("vt:     pha:    ",2,1);
 
-
+    while(1){
     for (i = 0; i < 10; i++){
         // Reset the counter
         TL0=0; 
@@ -346,8 +346,18 @@ void main (void)
             mst = period;
             printf("\r\n%3.2f",mst*1000);
             waitms(1);
-            
-    }
+        
+// Read 14-bit value from the pins configured as analog inputs
+    v[0] = Volts_at_Pin(QFP32_MUX_P1_4);
+    v[1] = Volts_at_Pin(QFP32_MUX_P1_5);
+
+    printf ("\nV@P1_4=%7.5fV, V@P1_5=%7.5fV\r",v[0], v[1]);
+    waitms(500);
+   
+}
+
+    
+	
     // Reset the counter
        /* TL0=0; 
         TH0=0;
@@ -358,6 +368,6 @@ void main (void)
         TR0=1; // Start the timer
         waitms(mst*1000/4);
         */ 
-        
+	}  
 
 }
