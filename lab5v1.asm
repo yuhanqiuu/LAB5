@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by C51
 ; Version 1.0.0 #1170 (Feb 16 2022) (MSVC)
-; This file was generated Wed Mar 06 11:55:14 2024
+; This file was generated Wed Mar 06 13:10:57 2024
 ;--------------------------------------------------------
 $name lab5v1
 $optc51 --model-small
@@ -503,6 +503,8 @@ _main_i_1_75:
 _main_vmax1_1_75:
 	ds 4
 _main_vmax2_1_75:
+	ds 4
+_main_p_n_1_75:
 	ds 4
 _main_sloc0_1_0:
 	ds 4
@@ -1188,6 +1190,7 @@ L016001?:
 ;vmax2                     Allocated with name '_main_vmax2_1_75'
 ;phase_diff                Allocated to registers r2 r3 r4 r5 
 ;degrees                   Allocated to registers r2 r3 r4 r5 
+;p_n                       Allocated with name '_main_p_n_1_75'
 ;sloc0                     Allocated with name '_main_sloc0_1_0'
 ;v                         Allocated with name '_main_v_1_75'
 ;------------------------------------------------------------
@@ -1211,14 +1214,19 @@ _main:
 	mov	(_main_vmax2_1_75 + 1),#0x00
 	mov	(_main_vmax2_1_75 + 2),#0x00
 	mov	(_main_vmax2_1_75 + 3),#0x00
-;	D:\clone\LAB5\lab5v1.c:302: TIMER0_Init();
+;	D:\clone\LAB5\lab5v1.c:302: float p_n=0.0;
+	mov	_main_p_n_1_75,#0x00
+	mov	(_main_p_n_1_75 + 1),#0x00
+	mov	(_main_p_n_1_75 + 2),#0x00
+	mov	(_main_p_n_1_75 + 3),#0x00
+;	D:\clone\LAB5\lab5v1.c:303: TIMER0_Init();
 	lcall	_TIMER0_Init
-;	D:\clone\LAB5\lab5v1.c:303: LCD_4BIT();
+;	D:\clone\LAB5\lab5v1.c:304: LCD_4BIT();
 	lcall	_LCD_4BIT
-;	D:\clone\LAB5\lab5v1.c:305: waitms(500); // Give PuTTy a chance to start before sending
+;	D:\clone\LAB5\lab5v1.c:306: waitms(500); // Give PuTTy a chance to start before sending
 	mov	dptr,#0x01F4
 	lcall	_waitms
-;	D:\clone\LAB5\lab5v1.c:306: printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
+;	D:\clone\LAB5\lab5v1.c:307: printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
 	mov	a,#__str_0
 	push	acc
 	mov	a,#(__str_0 >> 8)
@@ -1229,8 +1237,8 @@ _main:
 	dec	sp
 	dec	sp
 	dec	sp
-;	D:\clone\LAB5\lab5v1.c:311: __FILE__, __DATE__, __TIME__);
-;	D:\clone\LAB5\lab5v1.c:310: "Compiled: %s, %s\n\n",
+;	D:\clone\LAB5\lab5v1.c:312: __FILE__, __DATE__, __TIME__);
+;	D:\clone\LAB5\lab5v1.c:311: "Compiled: %s, %s\n\n",
 	mov	a,#__str_4
 	push	acc
 	mov	a,#(__str_4 >> 8)
@@ -1259,85 +1267,85 @@ _main:
 	mov	a,sp
 	add	a,#0xf4
 	mov	sp,a
-;	D:\clone\LAB5\lab5v1.c:313: InitPinADC(1, 4); // Configure P1.6 as analog input
+;	D:\clone\LAB5\lab5v1.c:314: InitPinADC(1, 4); // Configure P1.6 as analog input
 	mov	_InitPinADC_PARM_2,#0x04
 	mov	dpl,#0x01
 	lcall	_InitPinADC
-;	D:\clone\LAB5\lab5v1.c:314: InitPinADC(1, 5); // Configure P1.7 as analog input
+;	D:\clone\LAB5\lab5v1.c:315: InitPinADC(1, 5); // Configure P1.7 as analog input
 	mov	_InitPinADC_PARM_2,#0x05
 	mov	dpl,#0x01
 	lcall	_InitPinADC
-;	D:\clone\LAB5\lab5v1.c:316: InitADC();
+;	D:\clone\LAB5\lab5v1.c:317: InitADC();
 	lcall	_InitADC
-;	D:\clone\LAB5\lab5v1.c:318: LCDprint("vr:     f:    Hz",1,1);
+;	D:\clone\LAB5\lab5v1.c:319: LCDprint("vr:     f:    Hz",1,1);
 	mov	_LCDprint_PARM_2,#0x01
 	setb	_LCDprint_PARM_3
 	mov	dptr,#__str_5
 	mov	b,#0x80
 	lcall	_LCDprint
-;	D:\clone\LAB5\lab5v1.c:319: LCDprint("vt:     pha:    ",2,1);
+;	D:\clone\LAB5\lab5v1.c:320: LCDprint("vt:     pha:    ",2,1);
 	mov	_LCDprint_PARM_2,#0x02
 	setb	_LCDprint_PARM_3
 	mov	dptr,#__str_6
 	mov	b,#0x80
 	lcall	_LCDprint
-;	D:\clone\LAB5\lab5v1.c:322: for (i = 0; i < 10; i++){
-L017062?:
+;	D:\clone\LAB5\lab5v1.c:323: for (i = 0; i < 10; i++){
+L017070?:
 	clr	a
 	mov	_main_i_1_75,a
 	mov	(_main_i_1_75 + 1),a
-L017041?:
+L017049?:
 	clr	c
 	mov	a,_main_i_1_75
 	subb	a,#0x0A
 	mov	a,(_main_i_1_75 + 1)
 	xrl	a,#0x80
 	subb	a,#0x80
-	jc	L017077?
-	ljmp	L017044?
-L017077?:
-;	D:\clone\LAB5\lab5v1.c:324: TL0=0; 
+	jc	L017089?
+	ljmp	L017052?
+L017089?:
+;	D:\clone\LAB5\lab5v1.c:325: TL0=0; 
 	mov	_TL0,#0x00
-;	D:\clone\LAB5\lab5v1.c:325: TH0=0;
+;	D:\clone\LAB5\lab5v1.c:326: TH0=0;
 	mov	_TH0,#0x00
-;	D:\clone\LAB5\lab5v1.c:326: TF0=0;
+;	D:\clone\LAB5\lab5v1.c:327: TF0=0;
 	clr	_TF0
-;	D:\clone\LAB5\lab5v1.c:327: overflow_count=0;
+;	D:\clone\LAB5\lab5v1.c:328: overflow_count=0;
 	mov	_overflow_count,#0x00
-;	D:\clone\LAB5\lab5v1.c:328: while(P0_1!=0); // Wait for the signal to be zero
+;	D:\clone\LAB5\lab5v1.c:329: while(P0_1!=0); // Wait for the signal to be zero
 L017001?:
 	jb	_P0_1,L017001?
-;	D:\clone\LAB5\lab5v1.c:329: while(P0_1!=1); // Wait for the signal to be one
+;	D:\clone\LAB5\lab5v1.c:330: while(P0_1!=1); // Wait for the signal to be one
 L017004?:
 	jnb	_P0_1,L017004?
-;	D:\clone\LAB5\lab5v1.c:330: TR0=1; // Start the timer
+;	D:\clone\LAB5\lab5v1.c:331: TR0=1; // Start the timer
 	setb	_TR0
-;	D:\clone\LAB5\lab5v1.c:331: while(P0_1!=0) // Wait for the signal to be zero
+;	D:\clone\LAB5\lab5v1.c:332: while(P0_1!=0) // Wait for the signal to be zero
 L017009?:
 	jnb	_P0_1,L017014?
-;	D:\clone\LAB5\lab5v1.c:333: if(TF0==1) // Did the 16-bit timer overflow?
-;	D:\clone\LAB5\lab5v1.c:335: TF0=0;
-	jbc	_TF0,L017081?
+;	D:\clone\LAB5\lab5v1.c:334: if(TF0==1) // Did the 16-bit timer overflow?
+;	D:\clone\LAB5\lab5v1.c:336: TF0=0;
+	jbc	_TF0,L017093?
 	sjmp	L017009?
-L017081?:
-;	D:\clone\LAB5\lab5v1.c:336: overflow_count++;
+L017093?:
+;	D:\clone\LAB5\lab5v1.c:337: overflow_count++;
 	inc	_overflow_count
-;	D:\clone\LAB5\lab5v1.c:339: while(P0_1!=1) // Wait for the signal to be one
+;	D:\clone\LAB5\lab5v1.c:340: while(P0_1!=1) // Wait for the signal to be one
 	sjmp	L017009?
 L017014?:
 	jb	_P0_1,L017016?
-;	D:\clone\LAB5\lab5v1.c:341: if(TF0==1) // Did the 16-bit timer overflow?
-;	D:\clone\LAB5\lab5v1.c:343: TF0=0;
-	jbc	_TF0,L017083?
+;	D:\clone\LAB5\lab5v1.c:342: if(TF0==1) // Did the 16-bit timer overflow?
+;	D:\clone\LAB5\lab5v1.c:344: TF0=0;
+	jbc	_TF0,L017095?
 	sjmp	L017014?
-L017083?:
-;	D:\clone\LAB5\lab5v1.c:344: overflow_count++;
+L017095?:
+;	D:\clone\LAB5\lab5v1.c:345: overflow_count++;
 	inc	_overflow_count
 	sjmp	L017014?
 L017016?:
-;	D:\clone\LAB5\lab5v1.c:347: TR0=0; // Stop timer 0, the 24-bit number [overflow_count-TH0-TL0] has the period!
+;	D:\clone\LAB5\lab5v1.c:348: TR0=0; // Stop timer 0, the 24-bit number [overflow_count-TH0-TL0] has the period!
 	clr	_TR0
-;	D:\clone\LAB5\lab5v1.c:348: period=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
+;	D:\clone\LAB5\lab5v1.c:349: period=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
 	mov	dpl,_overflow_count
 	lcall	___uchar2fs
 	mov	r6,dpl
@@ -1436,7 +1444,7 @@ L017016?:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	D:\clone\LAB5\lab5v1.c:349: if (period > mst){
+;	D:\clone\LAB5\lab5v1.c:350: if (period > mst){
 	push	ar2
 	push	ar3
 	push	ar4
@@ -1460,37 +1468,37 @@ L017016?:
 	pop	ar2
 	mov	a,r6
 	jz	L017018?
-;	D:\clone\LAB5\lab5v1.c:350: mst = period;
+;	D:\clone\LAB5\lab5v1.c:351: mst = period;
 	mov	_main_mst_1_75,r2
 	mov	(_main_mst_1_75 + 1),r3
 	mov	(_main_mst_1_75 + 2),r4
 	mov	(_main_mst_1_75 + 3),r5
 L017018?:
-;	D:\clone\LAB5\lab5v1.c:352: waitms(1);
+;	D:\clone\LAB5\lab5v1.c:353: waitms(1);
 	mov	dptr,#0x0001
 	lcall	_waitms
-;	D:\clone\LAB5\lab5v1.c:322: for (i = 0; i < 10; i++){
+;	D:\clone\LAB5\lab5v1.c:323: for (i = 0; i < 10; i++){
 	inc	_main_i_1_75
 	clr	a
-	cjne	a,_main_i_1_75,L017085?
+	cjne	a,_main_i_1_75,L017097?
 	inc	(_main_i_1_75 + 1)
-L017085?:
-	ljmp	L017041?
-L017044?:
-;	D:\clone\LAB5\lab5v1.c:354: for(i=0;i<20;i++){
+L017097?:
+	ljmp	L017049?
+L017052?:
+;	D:\clone\LAB5\lab5v1.c:355: for(i=0;i<20;i++){
 	mov	r2,#0x00
 	mov	r3,#0x00
-L017045?:
+L017053?:
 	clr	c
 	mov	a,r2
 	subb	a,#0x14
 	mov	a,r3
 	xrl	a,#0x80
 	subb	a,#0x80
-	jc	L017086?
-	ljmp	L017048?
-L017086?:
-;	D:\clone\LAB5\lab5v1.c:355: v[0] = Volts_at_Pin(QFP32_MUX_P1_4);
+	jc	L017098?
+	ljmp	L017056?
+L017098?:
+;	D:\clone\LAB5\lab5v1.c:356: v[0] = Volts_at_Pin(QFP32_MUX_P1_4);
 	mov	dpl,#0x0A
 	push	ar2
 	push	ar3
@@ -1507,7 +1515,7 @@ L017086?:
 	mov	@r0,ar6
 	inc	r0
 	mov	@r0,ar7
-;	D:\clone\LAB5\lab5v1.c:356: v[1] = Volts_at_Pin(QFP32_MUX_P1_5);
+;	D:\clone\LAB5\lab5v1.c:357: v[1] = Volts_at_Pin(QFP32_MUX_P1_5);
 	mov	dpl,#0x0B
 	lcall	_Volts_at_Pin
 	mov	r4,dpl
@@ -1522,7 +1530,7 @@ L017086?:
 	mov	@r0,ar6
 	inc	r0
 	mov	@r0,ar7
-;	D:\clone\LAB5\lab5v1.c:357: if(vmax1<v[0]){
+;	D:\clone\LAB5\lab5v1.c:358: if(vmax1<v[0]){
 	mov	r0,#_main_v_1_75
 	mov	ar4,@r0
 	inc	r0
@@ -1548,7 +1556,7 @@ L017086?:
 	pop	ar2
 	mov	a,r4
 	jz	L017020?
-;	D:\clone\LAB5\lab5v1.c:358: vmax1=v[0];
+;	D:\clone\LAB5\lab5v1.c:359: vmax1=v[0];
 	mov	r0,#_main_v_1_75
 	mov	_main_vmax1_1_75,@r0
 	inc	r0
@@ -1558,7 +1566,7 @@ L017086?:
 	inc	r0
 	mov	(_main_vmax1_1_75 + 3),@r0
 L017020?:
-;	D:\clone\LAB5\lab5v1.c:360: if(vmax2<v[1]){
+;	D:\clone\LAB5\lab5v1.c:361: if(vmax2<v[1]){
 	mov	r0,#(_main_v_1_75 + 0x0004)
 	mov	ar4,@r0
 	inc	r0
@@ -1586,7 +1594,7 @@ L017020?:
 	pop	ar2
 	mov	a,r4
 	jz	L017022?
-;	D:\clone\LAB5\lab5v1.c:361: vmax2=v[1];
+;	D:\clone\LAB5\lab5v1.c:362: vmax2=v[1];
 	mov	r0,#(_main_v_1_75 + 0x0004)
 	mov	_main_vmax2_1_75,@r0
 	inc	r0
@@ -1596,21 +1604,21 @@ L017020?:
 	inc	r0
 	mov	(_main_vmax2_1_75 + 3),@r0
 L017022?:
-;	D:\clone\LAB5\lab5v1.c:363: waitms(1); 
+;	D:\clone\LAB5\lab5v1.c:364: waitms(1); 
 	mov	dptr,#0x0001
 	push	ar2
 	push	ar3
 	lcall	_waitms
 	pop	ar3
 	pop	ar2
-;	D:\clone\LAB5\lab5v1.c:354: for(i=0;i<20;i++){
+;	D:\clone\LAB5\lab5v1.c:355: for(i=0;i<20;i++){
 	inc	r2
-	cjne	r2,#0x00,L017089?
+	cjne	r2,#0x00,L017101?
 	inc	r3
-L017089?:
-	ljmp	L017045?
-L017048?:
-;	D:\clone\LAB5\lab5v1.c:365: printf("\nperiod=%3.2f\r",mst*1000);
+L017101?:
+	ljmp	L017053?
+L017056?:
+;	D:\clone\LAB5\lab5v1.c:366: printf("\nperiod=%3.2f\r",mst*1000);
 	push	_main_mst_1_75
 	push	(_main_mst_1_75 + 1)
 	push	(_main_mst_1_75 + 2)
@@ -1640,7 +1648,7 @@ L017048?:
 	mov	a,sp
 	add	a,#0xf9
 	mov	sp,a
-;	D:\clone\LAB5\lab5v1.c:366: printf ("\nV@P1_4=%7.5fV, V@P1_5=%7.5fV\r",vmax1, vmax2);
+;	D:\clone\LAB5\lab5v1.c:367: printf ("\nV@P1_4=%7.5fV, V@P1_5=%7.5fV\r",vmax1, vmax2);
 	push	_main_vmax2_1_75
 	push	(_main_vmax2_1_75 + 1)
 	push	(_main_vmax2_1_75 + 2)
@@ -1659,40 +1667,64 @@ L017048?:
 	mov	a,sp
 	add	a,#0xf5
 	mov	sp,a
-;	D:\clone\LAB5\lab5v1.c:369: TL0=0; TH0=0; TF0=0;overflow_count=0;
+;	D:\clone\LAB5\lab5v1.c:369: while(P0_1==0&&P0_2==0);
+L017024?:
+	jb	_P0_1,L017026?
+	jnb	_P0_2,L017024?
+L017026?:
+;	D:\clone\LAB5\lab5v1.c:370: if(P0_1==1){
+	jnb	_P0_1,L017028?
+;	D:\clone\LAB5\lab5v1.c:371: p_n=1;
+	mov	_main_p_n_1_75,#0x00
+	mov	(_main_p_n_1_75 + 1),#0x00
+	mov	(_main_p_n_1_75 + 2),#0x80
+	mov	(_main_p_n_1_75 + 3),#0x3F
+L017028?:
+;	D:\clone\LAB5\lab5v1.c:373: if(P0_2==1){
+	jnb	_P0_2,L017030?
+;	D:\clone\LAB5\lab5v1.c:374: p_n=-1;
+	mov	_main_p_n_1_75,#0x00
+	mov	(_main_p_n_1_75 + 1),#0x00
+	mov	(_main_p_n_1_75 + 2),#0x80
+	mov	(_main_p_n_1_75 + 3),#0xBF
+L017030?:
+;	D:\clone\LAB5\lab5v1.c:376: waitms(1);
+	mov	dptr,#0x0001
+	lcall	_waitms
+;	D:\clone\LAB5\lab5v1.c:377: TL0=0; TH0=0; TF0=0;overflow_count=0;
 	mov	_TL0,#0x00
 	mov	_TH0,#0x00
 	clr	_TF0
 	mov	_overflow_count,#0x00
-;	D:\clone\LAB5\lab5v1.c:370: while(P0_1==1);
-L017023?:
-	jb	_P0_1,L017023?
-;	D:\clone\LAB5\lab5v1.c:371: while(P0_1==0);
-L017026?:
-	jnb	_P0_1,L017026?
-;	D:\clone\LAB5\lab5v1.c:372: while(P0_1==1){
-L017035?:
-	jnb	_P0_1,L017037?
-;	D:\clone\LAB5\lab5v1.c:373: while(P0_2==0&&P0_1==1){
-L017032?:
-	jb	_P0_2,L017034?
-	jnb	_P0_1,L017034?
-;	D:\clone\LAB5\lab5v1.c:374: TR0=1;
-	setb	_TR0
-;	D:\clone\LAB5\lab5v1.c:375: if(TF0==1) // Did the 16-bit timer overflow?
-;	D:\clone\LAB5\lab5v1.c:377: TF0=0;
-	jbc	_TF0,L017095?
-	sjmp	L017032?
-L017095?:
-;	D:\clone\LAB5\lab5v1.c:378: overflow_count++;
-	inc	_overflow_count
-	sjmp	L017032?
+;	D:\clone\LAB5\lab5v1.c:378: while(P0_1==1);
+L017031?:
+	jb	_P0_1,L017031?
+;	D:\clone\LAB5\lab5v1.c:379: while(P0_1==0);
 L017034?:
-;	D:\clone\LAB5\lab5v1.c:382: TR0=0; 
+	jnb	_P0_1,L017034?
+;	D:\clone\LAB5\lab5v1.c:380: while(P0_1==1){
+L017043?:
+	jnb	_P0_1,L017045?
+;	D:\clone\LAB5\lab5v1.c:381: while(P0_2==0&&P0_1==1){
+L017040?:
+	jb	_P0_2,L017042?
+	jnb	_P0_1,L017042?
+;	D:\clone\LAB5\lab5v1.c:382: TR0=1;
+	setb	_TR0
+;	D:\clone\LAB5\lab5v1.c:383: if(TF0==1) // Did the 16-bit timer overflow?
+;	D:\clone\LAB5\lab5v1.c:385: TF0=0;
+	jbc	_TF0,L017111?
+	sjmp	L017040?
+L017111?:
+;	D:\clone\LAB5\lab5v1.c:386: overflow_count++;
+	inc	_overflow_count
+	sjmp	L017040?
+L017042?:
+;	D:\clone\LAB5\lab5v1.c:390: TR0=0; 
 	clr	_TR0
-	sjmp	L017035?
-L017037?:
-;	D:\clone\LAB5\lab5v1.c:384: phase_diff=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
+	sjmp	L017043?
+L017045?:
+;	D:\clone\LAB5\lab5v1.c:392: phase_diff=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
 	mov	dpl,_overflow_count
 	lcall	___uchar2fs
 	mov	r2,dpl
@@ -1791,7 +1823,23 @@ L017037?:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	D:\clone\LAB5\lab5v1.c:385: degrees = phase_diff*360/mst ;
+;	D:\clone\LAB5\lab5v1.c:394: degrees = p_n*phase_diff*360/mst ;
+	push	ar2
+	push	ar3
+	push	ar4
+	push	ar5
+	mov	dpl,_main_p_n_1_75
+	mov	dph,(_main_p_n_1_75 + 1)
+	mov	b,(_main_p_n_1_75 + 2)
+	mov	a,(_main_p_n_1_75 + 3)
+	lcall	___fsmul
+	mov	r2,dpl
+	mov	r3,dph
+	mov	r4,b
+	mov	r5,a
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
 	push	ar2
 	push	ar3
 	push	ar4
@@ -1823,7 +1871,7 @@ L017037?:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	D:\clone\LAB5\lab5v1.c:387: printf("\r\ndegrees: %f", degrees);
+;	D:\clone\LAB5\lab5v1.c:396: printf("\r\ndegrees: %f", degrees);
 	push	ar2
 	push	ar3
 	push	ar4
@@ -1838,10 +1886,10 @@ L017037?:
 	mov	a,sp
 	add	a,#0xf9
 	mov	sp,a
-;	D:\clone\LAB5\lab5v1.c:389: waitms(500); 
+;	D:\clone\LAB5\lab5v1.c:398: waitms(500); 
 	mov	dptr,#0x01F4
 	lcall	_waitms
-	ljmp	L017062?
+	ljmp	L017070?
 	rseg R_CSEG
 
 	rseg R_XINIT
@@ -1873,7 +1921,7 @@ __str_3:
 	db 'Mar  6 2024'
 	db 0x00
 __str_4:
-	db '11:55:13'
+	db '13:10:56'
 	db 0x00
 __str_5:
 	db 'vr:     f:    Hz'

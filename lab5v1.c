@@ -299,6 +299,7 @@ void main (void)
     float vmax2=0.0;
     float phase_diff = 0.0;
     float degrees;
+    float p_n=0.0;
     TIMER0_Init();
     LCD_4BIT();
 
@@ -317,7 +318,7 @@ void main (void)
     //        0123456789012345
     LCDprint("vr:     f:    Hz",1,1);
     LCDprint("vt:     pha:    ",2,1);
-
+    
     while(1){
     for (i = 0; i < 10; i++){
         // Reset the counter
@@ -365,7 +366,14 @@ void main (void)
     printf("\nperiod=%3.2f\r",mst*1000);
     printf ("\nV@P1_4=%7.5fV, V@P1_5=%7.5fV\r",vmax1, vmax2);
 
-
+    while(P0_1==0&&P0_2==0);
+    if(P0_1==1){
+	  p_n=1;
+	}
+	if(P0_2==1){
+	  p_n=-1;
+	}
+	waitms(1);
     TL0=0; TH0=0; TF0=0;overflow_count=0;
     while(P0_1==1);
     while(P0_1==0);
@@ -382,12 +390,14 @@ void main (void)
         TR0=0; 
     }
     phase_diff=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
-    degrees = phase_diff*360/mst ;
+    
+    degrees = p_n*phase_diff*360/mst ;
     //printf("\r\nphase_diff: %f", phase_diff);
     printf("\r\ndegrees: %f", degrees);
 
     waitms(500); 
 
+}
 }  
 
-}
+
