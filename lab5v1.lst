@@ -1,7 +1,7 @@
 0000              1   ;--------------------------------------------------------
 0000              2   ; File Created by C51
 0000              3   ; Version 1.0.0 #1170 (Feb 16 2022) (MSVC)
-0000              4   ; This file was generated Tue Mar 05 19:50:55 2024
+0000              4   ; This file was generated Wed Mar 06 11:32:47 2024
 0000              5   ;--------------------------------------------------------
                   5   $name lab5v1
                   6   $optc51 --model-small
@@ -500,1122 +500,1430 @@
 0002            500            ds 4
 0006            501   _main_i_1_75:
 0006            502            ds 2
-0008            503   _main_sloc0_1_0:
+0008            503   _main_vmax1_1_75:
 0008            504            ds 4
-000C            505   ;--------------------------------------------------------
-000C            506   ; overlayable items in internal ram 
-000C            507   ;--------------------------------------------------------
-0000            508            rseg    R_OSEG
-0000            509            rseg    R_OSEG
-0000            510   _InitPinADC_PARM_2:
-0000            511            ds 1
-0001            512            rseg    R_OSEG
-0001            513   ;--------------------------------------------------------
-0001            514   ; indirectly addressable internal ram data
-0001            515   ;--------------------------------------------------------
-0000            516            rseg R_ISEG
-0000            517   _main_v_1_75:
-0000            518            ds 8
-0008            519   ;--------------------------------------------------------
-0008            520   ; absolute internal ram data
-0008            521   ;--------------------------------------------------------
-0000            522            DSEG
-0000            523   ;--------------------------------------------------------
-0000            524   ; bit data
-0000            525   ;--------------------------------------------------------
-0000            526            rseg R_BSEG
-0000            527   _LCDprint_PARM_3:
-0000            528            DBIT    1
-0001            529   ;--------------------------------------------------------
-0001            530   ; paged external ram data
-0001            531   ;--------------------------------------------------------
-0000            532            rseg R_PSEG
-0000            533   ;--------------------------------------------------------
-0000            534   ; external ram data
-0000            535   ;--------------------------------------------------------
-0000            536            rseg R_XSEG
+000C            505   _main_vmax2_1_75:
+000C            506            ds 4
+0010            507   _main_sloc0_1_0:
+0010            508            ds 4
+0014            509   ;--------------------------------------------------------
+0014            510   ; overlayable items in internal ram 
+0014            511   ;--------------------------------------------------------
+0000            512            rseg    R_OSEG
+0000            513            rseg    R_OSEG
+0000            514   _InitPinADC_PARM_2:
+0000            515            ds 1
+0001            516            rseg    R_OSEG
+0001            517   ;--------------------------------------------------------
+0001            518   ; indirectly addressable internal ram data
+0001            519   ;--------------------------------------------------------
+0000            520            rseg R_ISEG
+0000            521   _main_v_1_75:
+0000            522            ds 8
+0008            523   ;--------------------------------------------------------
+0008            524   ; absolute internal ram data
+0008            525   ;--------------------------------------------------------
+0000            526            DSEG
+0000            527   ;--------------------------------------------------------
+0000            528   ; bit data
+0000            529   ;--------------------------------------------------------
+0000            530            rseg R_BSEG
+0000            531   _LCDprint_PARM_3:
+0000            532            DBIT    1
+0001            533   ;--------------------------------------------------------
+0001            534   ; paged external ram data
+0001            535   ;--------------------------------------------------------
+0000            536            rseg R_PSEG
 0000            537   ;--------------------------------------------------------
-0000            538   ; absolute external ram data
+0000            538   ; external ram data
 0000            539   ;--------------------------------------------------------
-0000            540            XSEG
+0000            540            rseg R_XSEG
 0000            541   ;--------------------------------------------------------
-0000            542   ; external initialized ram data
+0000            542   ; absolute external ram data
 0000            543   ;--------------------------------------------------------
-0000            544            rseg R_IXSEG
-0000            545            rseg R_HOME
-0000            546            rseg R_GSINIT
-0000            547            rseg R_CSEG
-0000            548   ;--------------------------------------------------------
-0000            549   ; Reset entry point and interrupt vectors
-0000            550   ;--------------------------------------------------------
-0000            551            CSEG at 0x0000
-0000 020000     552            ljmp    _crt0
-0003            553   ;--------------------------------------------------------
-0003            554   ; global & static initialisations
-0003            555   ;--------------------------------------------------------
-0000            556            rseg R_HOME
-0000            557            rseg R_GSINIT
-0000            558            rseg R_GSINIT
-0000            559   ;--------------------------------------------------------
-0000            560   ; data variables initialization
-0000            561   ;--------------------------------------------------------
-0000            562            rseg R_DINIT
-0000            563            ; The linker places a 'ret' at the end of segment R_DINIT.
-0000            564   ;--------------------------------------------------------
-0000            565   ; code
-0000            566   ;--------------------------------------------------------
-0000            567            rseg R_CSEG
-0000            568   ;------------------------------------------------------------
-0000            569   ;Allocation info for local variables in function '_c51_external_startup'
-0000            570   ;------------------------------------------------------------
-0000            571   ;------------------------------------------------------------
-0000            572   ;        D:\clone\LAB5\lab5v1.c:28: char _c51_external_startup (void)
-0000            573   ;        -----------------------------------------
-0000            574   ;         function _c51_external_startup
-0000            575   ;        -----------------------------------------
-0000            576   __c51_external_startup:
-0000            577            using   0
-0000            578   ;        D:\clone\LAB5\lab5v1.c:31: SFRPAGE = 0x00;
-0000 75A700     579            mov     _SFRPAGE,#0x00
-0003            580   ;        D:\clone\LAB5\lab5v1.c:32: WDTCN = 0xDE; //First key
-0003 7597DE     581            mov     _WDTCN,#0xDE
-0006            582   ;        D:\clone\LAB5\lab5v1.c:33: WDTCN = 0xAD; //Second key
-0006 7597AD     583            mov     _WDTCN,#0xAD
-0009            584   ;        D:\clone\LAB5\lab5v1.c:35: VDM0CN=0x80;       // enable VDD monitor
-0009 75FF80     585            mov     _VDM0CN,#0x80
-000C            586   ;        D:\clone\LAB5\lab5v1.c:36: RSTSRC=0x02|0x04;  // Enable reset on missing clock detector and VDD
-000C 75EF06     587            mov     _RSTSRC,#0x06
-000F            588   ;        D:\clone\LAB5\lab5v1.c:43: SFRPAGE = 0x10;
-000F 75A710     589            mov     _SFRPAGE,#0x10
-0012            590   ;        D:\clone\LAB5\lab5v1.c:44: PFE0CN  = 0x20; // SYSCLK < 75 MHz.
-0012 75C120     591            mov     _PFE0CN,#0x20
-0015            592   ;        D:\clone\LAB5\lab5v1.c:45: SFRPAGE = 0x00;
-0015 75A700     593            mov     _SFRPAGE,#0x00
-0018            594   ;        D:\clone\LAB5\lab5v1.c:66: CLKSEL = 0x00;
-0018 75A900     595            mov     _CLKSEL,#0x00
-001B            596   ;        D:\clone\LAB5\lab5v1.c:67: CLKSEL = 0x00;
-001B 75A900     597            mov     _CLKSEL,#0x00
-001E            598   ;        D:\clone\LAB5\lab5v1.c:68: while ((CLKSEL & 0x80) == 0);
-001E            599   L002001?:
-001E E5A9       600            mov     a,_CLKSEL
-0020 30E7F0     601            jnb     acc.7,L002001?
-0023            602   ;        D:\clone\LAB5\lab5v1.c:69: CLKSEL = 0x03;
-0023 75A903     603            mov     _CLKSEL,#0x03
-0026            604   ;        D:\clone\LAB5\lab5v1.c:70: CLKSEL = 0x03;
-0026 75A903     605            mov     _CLKSEL,#0x03
-0029            606   ;        D:\clone\LAB5\lab5v1.c:71: while ((CLKSEL & 0x80) == 0);
-0029            607   L002004?:
-0029 E5A9       608            mov     a,_CLKSEL
-002B 30E770     609            jnb     acc.7,L002004?
-002E            610   ;        D:\clone\LAB5\lab5v1.c:76: P0MDOUT |= 0x10; // Enable UART0 TX as push-pull output
-002E 43A410     611            orl     _P0MDOUT,#0x10
-0031            612   ;        D:\clone\LAB5\lab5v1.c:77: XBR0     = 0x01; // Enable UART0 on P0.4(TX) and P0.5(RX)                     
-0031 75E101     613            mov     _XBR0,#0x01
-0034            614   ;        D:\clone\LAB5\lab5v1.c:78: XBR1     = 0X00;
-0034 75E200     615            mov     _XBR1,#0x00
-0037            616   ;        D:\clone\LAB5\lab5v1.c:79: XBR2     = 0x40; // Enable crossbar and weak pull-ups
-0037 75E340     617            mov     _XBR2,#0x40
-003A            618   ;        D:\clone\LAB5\lab5v1.c:85: SCON0 = 0x10;
-003A 759810     619            mov     _SCON0,#0x10
-003D            620   ;        D:\clone\LAB5\lab5v1.c:86: CKCON0 |= 0b_0000_0000 ; // Timer 1 uses the system clock divided by 12.
-003D 858E8E     621            mov     _CKCON0,_CKCON0
-0040            622   ;        D:\clone\LAB5\lab5v1.c:88: TH1 = 0x100-((SYSCLK/BAUDRATE)/(2L*12L));
-0040 758DE6     623            mov     _TH1,#0xE6
-0043            624   ;        D:\clone\LAB5\lab5v1.c:89: TL1 = TH1;      // Init Timer1
-0043 858D8B     625            mov     _TL1,_TH1
-0046            626   ;        D:\clone\LAB5\lab5v1.c:90: TMOD &= ~0xf0;  // TMOD: timer 1 in 8-bit auto-reload
-0046 53890F     627            anl     _TMOD,#0x0F
-0049            628   ;        D:\clone\LAB5\lab5v1.c:91: TMOD |=  0x20;                       
-0049 438920     629            orl     _TMOD,#0x20
-004C            630   ;        D:\clone\LAB5\lab5v1.c:92: TR1 = 1; // START Timer1
-004C D28E       631            setb    _TR1
-004E            632   ;        D:\clone\LAB5\lab5v1.c:93: TI = 1;  // Indicate TX0 ready
-004E D299       633            setb    _TI
-0050            634   ;        D:\clone\LAB5\lab5v1.c:95: return 0;
-0050 758200     635            mov     dpl,#0x00
-0053 22         636            ret
-0054            637   ;------------------------------------------------------------
-0054            638   ;Allocation info for local variables in function 'InitADC'
-0054            639   ;------------------------------------------------------------
-0054            640   ;------------------------------------------------------------
-0054            641   ;        D:\clone\LAB5\lab5v1.c:98: void InitADC (void)
-0054            642   ;        -----------------------------------------
-0054            643   ;         function InitADC
-0054            644   ;        -----------------------------------------
-0054            645   _InitADC:
-0054            646   ;        D:\clone\LAB5\lab5v1.c:100: SFRPAGE = 0x00;
-0054 75A700     647            mov     _SFRPAGE,#0x00
-0057            648   ;        D:\clone\LAB5\lab5v1.c:101: ADEN=0; // Disable ADC
-0057 C2EF       649            clr     _ADEN
-0059            650   ;        D:\clone\LAB5\lab5v1.c:106: (0x0 << 0) ; // Accumulate n conversions: 0x0: 1, 0x1:4, 0x2:8, 0x3:16, 0x4:32
-0059 75B280     651            mov     _ADC0CN1,#0x80
-005C            652   ;        D:\clone\LAB5\lab5v1.c:110: (0x0 << 2); // 0:SYSCLK ADCCLK = SYSCLK. 1:HFOSC0 ADCCLK = HFOSC0.
-005C 75BC20     653            mov     _ADC0CF0,#0x20
-005F            654   ;        D:\clone\LAB5\lab5v1.c:114: (0x1E << 0); // Conversion Tracking Time. Tadtk = ADTK / (Fsarclk)
-005F 75B91E     655            mov     _ADC0CF1,#0x1E
-0062            656   ;        D:\clone\LAB5\lab5v1.c:123: (0x0 << 0) ; // TEMPE. 0: Disable the Temperature Sensor. 1: Enable the Temperature Sensor.
-0062 75E800     657            mov     _ADC0CN0,#0x00
-0065            658   ;        D:\clone\LAB5\lab5v1.c:128: (0x1F << 0); // ADPWR. Power Up Delay Time. Tpwrtime = ((4 * (ADPWR + 1)) + 2) / (Fadcclk)
-0065 75DF3F     659            mov     _ADC0CF2,#0x3F
-0068            660   ;        D:\clone\LAB5\lab5v1.c:132: (0x0 << 0) ; // ADCM. 0x0: ADBUSY, 0x1: TIMER0, 0x2: TIMER2, 0x3: TIMER3, 0x4: CNVSTR, 0x5: CEX5, 0x6: TIMER4, 0x7: TIMER5, 0x8: CLU0, 0x9: CLU1, 0xA: CLU2, 0xB: CLU3
-0068 75B300     661            mov     _ADC0CN2,#0x00
-006B            662   ;        D:\clone\LAB5\lab5v1.c:134: ADEN=1; // Enable ADC
-006B D2EF       663            setb    _ADEN
-006D 22         664            ret
-006E            665   ;------------------------------------------------------------
-006E            666   ;Allocation info for local variables in function 'Timer3us'
-006E            667   ;------------------------------------------------------------
-006E            668   ;us                        Allocated to registers r2 
-006E            669   ;i                         Allocated to registers r3 
-006E            670   ;------------------------------------------------------------
-006E            671   ;        D:\clone\LAB5\lab5v1.c:138: void Timer3us(unsigned char us)
-006E            672   ;        -----------------------------------------
-006E            673   ;         function Timer3us
-006E            674   ;        -----------------------------------------
-006E            675   _Timer3us:
-006E AA82       676            mov     r2,dpl
-0070            677   ;        D:\clone\LAB5\lab5v1.c:143: CKCON0|=0b_0100_0000;
-0070 438E40     678            orl     _CKCON0,#0x40
-0073            679   ;        D:\clone\LAB5\lab5v1.c:145: TMR3RL = (-(SYSCLK)/1000000L); // Set Timer3 to overflow in 1us.
-0073 7592B8     680            mov     _TMR3RL,#0xB8
-0076 7593FF     681            mov     (_TMR3RL >> 8),#0xFF
-0079            682   ;        D:\clone\LAB5\lab5v1.c:146: TMR3 = TMR3RL;                 // Initialize Timer3 for first overflow
-0079 859294     683            mov     _TMR3,_TMR3RL
-007C 859395     684            mov     (_TMR3 >> 8),(_TMR3RL >> 8)
-007F            685   ;        D:\clone\LAB5\lab5v1.c:148: TMR3CN0 = 0x04;                 // Sart Timer3 and clear overflow flag
-007F 759104     686            mov     _TMR3CN0,#0x04
-0082            687   ;        D:\clone\LAB5\lab5v1.c:149: for (i = 0; i < us; i++)       // Count <us> overflows
-0082 7B00       688            mov     r3,#0x00
-0084            689   L004004?:
-0084 C3         690            clr     c
-0085 EB         691            mov     a,r3
-0086 9A         692            subb    a,r2
-0087 5000       693            jnc     L004007?
-0089            694   ;        D:\clone\LAB5\lab5v1.c:151: while (!(TMR3CN0 & 0x80));  // Wait for overflow
-0089            695   L004001?:
-0089 E591       696            mov     a,_TMR3CN0
-008B 30E770     697            jnb     acc.7,L004001?
-008E            698   ;        D:\clone\LAB5\lab5v1.c:152: TMR3CN0 &= ~(0x80);         // Clear overflow indicator
-008E 53917F     699            anl     _TMR3CN0,#0x7F
-0091            700   ;        D:\clone\LAB5\lab5v1.c:149: for (i = 0; i < us; i++)       // Count <us> overflows
-0091 0B         701            inc     r3
-0092 8000       702            sjmp    L004004?
-0094            703   L004007?:
-0094            704   ;        D:\clone\LAB5\lab5v1.c:154: TMR3CN0 = 0 ;                   // Stop Timer3 and clear overflow flag
-0094 759100     705            mov     _TMR3CN0,#0x00
-0097 22         706            ret
-0098            707   ;------------------------------------------------------------
-0098            708   ;Allocation info for local variables in function 'waitms'
-0098            709   ;------------------------------------------------------------
-0098            710   ;ms                        Allocated to registers r2 r3 
-0098            711   ;j                         Allocated to registers r4 r5 
-0098            712   ;k                         Allocated to registers r6 
+0000            544            XSEG
+0000            545   ;--------------------------------------------------------
+0000            546   ; external initialized ram data
+0000            547   ;--------------------------------------------------------
+0000            548            rseg R_IXSEG
+0000            549            rseg R_HOME
+0000            550            rseg R_GSINIT
+0000            551            rseg R_CSEG
+0000            552   ;--------------------------------------------------------
+0000            553   ; Reset entry point and interrupt vectors
+0000            554   ;--------------------------------------------------------
+0000            555            CSEG at 0x0000
+0000 020000     556            ljmp    _crt0
+0003            557   ;--------------------------------------------------------
+0003            558   ; global & static initialisations
+0003            559   ;--------------------------------------------------------
+0000            560            rseg R_HOME
+0000            561            rseg R_GSINIT
+0000            562            rseg R_GSINIT
+0000            563   ;--------------------------------------------------------
+0000            564   ; data variables initialization
+0000            565   ;--------------------------------------------------------
+0000            566            rseg R_DINIT
+0000            567            ; The linker places a 'ret' at the end of segment R_DINIT.
+0000            568   ;--------------------------------------------------------
+0000            569   ; code
+0000            570   ;--------------------------------------------------------
+0000            571            rseg R_CSEG
+0000            572   ;------------------------------------------------------------
+0000            573   ;Allocation info for local variables in function '_c51_external_startup'
+0000            574   ;------------------------------------------------------------
+0000            575   ;------------------------------------------------------------
+0000            576   ;        D:\clone\LAB5\lab5v1.c:28: char _c51_external_startup (void)
+0000            577   ;        -----------------------------------------
+0000            578   ;         function _c51_external_startup
+0000            579   ;        -----------------------------------------
+0000            580   __c51_external_startup:
+0000            581            using   0
+0000            582   ;        D:\clone\LAB5\lab5v1.c:31: SFRPAGE = 0x00;
+0000 75A700     583            mov     _SFRPAGE,#0x00
+0003            584   ;        D:\clone\LAB5\lab5v1.c:32: WDTCN = 0xDE; //First key
+0003 7597DE     585            mov     _WDTCN,#0xDE
+0006            586   ;        D:\clone\LAB5\lab5v1.c:33: WDTCN = 0xAD; //Second key
+0006 7597AD     587            mov     _WDTCN,#0xAD
+0009            588   ;        D:\clone\LAB5\lab5v1.c:35: VDM0CN=0x80;       // enable VDD monitor
+0009 75FF80     589            mov     _VDM0CN,#0x80
+000C            590   ;        D:\clone\LAB5\lab5v1.c:36: RSTSRC=0x02|0x04;  // Enable reset on missing clock detector and VDD
+000C 75EF06     591            mov     _RSTSRC,#0x06
+000F            592   ;        D:\clone\LAB5\lab5v1.c:43: SFRPAGE = 0x10;
+000F 75A710     593            mov     _SFRPAGE,#0x10
+0012            594   ;        D:\clone\LAB5\lab5v1.c:44: PFE0CN  = 0x20; // SYSCLK < 75 MHz.
+0012 75C120     595            mov     _PFE0CN,#0x20
+0015            596   ;        D:\clone\LAB5\lab5v1.c:45: SFRPAGE = 0x00;
+0015 75A700     597            mov     _SFRPAGE,#0x00
+0018            598   ;        D:\clone\LAB5\lab5v1.c:66: CLKSEL = 0x00;
+0018 75A900     599            mov     _CLKSEL,#0x00
+001B            600   ;        D:\clone\LAB5\lab5v1.c:67: CLKSEL = 0x00;
+001B 75A900     601            mov     _CLKSEL,#0x00
+001E            602   ;        D:\clone\LAB5\lab5v1.c:68: while ((CLKSEL & 0x80) == 0);
+001E            603   L002001?:
+001E E5A9       604            mov     a,_CLKSEL
+0020 30E790     605            jnb     acc.7,L002001?
+0023            606   ;        D:\clone\LAB5\lab5v1.c:69: CLKSEL = 0x03;
+0023 75A903     607            mov     _CLKSEL,#0x03
+0026            608   ;        D:\clone\LAB5\lab5v1.c:70: CLKSEL = 0x03;
+0026 75A903     609            mov     _CLKSEL,#0x03
+0029            610   ;        D:\clone\LAB5\lab5v1.c:71: while ((CLKSEL & 0x80) == 0);
+0029            611   L002004?:
+0029 E5A9       612            mov     a,_CLKSEL
+002B 30E710     613            jnb     acc.7,L002004?
+002E            614   ;        D:\clone\LAB5\lab5v1.c:76: P0MDOUT |= 0x10; // Enable UART0 TX as push-pull output
+002E 43A410     615            orl     _P0MDOUT,#0x10
+0031            616   ;        D:\clone\LAB5\lab5v1.c:77: XBR0     = 0x01; // Enable UART0 on P0.4(TX) and P0.5(RX)                     
+0031 75E101     617            mov     _XBR0,#0x01
+0034            618   ;        D:\clone\LAB5\lab5v1.c:78: XBR1     = 0X00;
+0034 75E200     619            mov     _XBR1,#0x00
+0037            620   ;        D:\clone\LAB5\lab5v1.c:79: XBR2     = 0x40; // Enable crossbar and weak pull-ups
+0037 75E340     621            mov     _XBR2,#0x40
+003A            622   ;        D:\clone\LAB5\lab5v1.c:85: SCON0 = 0x10;
+003A 759810     623            mov     _SCON0,#0x10
+003D            624   ;        D:\clone\LAB5\lab5v1.c:86: CKCON0 |= 0b_0000_0000 ; // Timer 1 uses the system clock divided by 12.
+003D 858E8E     625            mov     _CKCON0,_CKCON0
+0040            626   ;        D:\clone\LAB5\lab5v1.c:88: TH1 = 0x100-((SYSCLK/BAUDRATE)/(2L*12L));
+0040 758DE6     627            mov     _TH1,#0xE6
+0043            628   ;        D:\clone\LAB5\lab5v1.c:89: TL1 = TH1;      // Init Timer1
+0043 858D8B     629            mov     _TL1,_TH1
+0046            630   ;        D:\clone\LAB5\lab5v1.c:90: TMOD &= ~0xf0;  // TMOD: timer 1 in 8-bit auto-reload
+0046 53890F     631            anl     _TMOD,#0x0F
+0049            632   ;        D:\clone\LAB5\lab5v1.c:91: TMOD |=  0x20;                       
+0049 438920     633            orl     _TMOD,#0x20
+004C            634   ;        D:\clone\LAB5\lab5v1.c:92: TR1 = 1; // START Timer1
+004C D28E       635            setb    _TR1
+004E            636   ;        D:\clone\LAB5\lab5v1.c:93: TI = 1;  // Indicate TX0 ready
+004E D299       637            setb    _TI
+0050            638   ;        D:\clone\LAB5\lab5v1.c:95: return 0;
+0050 758200     639            mov     dpl,#0x00
+0053 22         640            ret
+0054            641   ;------------------------------------------------------------
+0054            642   ;Allocation info for local variables in function 'InitADC'
+0054            643   ;------------------------------------------------------------
+0054            644   ;------------------------------------------------------------
+0054            645   ;        D:\clone\LAB5\lab5v1.c:98: void InitADC (void)
+0054            646   ;        -----------------------------------------
+0054            647   ;         function InitADC
+0054            648   ;        -----------------------------------------
+0054            649   _InitADC:
+0054            650   ;        D:\clone\LAB5\lab5v1.c:100: SFRPAGE = 0x00;
+0054 75A700     651            mov     _SFRPAGE,#0x00
+0057            652   ;        D:\clone\LAB5\lab5v1.c:101: ADEN=0; // Disable ADC
+0057 C2EF       653            clr     _ADEN
+0059            654   ;        D:\clone\LAB5\lab5v1.c:106: (0x0 << 0) ; // Accumulate n conversions: 0x0: 1, 0x1:4, 0x2:8, 0x3:16, 0x4:32
+0059 75B280     655            mov     _ADC0CN1,#0x80
+005C            656   ;        D:\clone\LAB5\lab5v1.c:110: (0x0 << 2); // 0:SYSCLK ADCCLK = SYSCLK. 1:HFOSC0 ADCCLK = HFOSC0.
+005C 75BC20     657            mov     _ADC0CF0,#0x20
+005F            658   ;        D:\clone\LAB5\lab5v1.c:114: (0x1E << 0); // Conversion Tracking Time. Tadtk = ADTK / (Fsarclk)
+005F 75B91E     659            mov     _ADC0CF1,#0x1E
+0062            660   ;        D:\clone\LAB5\lab5v1.c:123: (0x0 << 0) ; // TEMPE. 0: Disable the Temperature Sensor. 1: Enable the Temperature Sensor.
+0062 75E800     661            mov     _ADC0CN0,#0x00
+0065            662   ;        D:\clone\LAB5\lab5v1.c:128: (0x1F << 0); // ADPWR. Power Up Delay Time. Tpwrtime = ((4 * (ADPWR + 1)) + 2) / (Fadcclk)
+0065 75DF3F     663            mov     _ADC0CF2,#0x3F
+0068            664   ;        D:\clone\LAB5\lab5v1.c:132: (0x0 << 0) ; // ADCM. 0x0: ADBUSY, 0x1: TIMER0, 0x2: TIMER2, 0x3: TIMER3, 0x4: CNVSTR, 0x5: CEX5, 0x6: TIMER4, 0x7: TIMER5, 0x8: CLU0, 0x9: CLU1, 0xA: CLU2, 0xB: CLU3
+0068 75B300     665            mov     _ADC0CN2,#0x00
+006B            666   ;        D:\clone\LAB5\lab5v1.c:134: ADEN=1; // Enable ADC
+006B D2EF       667            setb    _ADEN
+006D 22         668            ret
+006E            669   ;------------------------------------------------------------
+006E            670   ;Allocation info for local variables in function 'Timer3us'
+006E            671   ;------------------------------------------------------------
+006E            672   ;us                        Allocated to registers r2 
+006E            673   ;i                         Allocated to registers r3 
+006E            674   ;------------------------------------------------------------
+006E            675   ;        D:\clone\LAB5\lab5v1.c:138: void Timer3us(unsigned char us)
+006E            676   ;        -----------------------------------------
+006E            677   ;         function Timer3us
+006E            678   ;        -----------------------------------------
+006E            679   _Timer3us:
+006E AA82       680            mov     r2,dpl
+0070            681   ;        D:\clone\LAB5\lab5v1.c:143: CKCON0|=0b_0100_0000;
+0070 438E40     682            orl     _CKCON0,#0x40
+0073            683   ;        D:\clone\LAB5\lab5v1.c:145: TMR3RL = (-(SYSCLK)/1000000L); // Set Timer3 to overflow in 1us.
+0073 7592B8     684            mov     _TMR3RL,#0xB8
+0076 7593FF     685            mov     (_TMR3RL >> 8),#0xFF
+0079            686   ;        D:\clone\LAB5\lab5v1.c:146: TMR3 = TMR3RL;                 // Initialize Timer3 for first overflow
+0079 859294     687            mov     _TMR3,_TMR3RL
+007C 859395     688            mov     (_TMR3 >> 8),(_TMR3RL >> 8)
+007F            689   ;        D:\clone\LAB5\lab5v1.c:148: TMR3CN0 = 0x04;                 // Sart Timer3 and clear overflow flag
+007F 759104     690            mov     _TMR3CN0,#0x04
+0082            691   ;        D:\clone\LAB5\lab5v1.c:149: for (i = 0; i < us; i++)       // Count <us> overflows
+0082 7B00       692            mov     r3,#0x00
+0084            693   L004004?:
+0084 C3         694            clr     c
+0085 EB         695            mov     a,r3
+0086 9A         696            subb    a,r2
+0087 5000       697            jnc     L004007?
+0089            698   ;        D:\clone\LAB5\lab5v1.c:151: while (!(TMR3CN0 & 0x80));  // Wait for overflow
+0089            699   L004001?:
+0089 E591       700            mov     a,_TMR3CN0
+008B 30E710     701            jnb     acc.7,L004001?
+008E            702   ;        D:\clone\LAB5\lab5v1.c:152: TMR3CN0 &= ~(0x80);         // Clear overflow indicator
+008E 53917F     703            anl     _TMR3CN0,#0x7F
+0091            704   ;        D:\clone\LAB5\lab5v1.c:149: for (i = 0; i < us; i++)       // Count <us> overflows
+0091 0B         705            inc     r3
+0092 8000       706            sjmp    L004004?
+0094            707   L004007?:
+0094            708   ;        D:\clone\LAB5\lab5v1.c:154: TMR3CN0 = 0 ;                   // Stop Timer3 and clear overflow flag
+0094 759100     709            mov     _TMR3CN0,#0x00
+0097 22         710            ret
+0098            711   ;------------------------------------------------------------
+0098            712   ;Allocation info for local variables in function 'waitms'
 0098            713   ;------------------------------------------------------------
-0098            714   ;        D:\clone\LAB5\lab5v1.c:157: void waitms (unsigned int ms)
-0098            715   ;        -----------------------------------------
-0098            716   ;         function waitms
-0098            717   ;        -----------------------------------------
-0098            718   _waitms:
-0098 AA82       719            mov     r2,dpl
-009A AB83       720            mov     r3,dph
-009C            721   ;        D:\clone\LAB5\lab5v1.c:161: for(j=0; j<ms; j++)
-009C 7C00       722            mov     r4,#0x00
-009E 7D00       723            mov     r5,#0x00
-00A0            724   L005005?:
-00A0 C3         725            clr     c
-00A1 EC         726            mov     a,r4
-00A2 9A         727            subb    a,r2
-00A3 ED         728            mov     a,r5
-00A4 9B         729            subb    a,r3
-00A5 5000       730            jnc     L005009?
-00A7            731   ;        D:\clone\LAB5\lab5v1.c:162: for (k=0; k<4; k++) Timer3us(250);
-00A7 7E00       732            mov     r6,#0x00
-00A9            733   L005001?:
-00A9 BE04B0     734            cjne    r6,#0x04,L005018?
-00AC            735   L005018?:
-00AC 5000       736            jnc     L005007?
-00AE 7582FA     737            mov     dpl,#0xFA
-00B1 C002       738            push    ar2
-00B3 C003       739            push    ar3
-00B5 C004       740            push    ar4
-00B7 C005       741            push    ar5
-00B9 C006       742            push    ar6
-00BB 120000     743            lcall   _Timer3us
-00BE D006       744            pop     ar6
-00C0 D005       745            pop     ar5
-00C2 D004       746            pop     ar4
-00C4 D003       747            pop     ar3
-00C6 D002       748            pop     ar2
-00C8 0E         749            inc     r6
-00C9 8000       750            sjmp    L005001?
-00CB            751   L005007?:
-00CB            752   ;        D:\clone\LAB5\lab5v1.c:161: for(j=0; j<ms; j++)
-00CB 0C         753            inc     r4
-00CC BC00F0     754            cjne    r4,#0x00,L005005?
-00CF 0D         755            inc     r5
-00D0 8000       756            sjmp    L005005?
-00D2            757   L005009?:
-00D2 22         758            ret
-00D3            759   ;------------------------------------------------------------
-00D3            760   ;Allocation info for local variables in function 'LCD_pulse'
-00D3            761   ;------------------------------------------------------------
-00D3            762   ;------------------------------------------------------------
-00D3            763   ;        D:\clone\LAB5\lab5v1.c:165: void LCD_pulse (void)
-00D3            764   ;        -----------------------------------------
-00D3            765   ;         function LCD_pulse
-00D3            766   ;        -----------------------------------------
-00D3            767   _LCD_pulse:
-00D3            768   ;        D:\clone\LAB5\lab5v1.c:167: LCD_E=1;
-00D3 D2A0       769            setb    _P2_0
-00D5            770   ;        D:\clone\LAB5\lab5v1.c:168: Timer3us(40);
-00D5 758228     771            mov     dpl,#0x28
-00D8 120000     772            lcall   _Timer3us
-00DB            773   ;        D:\clone\LAB5\lab5v1.c:169: LCD_E=0;
-00DB C2A0       774            clr     _P2_0
-00DD 22         775            ret
-00DE            776   ;------------------------------------------------------------
-00DE            777   ;Allocation info for local variables in function 'LCD_byte'
-00DE            778   ;------------------------------------------------------------
-00DE            779   ;x                         Allocated to registers r2 
+0098            714   ;ms                        Allocated to registers r2 r3 
+0098            715   ;j                         Allocated to registers r4 r5 
+0098            716   ;k                         Allocated to registers r6 
+0098            717   ;------------------------------------------------------------
+0098            718   ;        D:\clone\LAB5\lab5v1.c:157: void waitms (unsigned int ms)
+0098            719   ;        -----------------------------------------
+0098            720   ;         function waitms
+0098            721   ;        -----------------------------------------
+0098            722   _waitms:
+0098 AA82       723            mov     r2,dpl
+009A AB83       724            mov     r3,dph
+009C            725   ;        D:\clone\LAB5\lab5v1.c:161: for(j=0; j<ms; j++)
+009C 7C00       726            mov     r4,#0x00
+009E 7D00       727            mov     r5,#0x00
+00A0            728   L005005?:
+00A0 C3         729            clr     c
+00A1 EC         730            mov     a,r4
+00A2 9A         731            subb    a,r2
+00A3 ED         732            mov     a,r5
+00A4 9B         733            subb    a,r3
+00A5 5000       734            jnc     L005009?
+00A7            735   ;        D:\clone\LAB5\lab5v1.c:162: for (k=0; k<4; k++) Timer3us(250);
+00A7 7E00       736            mov     r6,#0x00
+00A9            737   L005001?:
+00A9 BE0450     738            cjne    r6,#0x04,L005018?
+00AC            739   L005018?:
+00AC 5000       740            jnc     L005007?
+00AE 7582FA     741            mov     dpl,#0xFA
+00B1 C002       742            push    ar2
+00B3 C003       743            push    ar3
+00B5 C004       744            push    ar4
+00B7 C005       745            push    ar5
+00B9 C006       746            push    ar6
+00BB 120000     747            lcall   _Timer3us
+00BE D006       748            pop     ar6
+00C0 D005       749            pop     ar5
+00C2 D004       750            pop     ar4
+00C4 D003       751            pop     ar3
+00C6 D002       752            pop     ar2
+00C8 0E         753            inc     r6
+00C9 8000       754            sjmp    L005001?
+00CB            755   L005007?:
+00CB            756   ;        D:\clone\LAB5\lab5v1.c:161: for(j=0; j<ms; j++)
+00CB 0C         757            inc     r4
+00CC BC0090     758            cjne    r4,#0x00,L005005?
+00CF 0D         759            inc     r5
+00D0 8000       760            sjmp    L005005?
+00D2            761   L005009?:
+00D2 22         762            ret
+00D3            763   ;------------------------------------------------------------
+00D3            764   ;Allocation info for local variables in function 'LCD_pulse'
+00D3            765   ;------------------------------------------------------------
+00D3            766   ;------------------------------------------------------------
+00D3            767   ;        D:\clone\LAB5\lab5v1.c:165: void LCD_pulse (void)
+00D3            768   ;        -----------------------------------------
+00D3            769   ;         function LCD_pulse
+00D3            770   ;        -----------------------------------------
+00D3            771   _LCD_pulse:
+00D3            772   ;        D:\clone\LAB5\lab5v1.c:167: LCD_E=1;
+00D3 D2A0       773            setb    _P2_0
+00D5            774   ;        D:\clone\LAB5\lab5v1.c:168: Timer3us(40);
+00D5 758228     775            mov     dpl,#0x28
+00D8 120000     776            lcall   _Timer3us
+00DB            777   ;        D:\clone\LAB5\lab5v1.c:169: LCD_E=0;
+00DB C2A0       778            clr     _P2_0
+00DD 22         779            ret
 00DE            780   ;------------------------------------------------------------
-00DE            781   ;        D:\clone\LAB5\lab5v1.c:172: void LCD_byte (unsigned char x)
-00DE            782   ;        -----------------------------------------
-00DE            783   ;         function LCD_byte
-00DE            784   ;        -----------------------------------------
-00DE            785   _LCD_byte:
-00DE AA82       786            mov     r2,dpl
-00E0            787   ;        D:\clone\LAB5\lab5v1.c:175: ACC=x; //Send high nible
-00E0 8AE0       788            mov     _ACC,r2
-00E2            789   ;        D:\clone\LAB5\lab5v1.c:176: LCD_D7=ACC_7;
-00E2 A2E7       790            mov     c,_ACC_7
-00E4 9290       791            mov     _P1_0,c
-00E6            792   ;        D:\clone\LAB5\lab5v1.c:177: LCD_D6=ACC_6;
-00E6 A2E6       793            mov     c,_ACC_6
-00E8 9291       794            mov     _P1_1,c
-00EA            795   ;        D:\clone\LAB5\lab5v1.c:178: LCD_D5=ACC_5;
-00EA A2E5       796            mov     c,_ACC_5
-00EC 9292       797            mov     _P1_2,c
-00EE            798   ;        D:\clone\LAB5\lab5v1.c:179: LCD_D4=ACC_4;
-00EE A2E4       799            mov     c,_ACC_4
-00F0 9293       800            mov     _P1_3,c
-00F2            801   ;        D:\clone\LAB5\lab5v1.c:180: LCD_pulse();
-00F2 C002       802            push    ar2
-00F4 120000     803            lcall   _LCD_pulse
-00F7            804   ;        D:\clone\LAB5\lab5v1.c:181: Timer3us(40);
-00F7 758228     805            mov     dpl,#0x28
-00FA 120000     806            lcall   _Timer3us
-00FD D002       807            pop     ar2
-00FF            808   ;        D:\clone\LAB5\lab5v1.c:182: ACC=x; //Send low nible
-00FF 8AE0       809            mov     _ACC,r2
-0101            810   ;        D:\clone\LAB5\lab5v1.c:183: LCD_D7=ACC_3;
-0101 A2E3       811            mov     c,_ACC_3
-0103 9290       812            mov     _P1_0,c
-0105            813   ;        D:\clone\LAB5\lab5v1.c:184: LCD_D6=ACC_2;
-0105 A2E2       814            mov     c,_ACC_2
-0107 9291       815            mov     _P1_1,c
-0109            816   ;        D:\clone\LAB5\lab5v1.c:185: LCD_D5=ACC_1;
-0109 A2E1       817            mov     c,_ACC_1
-010B 9292       818            mov     _P1_2,c
-010D            819   ;        D:\clone\LAB5\lab5v1.c:186: LCD_D4=ACC_0;
-010D A2E0       820            mov     c,_ACC_0
-010F 9293       821            mov     _P1_3,c
-0111            822   ;        D:\clone\LAB5\lab5v1.c:187: LCD_pulse();
-0111 020000     823            ljmp    _LCD_pulse
-0114            824   ;------------------------------------------------------------
-0114            825   ;Allocation info for local variables in function 'WriteData'
-0114            826   ;------------------------------------------------------------
-0114            827   ;x                         Allocated to registers r2 
+00DE            781   ;Allocation info for local variables in function 'LCD_byte'
+00DE            782   ;------------------------------------------------------------
+00DE            783   ;x                         Allocated to registers r2 
+00DE            784   ;------------------------------------------------------------
+00DE            785   ;        D:\clone\LAB5\lab5v1.c:172: void LCD_byte (unsigned char x)
+00DE            786   ;        -----------------------------------------
+00DE            787   ;         function LCD_byte
+00DE            788   ;        -----------------------------------------
+00DE            789   _LCD_byte:
+00DE AA82       790            mov     r2,dpl
+00E0            791   ;        D:\clone\LAB5\lab5v1.c:175: ACC=x; //Send high nible
+00E0 8AE0       792            mov     _ACC,r2
+00E2            793   ;        D:\clone\LAB5\lab5v1.c:176: LCD_D7=ACC_7;
+00E2 A2E7       794            mov     c,_ACC_7
+00E4 9290       795            mov     _P1_0,c
+00E6            796   ;        D:\clone\LAB5\lab5v1.c:177: LCD_D6=ACC_6;
+00E6 A2E6       797            mov     c,_ACC_6
+00E8 9291       798            mov     _P1_1,c
+00EA            799   ;        D:\clone\LAB5\lab5v1.c:178: LCD_D5=ACC_5;
+00EA A2E5       800            mov     c,_ACC_5
+00EC 9292       801            mov     _P1_2,c
+00EE            802   ;        D:\clone\LAB5\lab5v1.c:179: LCD_D4=ACC_4;
+00EE A2E4       803            mov     c,_ACC_4
+00F0 9293       804            mov     _P1_3,c
+00F2            805   ;        D:\clone\LAB5\lab5v1.c:180: LCD_pulse();
+00F2 C002       806            push    ar2
+00F4 120000     807            lcall   _LCD_pulse
+00F7            808   ;        D:\clone\LAB5\lab5v1.c:181: Timer3us(40);
+00F7 758228     809            mov     dpl,#0x28
+00FA 120000     810            lcall   _Timer3us
+00FD D002       811            pop     ar2
+00FF            812   ;        D:\clone\LAB5\lab5v1.c:182: ACC=x; //Send low nible
+00FF 8AE0       813            mov     _ACC,r2
+0101            814   ;        D:\clone\LAB5\lab5v1.c:183: LCD_D7=ACC_3;
+0101 A2E3       815            mov     c,_ACC_3
+0103 9290       816            mov     _P1_0,c
+0105            817   ;        D:\clone\LAB5\lab5v1.c:184: LCD_D6=ACC_2;
+0105 A2E2       818            mov     c,_ACC_2
+0107 9291       819            mov     _P1_1,c
+0109            820   ;        D:\clone\LAB5\lab5v1.c:185: LCD_D5=ACC_1;
+0109 A2E1       821            mov     c,_ACC_1
+010B 9292       822            mov     _P1_2,c
+010D            823   ;        D:\clone\LAB5\lab5v1.c:186: LCD_D4=ACC_0;
+010D A2E0       824            mov     c,_ACC_0
+010F 9293       825            mov     _P1_3,c
+0111            826   ;        D:\clone\LAB5\lab5v1.c:187: LCD_pulse();
+0111 020000     827            ljmp    _LCD_pulse
 0114            828   ;------------------------------------------------------------
-0114            829   ;        D:\clone\LAB5\lab5v1.c:190: void WriteData (unsigned char x)
-0114            830   ;        -----------------------------------------
-0114            831   ;         function WriteData
-0114            832   ;        -----------------------------------------
-0114            833   _WriteData:
-0114 AA82       834            mov     r2,dpl
-0116            835   ;        D:\clone\LAB5\lab5v1.c:192: LCD_RS=1;
-0116 D297       836            setb    _P1_7
-0118            837   ;        D:\clone\LAB5\lab5v1.c:193: LCD_byte(x);
-0118 8A82       838            mov     dpl,r2
-011A 120000     839            lcall   _LCD_byte
-011D            840   ;        D:\clone\LAB5\lab5v1.c:194: waitms(2);
-011D 900002     841            mov     dptr,#0x0002
-0120 020000     842            ljmp    _waitms
-0123            843   ;------------------------------------------------------------
-0123            844   ;Allocation info for local variables in function 'WriteCommand'
-0123            845   ;------------------------------------------------------------
-0123            846   ;x                         Allocated to registers r2 
+0114            829   ;Allocation info for local variables in function 'WriteData'
+0114            830   ;------------------------------------------------------------
+0114            831   ;x                         Allocated to registers r2 
+0114            832   ;------------------------------------------------------------
+0114            833   ;        D:\clone\LAB5\lab5v1.c:190: void WriteData (unsigned char x)
+0114            834   ;        -----------------------------------------
+0114            835   ;         function WriteData
+0114            836   ;        -----------------------------------------
+0114            837   _WriteData:
+0114 AA82       838            mov     r2,dpl
+0116            839   ;        D:\clone\LAB5\lab5v1.c:192: LCD_RS=1;
+0116 D297       840            setb    _P1_7
+0118            841   ;        D:\clone\LAB5\lab5v1.c:193: LCD_byte(x);
+0118 8A82       842            mov     dpl,r2
+011A 120000     843            lcall   _LCD_byte
+011D            844   ;        D:\clone\LAB5\lab5v1.c:194: waitms(2);
+011D 900002     845            mov     dptr,#0x0002
+0120 020000     846            ljmp    _waitms
 0123            847   ;------------------------------------------------------------
-0123            848   ;        D:\clone\LAB5\lab5v1.c:197: void WriteCommand (unsigned char x)
-0123            849   ;        -----------------------------------------
-0123            850   ;         function WriteCommand
-0123            851   ;        -----------------------------------------
-0123            852   _WriteCommand:
-0123 AA82       853            mov     r2,dpl
-0125            854   ;        D:\clone\LAB5\lab5v1.c:199: LCD_RS=0;
-0125 C297       855            clr     _P1_7
-0127            856   ;        D:\clone\LAB5\lab5v1.c:200: LCD_byte(x);
-0127 8A82       857            mov     dpl,r2
-0129 120000     858            lcall   _LCD_byte
-012C            859   ;        D:\clone\LAB5\lab5v1.c:201: waitms(5);
-012C 900005     860            mov     dptr,#0x0005
-012F 020000     861            ljmp    _waitms
-0132            862   ;------------------------------------------------------------
-0132            863   ;Allocation info for local variables in function 'LCD_4BIT'
-0132            864   ;------------------------------------------------------------
-0132            865   ;------------------------------------------------------------
-0132            866   ;        D:\clone\LAB5\lab5v1.c:204: void LCD_4BIT (void)
-0132            867   ;        -----------------------------------------
-0132            868   ;         function LCD_4BIT
-0132            869   ;        -----------------------------------------
-0132            870   _LCD_4BIT:
-0132            871   ;        D:\clone\LAB5\lab5v1.c:206: LCD_E=0; // Resting state of LCD's enable is zero
-0132 C2A0       872            clr     _P2_0
-0134            873   ;        D:\clone\LAB5\lab5v1.c:208: waitms(20);
-0134 900014     874            mov     dptr,#0x0014
-0137 120000     875            lcall   _waitms
-013A            876   ;        D:\clone\LAB5\lab5v1.c:210: WriteCommand(0x33);
-013A 758233     877            mov     dpl,#0x33
-013D 120000     878            lcall   _WriteCommand
-0140            879   ;        D:\clone\LAB5\lab5v1.c:211: WriteCommand(0x33);
-0140 758233     880            mov     dpl,#0x33
-0143 120000     881            lcall   _WriteCommand
-0146            882   ;        D:\clone\LAB5\lab5v1.c:212: WriteCommand(0x32); // Change to 4-bit mode
-0146 758232     883            mov     dpl,#0x32
-0149 120000     884            lcall   _WriteCommand
-014C            885   ;        D:\clone\LAB5\lab5v1.c:215: WriteCommand(0x28);
-014C 758228     886            mov     dpl,#0x28
-014F 120000     887            lcall   _WriteCommand
-0152            888   ;        D:\clone\LAB5\lab5v1.c:216: WriteCommand(0x0c);
-0152 75820C     889            mov     dpl,#0x0C
-0155 120000     890            lcall   _WriteCommand
-0158            891   ;        D:\clone\LAB5\lab5v1.c:217: WriteCommand(0x01); // Clear screen command (takes some time)
-0158 758201     892            mov     dpl,#0x01
-015B 120000     893            lcall   _WriteCommand
-015E            894   ;        D:\clone\LAB5\lab5v1.c:218: waitms(20); // Wait for clear screen command to finsih.
-015E 900014     895            mov     dptr,#0x0014
-0161 020000     896            ljmp    _waitms
-0164            897   ;------------------------------------------------------------
-0164            898   ;Allocation info for local variables in function 'LCDprint'
-0164            899   ;------------------------------------------------------------
-0164            900   ;line                      Allocated with name '_LCDprint_PARM_2'
-0164            901   ;string                    Allocated to registers r2 r3 r4 
-0164            902   ;j                         Allocated to registers r5 r6 
+0123            848   ;Allocation info for local variables in function 'WriteCommand'
+0123            849   ;------------------------------------------------------------
+0123            850   ;x                         Allocated to registers r2 
+0123            851   ;------------------------------------------------------------
+0123            852   ;        D:\clone\LAB5\lab5v1.c:197: void WriteCommand (unsigned char x)
+0123            853   ;        -----------------------------------------
+0123            854   ;         function WriteCommand
+0123            855   ;        -----------------------------------------
+0123            856   _WriteCommand:
+0123 AA82       857            mov     r2,dpl
+0125            858   ;        D:\clone\LAB5\lab5v1.c:199: LCD_RS=0;
+0125 C297       859            clr     _P1_7
+0127            860   ;        D:\clone\LAB5\lab5v1.c:200: LCD_byte(x);
+0127 8A82       861            mov     dpl,r2
+0129 120000     862            lcall   _LCD_byte
+012C            863   ;        D:\clone\LAB5\lab5v1.c:201: waitms(5);
+012C 900005     864            mov     dptr,#0x0005
+012F 020000     865            ljmp    _waitms
+0132            866   ;------------------------------------------------------------
+0132            867   ;Allocation info for local variables in function 'LCD_4BIT'
+0132            868   ;------------------------------------------------------------
+0132            869   ;------------------------------------------------------------
+0132            870   ;        D:\clone\LAB5\lab5v1.c:204: void LCD_4BIT (void)
+0132            871   ;        -----------------------------------------
+0132            872   ;         function LCD_4BIT
+0132            873   ;        -----------------------------------------
+0132            874   _LCD_4BIT:
+0132            875   ;        D:\clone\LAB5\lab5v1.c:206: LCD_E=0; // Resting state of LCD's enable is zero
+0132 C2A0       876            clr     _P2_0
+0134            877   ;        D:\clone\LAB5\lab5v1.c:208: waitms(20);
+0134 900014     878            mov     dptr,#0x0014
+0137 120000     879            lcall   _waitms
+013A            880   ;        D:\clone\LAB5\lab5v1.c:210: WriteCommand(0x33);
+013A 758233     881            mov     dpl,#0x33
+013D 120000     882            lcall   _WriteCommand
+0140            883   ;        D:\clone\LAB5\lab5v1.c:211: WriteCommand(0x33);
+0140 758233     884            mov     dpl,#0x33
+0143 120000     885            lcall   _WriteCommand
+0146            886   ;        D:\clone\LAB5\lab5v1.c:212: WriteCommand(0x32); // Change to 4-bit mode
+0146 758232     887            mov     dpl,#0x32
+0149 120000     888            lcall   _WriteCommand
+014C            889   ;        D:\clone\LAB5\lab5v1.c:215: WriteCommand(0x28);
+014C 758228     890            mov     dpl,#0x28
+014F 120000     891            lcall   _WriteCommand
+0152            892   ;        D:\clone\LAB5\lab5v1.c:216: WriteCommand(0x0c);
+0152 75820C     893            mov     dpl,#0x0C
+0155 120000     894            lcall   _WriteCommand
+0158            895   ;        D:\clone\LAB5\lab5v1.c:217: WriteCommand(0x01); // Clear screen command (takes some time)
+0158 758201     896            mov     dpl,#0x01
+015B 120000     897            lcall   _WriteCommand
+015E            898   ;        D:\clone\LAB5\lab5v1.c:218: waitms(20); // Wait for clear screen command to finsih.
+015E 900014     899            mov     dptr,#0x0014
+0161 020000     900            ljmp    _waitms
+0164            901   ;------------------------------------------------------------
+0164            902   ;Allocation info for local variables in function 'LCDprint'
 0164            903   ;------------------------------------------------------------
-0164            904   ;        D:\clone\LAB5\lab5v1.c:221: void LCDprint(char * string, unsigned char line, bit clear)
-0164            905   ;        -----------------------------------------
-0164            906   ;         function LCDprint
-0164            907   ;        -----------------------------------------
-0164            908   _LCDprint:
-0164 AA82       909            mov     r2,dpl
-0166 AB83       910            mov     r3,dph
-0168 ACF0       911            mov     r4,b
-016A            912   ;        D:\clone\LAB5\lab5v1.c:225: WriteCommand(line==2?0xc0:0x80);
-016A 7402       913            mov     a,#0x02
-016C B57070     914            cjne    a,_LCDprint_PARM_2,L011013?
-016F 7DC0       915            mov     r5,#0xC0
-0171 8000       916            sjmp    L011014?
-0173            917   L011013?:
-0173 7D80       918            mov     r5,#0x80
-0175            919   L011014?:
-0175 8D82       920            mov     dpl,r5
-0177 C002       921            push    ar2
-0179 C003       922            push    ar3
-017B C004       923            push    ar4
-017D 120000     924            lcall   _WriteCommand
-0180            925   ;        D:\clone\LAB5\lab5v1.c:226: waitms(5);
-0180 900005     926            mov     dptr,#0x0005
-0183 120000     927            lcall   _waitms
-0186 D004       928            pop     ar4
-0188 D003       929            pop     ar3
-018A D002       930            pop     ar2
-018C            931   ;        D:\clone\LAB5\lab5v1.c:227: for(j=0; string[j]!=0; j++) WriteData(string[j]);// Write the message
-018C 7D00       932            mov     r5,#0x00
-018E 7E00       933            mov     r6,#0x00
-0190            934   L011003?:
-0190 ED         935            mov     a,r5
-0191 2A         936            add     a,r2
-0192 FF         937            mov     r7,a
-0193 EE         938            mov     a,r6
-0194 3B         939            addc    a,r3
-0195 F8         940            mov     r0,a
-0196 8C01       941            mov     ar1,r4
-0198 8F82       942            mov     dpl,r7
-019A 8883       943            mov     dph,r0
-019C 89F0       944            mov     b,r1
-019E 120000     945            lcall   __gptrget
-01A1 FF         946            mov     r7,a
-01A2 6000       947            jz      L011006?
-01A4 8F82       948            mov     dpl,r7
-01A6 C002       949            push    ar2
-01A8 C003       950            push    ar3
-01AA C004       951            push    ar4
-01AC C005       952            push    ar5
-01AE C006       953            push    ar6
-01B0 120000     954            lcall   _WriteData
-01B3 D006       955            pop     ar6
-01B5 D005       956            pop     ar5
-01B7 D004       957            pop     ar4
-01B9 D003       958            pop     ar3
-01BB D002       959            pop     ar2
-01BD 0D         960            inc     r5
-01BE BD00F0     961            cjne    r5,#0x00,L011003?
-01C1 0E         962            inc     r6
-01C2 8000       963            sjmp    L011003?
-01C4            964   L011006?:
-01C4            965   ;        D:\clone\LAB5\lab5v1.c:228: if(clear) for(; j<CHARS_PER_LINE; j++) WriteData(' '); // Clear the rest of the line
-01C4 3020B0     966            jnb     _LCDprint_PARM_3,L011011?
-01C7 8D02       967            mov     ar2,r5
-01C9 8E03       968            mov     ar3,r6
-01CB            969   L011007?:
-01CB C3         970            clr     c
-01CC EA         971            mov     a,r2
-01CD 9410       972            subb    a,#0x10
-01CF EB         973            mov     a,r3
-01D0 6480       974            xrl     a,#0x80
-01D2 9480       975            subb    a,#0x80
-01D4 5000       976            jnc     L011011?
-01D6 758220     977            mov     dpl,#0x20
-01D9 C002       978            push    ar2
-01DB C003       979            push    ar3
-01DD 120000     980            lcall   _WriteData
-01E0 D003       981            pop     ar3
-01E2 D002       982            pop     ar2
-01E4 0A         983            inc     r2
-01E5 BA00F0     984            cjne    r2,#0x00,L011007?
-01E8 0B         985            inc     r3
-01E9 8000       986            sjmp    L011007?
-01EB            987   L011011?:
-01EB 22         988            ret
-01EC            989   ;------------------------------------------------------------
-01EC            990   ;Allocation info for local variables in function 'TIMER0_Init'
-01EC            991   ;------------------------------------------------------------
-01EC            992   ;------------------------------------------------------------
-01EC            993   ;        D:\clone\LAB5\lab5v1.c:231: void TIMER0_Init(void)
-01EC            994   ;        -----------------------------------------
-01EC            995   ;         function TIMER0_Init
-01EC            996   ;        -----------------------------------------
-01EC            997   _TIMER0_Init:
-01EC            998   ;        D:\clone\LAB5\lab5v1.c:233: TMOD&=0b_1111_0000; // Set the bits of Timer/Counter 0 to zero
-01EC 5389F0     999            anl     _TMOD,#0xF0
-01EF           1000   ;        D:\clone\LAB5\lab5v1.c:234: TMOD|=0b_0000_0001; // Timer/Counter 0 used as a 16-bit timer
-01EF 438901    1001            orl     _TMOD,#0x01
-01F2           1002   ;        D:\clone\LAB5\lab5v1.c:235: TR0=0; // Stop Timer/Counter 0
-01F2 C28C      1003            clr     _TR0
-01F4 22        1004            ret
-01F5           1005   ;------------------------------------------------------------
-01F5           1006   ;Allocation info for local variables in function 'InitPinADC'
-01F5           1007   ;------------------------------------------------------------
-01F5           1008   ;pinno                     Allocated with name '_InitPinADC_PARM_2'
-01F5           1009   ;portno                    Allocated to registers r2 
-01F5           1010   ;mask                      Allocated to registers r3 
+0164            904   ;line                      Allocated with name '_LCDprint_PARM_2'
+0164            905   ;string                    Allocated to registers r2 r3 r4 
+0164            906   ;j                         Allocated to registers r5 r6 
+0164            907   ;------------------------------------------------------------
+0164            908   ;        D:\clone\LAB5\lab5v1.c:221: void LCDprint(char * string, unsigned char line, bit clear)
+0164            909   ;        -----------------------------------------
+0164            910   ;         function LCDprint
+0164            911   ;        -----------------------------------------
+0164            912   _LCDprint:
+0164 AA82       913            mov     r2,dpl
+0166 AB83       914            mov     r3,dph
+0168 ACF0       915            mov     r4,b
+016A            916   ;        D:\clone\LAB5\lab5v1.c:225: WriteCommand(line==2?0xc0:0x80);
+016A 7402       917            mov     a,#0x02
+016C B57010     918            cjne    a,_LCDprint_PARM_2,L011013?
+016F 7DC0       919            mov     r5,#0xC0
+0171 8000       920            sjmp    L011014?
+0173            921   L011013?:
+0173 7D80       922            mov     r5,#0x80
+0175            923   L011014?:
+0175 8D82       924            mov     dpl,r5
+0177 C002       925            push    ar2
+0179 C003       926            push    ar3
+017B C004       927            push    ar4
+017D 120000     928            lcall   _WriteCommand
+0180            929   ;        D:\clone\LAB5\lab5v1.c:226: waitms(5);
+0180 900005     930            mov     dptr,#0x0005
+0183 120000     931            lcall   _waitms
+0186 D004       932            pop     ar4
+0188 D003       933            pop     ar3
+018A D002       934            pop     ar2
+018C            935   ;        D:\clone\LAB5\lab5v1.c:227: for(j=0; string[j]!=0; j++) WriteData(string[j]);// Write the message
+018C 7D00       936            mov     r5,#0x00
+018E 7E00       937            mov     r6,#0x00
+0190            938   L011003?:
+0190 ED         939            mov     a,r5
+0191 2A         940            add     a,r2
+0192 FF         941            mov     r7,a
+0193 EE         942            mov     a,r6
+0194 3B         943            addc    a,r3
+0195 F8         944            mov     r0,a
+0196 8C01       945            mov     ar1,r4
+0198 8F82       946            mov     dpl,r7
+019A 8883       947            mov     dph,r0
+019C 89F0       948            mov     b,r1
+019E 120000     949            lcall   __gptrget
+01A1 FF         950            mov     r7,a
+01A2 6000       951            jz      L011006?
+01A4 8F82       952            mov     dpl,r7
+01A6 C002       953            push    ar2
+01A8 C003       954            push    ar3
+01AA C004       955            push    ar4
+01AC C005       956            push    ar5
+01AE C006       957            push    ar6
+01B0 120000     958            lcall   _WriteData
+01B3 D006       959            pop     ar6
+01B5 D005       960            pop     ar5
+01B7 D004       961            pop     ar4
+01B9 D003       962            pop     ar3
+01BB D002       963            pop     ar2
+01BD 0D         964            inc     r5
+01BE BD0090     965            cjne    r5,#0x00,L011003?
+01C1 0E         966            inc     r6
+01C2 8000       967            sjmp    L011003?
+01C4            968   L011006?:
+01C4            969   ;        D:\clone\LAB5\lab5v1.c:228: if(clear) for(; j<CHARS_PER_LINE; j++) WriteData(' '); // Clear the rest of the line
+01C4 302050     970            jnb     _LCDprint_PARM_3,L011011?
+01C7 8D02       971            mov     ar2,r5
+01C9 8E03       972            mov     ar3,r6
+01CB            973   L011007?:
+01CB C3         974            clr     c
+01CC EA         975            mov     a,r2
+01CD 9410       976            subb    a,#0x10
+01CF EB         977            mov     a,r3
+01D0 6480       978            xrl     a,#0x80
+01D2 9480       979            subb    a,#0x80
+01D4 5000       980            jnc     L011011?
+01D6 758220     981            mov     dpl,#0x20
+01D9 C002       982            push    ar2
+01DB C003       983            push    ar3
+01DD 120000     984            lcall   _WriteData
+01E0 D003       985            pop     ar3
+01E2 D002       986            pop     ar2
+01E4 0A         987            inc     r2
+01E5 BA0090     988            cjne    r2,#0x00,L011007?
+01E8 0B         989            inc     r3
+01E9 8000       990            sjmp    L011007?
+01EB            991   L011011?:
+01EB 22         992            ret
+01EC            993   ;------------------------------------------------------------
+01EC            994   ;Allocation info for local variables in function 'TIMER0_Init'
+01EC            995   ;------------------------------------------------------------
+01EC            996   ;------------------------------------------------------------
+01EC            997   ;        D:\clone\LAB5\lab5v1.c:231: void TIMER0_Init(void)
+01EC            998   ;        -----------------------------------------
+01EC            999   ;         function TIMER0_Init
+01EC           1000   ;        -----------------------------------------
+01EC           1001   _TIMER0_Init:
+01EC           1002   ;        D:\clone\LAB5\lab5v1.c:233: TMOD&=0b_1111_0000; // Set the bits of Timer/Counter 0 to zero
+01EC 5389F0    1003            anl     _TMOD,#0xF0
+01EF           1004   ;        D:\clone\LAB5\lab5v1.c:234: TMOD|=0b_0000_0001; // Timer/Counter 0 used as a 16-bit timer
+01EF 438901    1005            orl     _TMOD,#0x01
+01F2           1006   ;        D:\clone\LAB5\lab5v1.c:235: TR0=0; // Stop Timer/Counter 0
+01F2 C28C      1007            clr     _TR0
+01F4 22        1008            ret
+01F5           1009   ;------------------------------------------------------------
+01F5           1010   ;Allocation info for local variables in function 'InitPinADC'
 01F5           1011   ;------------------------------------------------------------
-01F5           1012   ;        D:\clone\LAB5\lab5v1.c:240: void InitPinADC (unsigned char portno, unsigned char pinno)
-01F5           1013   ;        -----------------------------------------
-01F5           1014   ;         function InitPinADC
-01F5           1015   ;        -----------------------------------------
-01F5           1016   _InitPinADC:
-01F5 AA82      1017            mov     r2,dpl
-01F7           1018   ;        D:\clone\LAB5\lab5v1.c:244: mask=1<<pinno;
-01F7 85C0F0    1019            mov     b,_InitPinADC_PARM_2
-01FA 05F0      1020            inc     b
-01FC 7401      1021            mov     a,#0x01
-01FE 8000      1022            sjmp    L013013?
-0200           1023   L013011?:
-0200 25E0      1024            add     a,acc
-0202           1025   L013013?:
-0202 D5F070    1026            djnz    b,L013011?
-0205 FB        1027            mov     r3,a
-0206           1028   ;        D:\clone\LAB5\lab5v1.c:246: SFRPAGE = 0x20;
-0206 75A720    1029            mov     _SFRPAGE,#0x20
-0209           1030   ;        D:\clone\LAB5\lab5v1.c:247: switch (portno)
-0209 BA00B0    1031            cjne    r2,#0x00,L013014?
-020C 8000      1032            sjmp    L013001?
-020E           1033   L013014?:
-020E BA0130    1034            cjne    r2,#0x01,L013015?
-0211 8000      1035            sjmp    L013002?
-0213           1036   L013015?:
-0213           1037   ;        D:\clone\LAB5\lab5v1.c:249: case 0:
-0213 BA02B0    1038            cjne    r2,#0x02,L013005?
-0216 8000      1039            sjmp    L013003?
-0218           1040   L013001?:
-0218           1041   ;        D:\clone\LAB5\lab5v1.c:250: P0MDIN &= (~mask); // Set pin as analog input
-0218 EB        1042            mov     a,r3
-0219 F4        1043            cpl     a
-021A FA        1044            mov     r2,a
-021B 52F1      1045            anl     _P0MDIN,a
-021D           1046   ;        D:\clone\LAB5\lab5v1.c:251: P0SKIP |= mask; // Skip Crossbar decoding for this pin
-021D EB        1047            mov     a,r3
-021E 42D4      1048            orl     _P0SKIP,a
-0220           1049   ;        D:\clone\LAB5\lab5v1.c:252: break;
-0220           1050   ;        D:\clone\LAB5\lab5v1.c:253: case 1:
-0220 8000      1051            sjmp    L013005?
-0222           1052   L013002?:
-0222           1053   ;        D:\clone\LAB5\lab5v1.c:254: P1MDIN &= (~mask); // Set pin as analog input
-0222 EB        1054            mov     a,r3
-0223 F4        1055            cpl     a
-0224 FA        1056            mov     r2,a
-0225 52F2      1057            anl     _P1MDIN,a
-0227           1058   ;        D:\clone\LAB5\lab5v1.c:255: P1SKIP |= mask; // Skip Crossbar decoding for this pin
-0227 EB        1059            mov     a,r3
-0228 42D5      1060            orl     _P1SKIP,a
-022A           1061   ;        D:\clone\LAB5\lab5v1.c:256: break;
-022A           1062   ;        D:\clone\LAB5\lab5v1.c:257: case 2:
-022A 8000      1063            sjmp    L013005?
-022C           1064   L013003?:
-022C           1065   ;        D:\clone\LAB5\lab5v1.c:258: P2MDIN &= (~mask); // Set pin as analog input
-022C EB        1066            mov     a,r3
-022D F4        1067            cpl     a
-022E FA        1068            mov     r2,a
-022F 52F3      1069            anl     _P2MDIN,a
-0231           1070   ;        D:\clone\LAB5\lab5v1.c:259: P2SKIP |= mask; // Skip Crossbar decoding for this pin
-0231 EB        1071            mov     a,r3
-0232 42CC      1072            orl     _P2SKIP,a
-0234           1073   ;        D:\clone\LAB5\lab5v1.c:263: }
-0234           1074   L013005?:
-0234           1075   ;        D:\clone\LAB5\lab5v1.c:264: SFRPAGE = 0x00;
-0234 75A700    1076            mov     _SFRPAGE,#0x00
-0237 22        1077            ret
-0238           1078   ;------------------------------------------------------------
-0238           1079   ;Allocation info for local variables in function 'ADC_at_Pin'
-0238           1080   ;------------------------------------------------------------
-0238           1081   ;pin                       Allocated to registers 
+01F5           1012   ;pinno                     Allocated with name '_InitPinADC_PARM_2'
+01F5           1013   ;portno                    Allocated to registers r2 
+01F5           1014   ;mask                      Allocated to registers r3 
+01F5           1015   ;------------------------------------------------------------
+01F5           1016   ;        D:\clone\LAB5\lab5v1.c:240: void InitPinADC (unsigned char portno, unsigned char pinno)
+01F5           1017   ;        -----------------------------------------
+01F5           1018   ;         function InitPinADC
+01F5           1019   ;        -----------------------------------------
+01F5           1020   _InitPinADC:
+01F5 AA82      1021            mov     r2,dpl
+01F7           1022   ;        D:\clone\LAB5\lab5v1.c:244: mask=1<<pinno;
+01F7 85C0F0    1023            mov     b,_InitPinADC_PARM_2
+01FA 05F0      1024            inc     b
+01FC 7401      1025            mov     a,#0x01
+01FE 8000      1026            sjmp    L013013?
+0200           1027   L013011?:
+0200 25E0      1028            add     a,acc
+0202           1029   L013013?:
+0202 D5F010    1030            djnz    b,L013011?
+0205 FB        1031            mov     r3,a
+0206           1032   ;        D:\clone\LAB5\lab5v1.c:246: SFRPAGE = 0x20;
+0206 75A720    1033            mov     _SFRPAGE,#0x20
+0209           1034   ;        D:\clone\LAB5\lab5v1.c:247: switch (portno)
+0209 BA0050    1035            cjne    r2,#0x00,L013014?
+020C 8000      1036            sjmp    L013001?
+020E           1037   L013014?:
+020E BA01D0    1038            cjne    r2,#0x01,L013015?
+0211 8000      1039            sjmp    L013002?
+0213           1040   L013015?:
+0213           1041   ;        D:\clone\LAB5\lab5v1.c:249: case 0:
+0213 BA0250    1042            cjne    r2,#0x02,L013005?
+0216 8000      1043            sjmp    L013003?
+0218           1044   L013001?:
+0218           1045   ;        D:\clone\LAB5\lab5v1.c:250: P0MDIN &= (~mask); // Set pin as analog input
+0218 EB        1046            mov     a,r3
+0219 F4        1047            cpl     a
+021A FA        1048            mov     r2,a
+021B 52F1      1049            anl     _P0MDIN,a
+021D           1050   ;        D:\clone\LAB5\lab5v1.c:251: P0SKIP |= mask; // Skip Crossbar decoding for this pin
+021D EB        1051            mov     a,r3
+021E 42D4      1052            orl     _P0SKIP,a
+0220           1053   ;        D:\clone\LAB5\lab5v1.c:252: break;
+0220           1054   ;        D:\clone\LAB5\lab5v1.c:253: case 1:
+0220 8000      1055            sjmp    L013005?
+0222           1056   L013002?:
+0222           1057   ;        D:\clone\LAB5\lab5v1.c:254: P1MDIN &= (~mask); // Set pin as analog input
+0222 EB        1058            mov     a,r3
+0223 F4        1059            cpl     a
+0224 FA        1060            mov     r2,a
+0225 52F2      1061            anl     _P1MDIN,a
+0227           1062   ;        D:\clone\LAB5\lab5v1.c:255: P1SKIP |= mask; // Skip Crossbar decoding for this pin
+0227 EB        1063            mov     a,r3
+0228 42D5      1064            orl     _P1SKIP,a
+022A           1065   ;        D:\clone\LAB5\lab5v1.c:256: break;
+022A           1066   ;        D:\clone\LAB5\lab5v1.c:257: case 2:
+022A 8000      1067            sjmp    L013005?
+022C           1068   L013003?:
+022C           1069   ;        D:\clone\LAB5\lab5v1.c:258: P2MDIN &= (~mask); // Set pin as analog input
+022C EB        1070            mov     a,r3
+022D F4        1071            cpl     a
+022E FA        1072            mov     r2,a
+022F 52F3      1073            anl     _P2MDIN,a
+0231           1074   ;        D:\clone\LAB5\lab5v1.c:259: P2SKIP |= mask; // Skip Crossbar decoding for this pin
+0231 EB        1075            mov     a,r3
+0232 42CC      1076            orl     _P2SKIP,a
+0234           1077   ;        D:\clone\LAB5\lab5v1.c:263: }
+0234           1078   L013005?:
+0234           1079   ;        D:\clone\LAB5\lab5v1.c:264: SFRPAGE = 0x00;
+0234 75A700    1080            mov     _SFRPAGE,#0x00
+0237 22        1081            ret
 0238           1082   ;------------------------------------------------------------
-0238           1083   ;        D:\clone\LAB5\lab5v1.c:268: unsigned int ADC_at_Pin(unsigned char pin)
-0238           1084   ;        -----------------------------------------
-0238           1085   ;         function ADC_at_Pin
-0238           1086   ;        -----------------------------------------
-0238           1087   _ADC_at_Pin:
-0238 8582BB    1088            mov     _ADC0MX,dpl
-023B           1089   ;        D:\clone\LAB5\lab5v1.c:271: ADINT = 0;
-023B C2ED      1090            clr     _ADINT
-023D           1091   ;        D:\clone\LAB5\lab5v1.c:272: ADBUSY = 1;     // Convert voltage at the pin
-023D D2EC      1092            setb    _ADBUSY
-023F           1093   ;        D:\clone\LAB5\lab5v1.c:273: while (!ADINT); // Wait for conversion to complete
-023F           1094   L014001?:
-023F 30ED30    1095            jnb     _ADINT,L014001?
-0242           1096   ;        D:\clone\LAB5\lab5v1.c:274: return (ADC0);
-0242 85BD82    1097            mov     dpl,_ADC0
-0245 85BE83    1098            mov     dph,(_ADC0 >> 8)
-0248 22        1099            ret
-0249           1100   ;------------------------------------------------------------
-0249           1101   ;Allocation info for local variables in function 'Volts_at_Pin'
-0249           1102   ;------------------------------------------------------------
-0249           1103   ;pin                       Allocated to registers r2 
+0238           1083   ;Allocation info for local variables in function 'ADC_at_Pin'
+0238           1084   ;------------------------------------------------------------
+0238           1085   ;pin                       Allocated to registers 
+0238           1086   ;------------------------------------------------------------
+0238           1087   ;        D:\clone\LAB5\lab5v1.c:268: unsigned int ADC_at_Pin(unsigned char pin)
+0238           1088   ;        -----------------------------------------
+0238           1089   ;         function ADC_at_Pin
+0238           1090   ;        -----------------------------------------
+0238           1091   _ADC_at_Pin:
+0238 8582BB    1092            mov     _ADC0MX,dpl
+023B           1093   ;        D:\clone\LAB5\lab5v1.c:271: ADINT = 0;
+023B C2ED      1094            clr     _ADINT
+023D           1095   ;        D:\clone\LAB5\lab5v1.c:272: ADBUSY = 1;     // Convert voltage at the pin
+023D D2EC      1096            setb    _ADBUSY
+023F           1097   ;        D:\clone\LAB5\lab5v1.c:273: while (!ADINT); // Wait for conversion to complete
+023F           1098   L014001?:
+023F 30EDD0    1099            jnb     _ADINT,L014001?
+0242           1100   ;        D:\clone\LAB5\lab5v1.c:274: return (ADC0);
+0242 85BD82    1101            mov     dpl,_ADC0
+0245 85BE83    1102            mov     dph,(_ADC0 >> 8)
+0248 22        1103            ret
 0249           1104   ;------------------------------------------------------------
-0249           1105   ;        D:\clone\LAB5\lab5v1.c:277: float Volts_at_Pin(unsigned char pin)
-0249           1106   ;        -----------------------------------------
-0249           1107   ;         function Volts_at_Pin
-0249           1108   ;        -----------------------------------------
-0249           1109   _Volts_at_Pin:
-0249           1110   ;        D:\clone\LAB5\lab5v1.c:279: return ((ADC_at_Pin(pin)*VDD)/0b_0011_1111_1111_1111);
-0249 120000    1111            lcall   _ADC_at_Pin
-024C 120000    1112            lcall   ___uint2fs
-024F AA82      1113            mov     r2,dpl
-0251 AB83      1114            mov     r3,dph
-0253 ACF0      1115            mov     r4,b
-0255 FD        1116            mov     r5,a
-0256 C002      1117            push    ar2
-0258 C003      1118            push    ar3
-025A C004      1119            push    ar4
-025C C005      1120            push    ar5
-025E 903333    1121            mov     dptr,#0x3333
-0261 75F053    1122            mov     b,#0x53
-0264 7440      1123            mov     a,#0x40
-0266 120000    1124            lcall   ___fsmul
-0269 AA82      1125            mov     r2,dpl
-026B AB83      1126            mov     r3,dph
-026D ACF0      1127            mov     r4,b
-026F FD        1128            mov     r5,a
-0270 E581      1129            mov     a,sp
-0272 24FC      1130            add     a,#0xfc
-0274 F581      1131            mov     sp,a
-0276 E4        1132            clr     a
-0277 C0E0      1133            push    acc
-0279 74FC      1134            mov     a,#0xFC
-027B C0E0      1135            push    acc
-027D 747F      1136            mov     a,#0x7F
-027F C0E0      1137            push    acc
-0281 7446      1138            mov     a,#0x46
-0283 C0E0      1139            push    acc
-0285 8A82      1140            mov     dpl,r2
-0287 8B83      1141            mov     dph,r3
-0289 8CF0      1142            mov     b,r4
-028B ED        1143            mov     a,r5
-028C 120000    1144            lcall   ___fsdiv
-028F AA82      1145            mov     r2,dpl
-0291 AB83      1146            mov     r3,dph
-0293 ACF0      1147            mov     r4,b
-0295 FD        1148            mov     r5,a
-0296 E581      1149            mov     a,sp
-0298 24FC      1150            add     a,#0xfc
-029A F581      1151            mov     sp,a
-029C 8A82      1152            mov     dpl,r2
-029E 8B83      1153            mov     dph,r3
-02A0 8CF0      1154            mov     b,r4
-02A2 ED        1155            mov     a,r5
-02A3 22        1156            ret
-02A4           1157   ;------------------------------------------------------------
-02A4           1158   ;Allocation info for local variables in function 'Get_ADC'
-02A4           1159   ;------------------------------------------------------------
-02A4           1160   ;------------------------------------------------------------
-02A4           1161   ;        D:\clone\LAB5\lab5v1.c:282: unsigned int Get_ADC (void)
-02A4           1162   ;        -----------------------------------------
-02A4           1163   ;         function Get_ADC
-02A4           1164   ;        -----------------------------------------
-02A4           1165   _Get_ADC:
-02A4           1166   ;        D:\clone\LAB5\lab5v1.c:284: ADINT = 0;
-02A4 C2ED      1167            clr     _ADINT
-02A6           1168   ;        D:\clone\LAB5\lab5v1.c:285: ADBUSY = 1;
-02A6 D2EC      1169            setb    _ADBUSY
-02A8           1170   ;        D:\clone\LAB5\lab5v1.c:286: while (!ADINT); // Wait for conversion to complete
-02A8           1171   L016001?:
-02A8 30ED70    1172            jnb     _ADINT,L016001?
-02AB           1173   ;        D:\clone\LAB5\lab5v1.c:287: return (ADC0);
-02AB 85BD82    1174            mov     dpl,_ADC0
-02AE 85BE83    1175            mov     dph,(_ADC0 >> 8)
-02B1 22        1176            ret
-02B2           1177   ;------------------------------------------------------------
-02B2           1178   ;Allocation info for local variables in function 'main'
-02B2           1179   ;------------------------------------------------------------
-02B2           1180   ;period                    Allocated to registers r2 r3 r4 r5 
-02B2           1181   ;mst                       Allocated with name '_main_mst_1_75'
-02B2           1182   ;i                         Allocated with name '_main_i_1_75'
-02B2           1183   ;sloc0                     Allocated with name '_main_sloc0_1_0'
-02B2           1184   ;v                         Allocated with name '_main_v_1_75'
-02B2           1185   ;------------------------------------------------------------
-02B2           1186   ;        D:\clone\LAB5\lab5v1.c:292: void main (void)
-02B2           1187   ;        -----------------------------------------
-02B2           1188   ;         function main
-02B2           1189   ;        -----------------------------------------
-02B2           1190   _main:
-02B2           1191   ;        D:\clone\LAB5\lab5v1.c:298: TIMER0_Init();
-02B2 120000    1192            lcall   _TIMER0_Init
-02B5           1193   ;        D:\clone\LAB5\lab5v1.c:299: LCD_4BIT();
-02B5 120000    1194            lcall   _LCD_4BIT
-02B8           1195   ;        D:\clone\LAB5\lab5v1.c:301: waitms(500); // Give PuTTy a chance to start before sending
-02B8 9001F4    1196            mov     dptr,#0x01F4
-02BB 120000    1197            lcall   _waitms
-02BE           1198   ;        D:\clone\LAB5\lab5v1.c:302: printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
-02BE 74B0      1199            mov     a,#__str_0
-02C0 C0E0      1200            push    acc
-02C2 74BA      1201            mov     a,#(__str_0 >> 8)
-02C4 C0E0      1202            push    acc
-02C6 7480      1203            mov     a,#0x80
-02C8 C0E0      1204            push    acc
-02CA 120000    1205            lcall   _printf
-02CD 1581      1206            dec     sp
-02CF 1581      1207            dec     sp
-02D1 1581      1208            dec     sp
-02D3           1209   ;        D:\clone\LAB5\lab5v1.c:307: __FILE__, __DATE__, __TIME__);
-02D3           1210   ;        D:\clone\LAB5\lab5v1.c:306: "Compiled: %s, %s\n\n",
-02D3 7430      1211            mov     a,#__str_4
-02D5 C0E0      1212            push    acc
-02D7 74BB      1213            mov     a,#(__str_4 >> 8)
-02D9 C0E0      1214            push    acc
-02DB 7480      1215            mov     a,#0x80
-02DD C0E0      1216            push    acc
-02DF 7470      1217            mov     a,#__str_3
-02E1 C0E0      1218            push    acc
-02E3 74BB      1219            mov     a,#(__str_3 >> 8)
-02E5 C0E0      1220            push    acc
-02E7 7480      1221            mov     a,#0x80
-02E9 C0E0      1222            push    acc
-02EB 74B0      1223            mov     a,#__str_2
-02ED C0E0      1224            push    acc
-02EF 74BB      1225            mov     a,#(__str_2 >> 8)
-02F1 C0E0      1226            push    acc
-02F3 7480      1227            mov     a,#0x80
-02F5 C0E0      1228            push    acc
-02F7 74F0      1229            mov     a,#__str_1
-02F9 C0E0      1230            push    acc
-02FB 74BB      1231            mov     a,#(__str_1 >> 8)
-02FD C0E0      1232            push    acc
-02FF 7480      1233            mov     a,#0x80
-0301 C0E0      1234            push    acc
-0303 120000    1235            lcall   _printf
-0306 E581      1236            mov     a,sp
-0308 24F4      1237            add     a,#0xf4
-030A F581      1238            mov     sp,a
-030C           1239   ;        D:\clone\LAB5\lab5v1.c:309: InitPinADC(1, 4); // Configure P1.6 as analog input
-030C 75C004    1240            mov     _InitPinADC_PARM_2,#0x04
-030F 758201    1241            mov     dpl,#0x01
-0312 120000    1242            lcall   _InitPinADC
-0315           1243   ;        D:\clone\LAB5\lab5v1.c:310: InitPinADC(1, 5); // Configure P1.7 as analog input
-0315 75C005    1244            mov     _InitPinADC_PARM_2,#0x05
-0318 758201    1245            mov     dpl,#0x01
-031B 120000    1246            lcall   _InitPinADC
-031E           1247   ;        D:\clone\LAB5\lab5v1.c:312: InitADC();
-031E 120000    1248            lcall   _InitADC
-0321           1249   ;        D:\clone\LAB5\lab5v1.c:314: LCDprint("vr:     f:    Hz",1,1);
-0321 757001    1250            mov     _LCDprint_PARM_2,#0x01
-0324 D220      1251            setb    _LCDprint_PARM_3
-0326 90BC30    1252            mov     dptr,#__str_5
-0329 75F080    1253            mov     b,#0x80
-032C 120000    1254            lcall   _LCDprint
-032F           1255   ;        D:\clone\LAB5\lab5v1.c:315: LCDprint("vt:     pha:    ",2,1);
-032F 757002    1256            mov     _LCDprint_PARM_2,#0x02
-0332 D220      1257            setb    _LCDprint_PARM_3
-0334 90BC70    1258            mov     dptr,#__str_6
-0337 75F080    1259            mov     b,#0x80
-033A 120000    1260            lcall   _LCDprint
-033D           1261   ;        D:\clone\LAB5\lab5v1.c:318: for (i = 0; i < 10; i++){
-033D           1262   L017040?:
-033D E4        1263            clr     a
-033E F5F0      1264            mov     _main_i_1_75,a
-0340 F5F1      1265            mov     (_main_i_1_75 + 1),a
-0342           1266   L017022?:
-0342 C3        1267            clr     c
-0343 E5F0      1268            mov     a,_main_i_1_75
-0345 940A      1269            subb    a,#0x0A
-0347 E5F1      1270            mov     a,(_main_i_1_75 + 1)
-0349 6480      1271            xrl     a,#0x80
-034B 9480      1272            subb    a,#0x80
-034D 5000      1273            jnc     L017040?
-034F           1274   ;        D:\clone\LAB5\lab5v1.c:320: TL0=0; 
-034F 758A00    1275            mov     _TL0,#0x00
-0352           1276   ;        D:\clone\LAB5\lab5v1.c:321: TH0=0;
-0352 758C00    1277            mov     _TH0,#0x00
-0355           1278   ;        D:\clone\LAB5\lab5v1.c:322: TF0=0;
-0355 C28D      1279            clr     _TF0
-0357           1280   ;        D:\clone\LAB5\lab5v1.c:323: overflow_count=0;
-0357 75B000    1281            mov     _overflow_count,#0x00
-035A           1282   ;        D:\clone\LAB5\lab5v1.c:324: while(P0_1!=0); // Wait for the signal to be zero
-035A           1283   L017001?:
-035A 208130    1284            jb      _P0_1,L017001?
-035D           1285   ;        D:\clone\LAB5\lab5v1.c:325: while(P0_1!=1); // Wait for the signal to be one
-035D           1286   L017004?:
-035D 308170    1287            jnb     _P0_1,L017004?
-0360           1288   ;        D:\clone\LAB5\lab5v1.c:326: TR0=1; // Start the timer
-0360 D28C      1289            setb    _TR0
-0362           1290   ;        D:\clone\LAB5\lab5v1.c:327: while(P0_1!=0) // Wait for the signal to be zero
-0362           1291   L017009?:
-0362 3081F0    1292            jnb     _P0_1,L017014?
-0365           1293   ;        D:\clone\LAB5\lab5v1.c:329: if(TF0==1) // Did the 16-bit timer overflow?
-0365           1294   ;        D:\clone\LAB5\lab5v1.c:331: TF0=0;
-0365 108D30    1295            jbc     _TF0,L017045?
-0368 8000      1296            sjmp    L017009?
-036A           1297   L017045?:
-036A           1298   ;        D:\clone\LAB5\lab5v1.c:332: overflow_count++;
-036A 05B0      1299            inc     _overflow_count
-036C           1300   ;        D:\clone\LAB5\lab5v1.c:335: while(P0_1!=1) // Wait for the signal to be one
-036C 8000      1301            sjmp    L017009?
-036E           1302   L017014?:
-036E 208170    1303            jb      _P0_1,L017016?
-0371           1304   ;        D:\clone\LAB5\lab5v1.c:337: if(TF0==1) // Did the 16-bit timer overflow?
-0371           1305   ;        D:\clone\LAB5\lab5v1.c:339: TF0=0;
-0371 108DB0    1306            jbc     _TF0,L017047?
-0374 8000      1307            sjmp    L017014?
-0376           1308   L017047?:
-0376           1309   ;        D:\clone\LAB5\lab5v1.c:340: overflow_count++;
-0376 05B0      1310            inc     _overflow_count
-0378 8000      1311            sjmp    L017014?
-037A           1312   L017016?:
-037A           1313   ;        D:\clone\LAB5\lab5v1.c:343: TR0=0; // Stop timer 0, the 24-bit number [overflow_count-TH0-TL0] has the period!
-037A C28C      1314            clr     _TR0
-037C           1315   ;        D:\clone\LAB5\lab5v1.c:344: period=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
-037C 85B082    1316            mov     dpl,_overflow_count
-037F 120000    1317            lcall   ___uchar2fs
-0382 AC82      1318            mov     r4,dpl
-0384 AD83      1319            mov     r5,dph
-0386 AEF0      1320            mov     r6,b
-0388 FF        1321            mov     r7,a
-0389 C004      1322            push    ar4
-038B C005      1323            push    ar5
-038D C006      1324            push    ar6
-038F C007      1325            push    ar7
-0391 900000    1326            mov     dptr,#0x0000
-0394 75F080    1327            mov     b,#0x80
-0397 7447      1328            mov     a,#0x47
-0399 120000    1329            lcall   ___fsmul
-039C 858230    1330            mov     _main_sloc0_1_0,dpl
-039F 858331    1331            mov     (_main_sloc0_1_0 + 1),dph
-03A2 85F032    1332            mov     (_main_sloc0_1_0 + 2),b
-03A5 F533      1333            mov     (_main_sloc0_1_0 + 3),a
-03A7 E581      1334            mov     a,sp
-03A9 24FC      1335            add     a,#0xfc
-03AB F581      1336            mov     sp,a
-03AD 858C82    1337            mov     dpl,_TH0
-03B0 120000    1338            lcall   ___uchar2fs
-03B3 AA82      1339            mov     r2,dpl
-03B5 AB83      1340            mov     r3,dph
-03B7 ACF0      1341            mov     r4,b
-03B9 FD        1342            mov     r5,a
-03BA C002      1343            push    ar2
-03BC C003      1344            push    ar3
-03BE C004      1345            push    ar4
-03C0 C005      1346            push    ar5
-03C2 900000    1347            mov     dptr,#0x0000
-03C5 75F080    1348            mov     b,#0x80
-03C8 7443      1349            mov     a,#0x43
-03CA 120000    1350            lcall   ___fsmul
-03CD AA82      1351            mov     r2,dpl
-03CF AB83      1352            mov     r3,dph
-03D1 ACF0      1353            mov     r4,b
-03D3 FD        1354            mov     r5,a
-03D4 E581      1355            mov     a,sp
-03D6 24FC      1356            add     a,#0xfc
-03D8 F581      1357            mov     sp,a
-03DA C002      1358            push    ar2
-03DC C003      1359            push    ar3
-03DE C004      1360            push    ar4
-03E0 C005      1361            push    ar5
-03E2 853082    1362            mov     dpl,_main_sloc0_1_0
-03E5 853183    1363            mov     dph,(_main_sloc0_1_0 + 1)
-03E8 8532F0    1364            mov     b,(_main_sloc0_1_0 + 2)
-03EB E533      1365            mov     a,(_main_sloc0_1_0 + 3)
-03ED 120000    1366            lcall   ___fsadd
-03F0 858230    1367            mov     _main_sloc0_1_0,dpl
-03F3 858331    1368            mov     (_main_sloc0_1_0 + 1),dph
-03F6 85F032    1369            mov     (_main_sloc0_1_0 + 2),b
-03F9 F533      1370            mov     (_main_sloc0_1_0 + 3),a
-03FB E581      1371            mov     a,sp
-03FD 24FC      1372            add     a,#0xfc
-03FF F581      1373            mov     sp,a
-0401 AE8A      1374            mov     r6,_TL0
-0403 7F00      1375            mov     r7,#0x00
-0405 8E82      1376            mov     dpl,r6
-0407 8F83      1377            mov     dph,r7
-0409 120000    1378            lcall   ___sint2fs
-040C AE82      1379            mov     r6,dpl
-040E AF83      1380            mov     r7,dph
-0410 AAF0      1381            mov     r2,b
-0412 FB        1382            mov     r3,a
-0413 C006      1383            push    ar6
-0415 C007      1384            push    ar7
-0417 C002      1385            push    ar2
-0419 C003      1386            push    ar3
-041B 853082    1387            mov     dpl,_main_sloc0_1_0
-041E 853183    1388            mov     dph,(_main_sloc0_1_0 + 1)
-0421 8532F0    1389            mov     b,(_main_sloc0_1_0 + 2)
-0424 E533      1390            mov     a,(_main_sloc0_1_0 + 3)
-0426 120000    1391            lcall   ___fsadd
-0429 AA82      1392            mov     r2,dpl
-042B AB83      1393            mov     r3,dph
-042D ACF0      1394            mov     r4,b
-042F FD        1395            mov     r5,a
-0430 E581      1396            mov     a,sp
-0432 24FC      1397            add     a,#0xfc
-0434 F581      1398            mov     sp,a
-0436 C002      1399            push    ar2
-0438 C003      1400            push    ar3
-043A C004      1401            push    ar4
-043C C005      1402            push    ar5
-043E 90F4FC    1403            mov     dptr,#0xF4FC
-0441 75F032    1404            mov     b,#0x32
-0444 7434      1405            mov     a,#0x34
-0446 120000    1406            lcall   ___fsmul
-0449 AA82      1407            mov     r2,dpl
-044B AB83      1408            mov     r3,dph
-044D ACF0      1409            mov     r4,b
-044F FD        1410            mov     r5,a
-0450 E581      1411            mov     a,sp
-0452 24FC      1412            add     a,#0xfc
-0454 F581      1413            mov     sp,a
-0456           1414   ;        D:\clone\LAB5\lab5v1.c:345: if (period > mst) 
-0456 C002      1415            push    ar2
-0458 C003      1416            push    ar3
-045A C004      1417            push    ar4
-045C C005      1418            push    ar5
-045E C0B0      1419            push    _main_mst_1_75
-0460 C0B1      1420            push    (_main_mst_1_75 + 1)
-0462 C0B2      1421            push    (_main_mst_1_75 + 2)
-0464 C0B3      1422            push    (_main_mst_1_75 + 3)
-0466 8A82      1423            mov     dpl,r2
-0468 8B83      1424            mov     dph,r3
-046A 8CF0      1425            mov     b,r4
-046C ED        1426            mov     a,r5
-046D 120000    1427            lcall   ___fsgt
-0470 AE82      1428            mov     r6,dpl
-0472 E581      1429            mov     a,sp
-0474 24FC      1430            add     a,#0xfc
-0476 F581      1431            mov     sp,a
-0478 D005      1432            pop     ar5
-047A D004      1433            pop     ar4
-047C D003      1434            pop     ar3
-047E D002      1435            pop     ar2
-0480 EE        1436            mov     a,r6
-0481 6000      1437            jz      L017018?
-0483           1438   ;        D:\clone\LAB5\lab5v1.c:346: mst = period;
-0483 8AB0      1439            mov     _main_mst_1_75,r2
-0485 8BB1      1440            mov     (_main_mst_1_75 + 1),r3
-0487 8CB2      1441            mov     (_main_mst_1_75 + 2),r4
-0489 8DB3      1442            mov     (_main_mst_1_75 + 3),r5
-048B           1443   L017018?:
-048B           1444   ;        D:\clone\LAB5\lab5v1.c:347: printf("\r\n%3.2f",mst*1000);
-048B C0B0      1445            push    _main_mst_1_75
-048D C0B1      1446            push    (_main_mst_1_75 + 1)
-048F C0B2      1447            push    (_main_mst_1_75 + 2)
-0491 C0B3      1448            push    (_main_mst_1_75 + 3)
-0493 900000    1449            mov     dptr,#0x0000
-0496 75F07A    1450            mov     b,#0x7A
-0499 7444      1451            mov     a,#0x44
-049B 120000    1452            lcall   ___fsmul
-049E AA82      1453            mov     r2,dpl
-04A0 AB83      1454            mov     r3,dph
-04A2 ACF0      1455            mov     r4,b
-04A4 FD        1456            mov     r5,a
-04A5 E581      1457            mov     a,sp
-04A7 24FC      1458            add     a,#0xfc
-04A9 F581      1459            mov     sp,a
-04AB C002      1460            push    ar2
-04AD C003      1461            push    ar3
-04AF C004      1462            push    ar4
-04B1 C005      1463            push    ar5
-04B3 7430      1464            mov     a,#__str_7
-04B5 C0E0      1465            push    acc
-04B7 74C0      1466            mov     a,#(__str_7 >> 8)
-04B9 C0E0      1467            push    acc
-04BB 7480      1468            mov     a,#0x80
-04BD C0E0      1469            push    acc
-04BF 120000    1470            lcall   _printf
-04C2 E581      1471            mov     a,sp
-04C4 24F9      1472            add     a,#0xf9
-04C6 F581      1473            mov     sp,a
-04C8           1474   ;        D:\clone\LAB5\lab5v1.c:348: waitms(1);
-04C8 900001    1475            mov     dptr,#0x0001
-04CB 120000    1476            lcall   _waitms
-04CE           1477   ;        D:\clone\LAB5\lab5v1.c:351: v[0] = Volts_at_Pin(QFP32_MUX_P1_4);
-04CE 75820A    1478            mov     dpl,#0x0A
-04D1 120000    1479            lcall   _Volts_at_Pin
-04D4 AA82      1480            mov     r2,dpl
-04D6 AB83      1481            mov     r3,dph
-04D8 ACF0      1482            mov     r4,b
-04DA FD        1483            mov     r5,a
-04DB 7870      1484            mov     r0,#_main_v_1_75
-04DD A602      1485            mov     @r0,ar2
-04DF 08        1486            inc     r0
-04E0 A603      1487            mov     @r0,ar3
-04E2 08        1488            inc     r0
-04E3 A604      1489            mov     @r0,ar4
-04E5 08        1490            inc     r0
-04E6 A605      1491            mov     @r0,ar5
-04E8           1492   ;        D:\clone\LAB5\lab5v1.c:352: v[1] = Volts_at_Pin(QFP32_MUX_P1_5);
-04E8 75820B    1493            mov     dpl,#0x0B
-04EB 120000    1494            lcall   _Volts_at_Pin
-04EE 858230    1495            mov     _main_sloc0_1_0,dpl
-04F1 858331    1496            mov     (_main_sloc0_1_0 + 1),dph
-04F4 85F032    1497            mov     (_main_sloc0_1_0 + 2),b
-04F7 F533      1498            mov     (_main_sloc0_1_0 + 3),a
-04F9 7874      1499            mov     r0,#(_main_v_1_75 + 0x0004)
-04FB A630      1500            mov     @r0,_main_sloc0_1_0
-04FD 08        1501            inc     r0
-04FE A631      1502            mov     @r0,(_main_sloc0_1_0 + 1)
-0500 08        1503            inc     r0
-0501 A632      1504            mov     @r0,(_main_sloc0_1_0 + 2)
-0503 08        1505            inc     r0
-0504 A633      1506            mov     @r0,(_main_sloc0_1_0 + 3)
-0506           1507   ;        D:\clone\LAB5\lab5v1.c:354: printf ("\nV@P1_4=%7.5fV, V@P1_5=%7.5fV\r",v[0], v[1]);
-0506 7870      1508            mov     r0,#_main_v_1_75
-0508 8606      1509            mov     ar6,@r0
-050A 08        1510            inc     r0
-050B 8607      1511            mov     ar7,@r0
-050D 08        1512            inc     r0
-050E 8602      1513            mov     ar2,@r0
-0510 08        1514            inc     r0
-0511 8603      1515            mov     ar3,@r0
-0513 C030      1516            push    _main_sloc0_1_0
-0515 C031      1517            push    (_main_sloc0_1_0 + 1)
-0517 C032      1518            push    (_main_sloc0_1_0 + 2)
-0519 C033      1519            push    (_main_sloc0_1_0 + 3)
-051B C006      1520            push    ar6
-051D C007      1521            push    ar7
-051F C002      1522            push    ar2
-0521 C003      1523            push    ar3
-0523 7470      1524            mov     a,#__str_8
-0525 C0E0      1525            push    acc
-0527 74C0      1526            mov     a,#(__str_8 >> 8)
-0529 C0E0      1527            push    acc
-052B 7480      1528            mov     a,#0x80
-052D C0E0      1529            push    acc
-052F 120000    1530            lcall   _printf
-0532 E581      1531            mov     a,sp
-0534 24F5      1532            add     a,#0xf5
-0536 F581      1533            mov     sp,a
-0538           1534   ;        D:\clone\LAB5\lab5v1.c:355: waitms(500);
-0538 9001F4    1535            mov     dptr,#0x01F4
-053B 120000    1536            lcall   _waitms
-053E           1537   ;        D:\clone\LAB5\lab5v1.c:318: for (i = 0; i < 10; i++){
-053E 05F0      1538            inc     _main_i_1_75
-0540 E4        1539            clr     a
-0541 B5F0B0    1540            cjne    a,_main_i_1_75,L017049?
-0544 05F1      1541            inc     (_main_i_1_75 + 1)
-0546           1542   L017049?:
-0546 020000    1543            ljmp    L017022?
-0549           1544            rseg R_CSEG
-0549           1545   
-0000           1546            rseg R_XINIT
-0000           1547   
-0000           1548            rseg R_CONST
-0000           1549   __str_0:
-0000 1B        1550            db 0x1B
-0001 5B324A    1551            db '[2J'
-0004 00        1552            db 0x00
-0005           1553   __str_1:
-0005 41444320  1554            db 'ADC test program'
+0249           1105   ;Allocation info for local variables in function 'Volts_at_Pin'
+0249           1106   ;------------------------------------------------------------
+0249           1107   ;pin                       Allocated to registers r2 
+0249           1108   ;------------------------------------------------------------
+0249           1109   ;        D:\clone\LAB5\lab5v1.c:277: float Volts_at_Pin(unsigned char pin)
+0249           1110   ;        -----------------------------------------
+0249           1111   ;         function Volts_at_Pin
+0249           1112   ;        -----------------------------------------
+0249           1113   _Volts_at_Pin:
+0249           1114   ;        D:\clone\LAB5\lab5v1.c:279: return ((ADC_at_Pin(pin)*VDD)/0b_0011_1111_1111_1111);
+0249 120000    1115            lcall   _ADC_at_Pin
+024C 120000    1116            lcall   ___uint2fs
+024F AA82      1117            mov     r2,dpl
+0251 AB83      1118            mov     r3,dph
+0253 ACF0      1119            mov     r4,b
+0255 FD        1120            mov     r5,a
+0256 C002      1121            push    ar2
+0258 C003      1122            push    ar3
+025A C004      1123            push    ar4
+025C C005      1124            push    ar5
+025E 90923A    1125            mov     dptr,#0x923A
+0261 75F053    1126            mov     b,#0x53
+0264 7440      1127            mov     a,#0x40
+0266 120000    1128            lcall   ___fsmul
+0269 AA82      1129            mov     r2,dpl
+026B AB83      1130            mov     r3,dph
+026D ACF0      1131            mov     r4,b
+026F FD        1132            mov     r5,a
+0270 E581      1133            mov     a,sp
+0272 24FC      1134            add     a,#0xfc
+0274 F581      1135            mov     sp,a
+0276 E4        1136            clr     a
+0277 C0E0      1137            push    acc
+0279 74FC      1138            mov     a,#0xFC
+027B C0E0      1139            push    acc
+027D 747F      1140            mov     a,#0x7F
+027F C0E0      1141            push    acc
+0281 7446      1142            mov     a,#0x46
+0283 C0E0      1143            push    acc
+0285 8A82      1144            mov     dpl,r2
+0287 8B83      1145            mov     dph,r3
+0289 8CF0      1146            mov     b,r4
+028B ED        1147            mov     a,r5
+028C 120000    1148            lcall   ___fsdiv
+028F AA82      1149            mov     r2,dpl
+0291 AB83      1150            mov     r3,dph
+0293 ACF0      1151            mov     r4,b
+0295 FD        1152            mov     r5,a
+0296 E581      1153            mov     a,sp
+0298 24FC      1154            add     a,#0xfc
+029A F581      1155            mov     sp,a
+029C 8A82      1156            mov     dpl,r2
+029E 8B83      1157            mov     dph,r3
+02A0 8CF0      1158            mov     b,r4
+02A2 ED        1159            mov     a,r5
+02A3 22        1160            ret
+02A4           1161   ;------------------------------------------------------------
+02A4           1162   ;Allocation info for local variables in function 'Get_ADC'
+02A4           1163   ;------------------------------------------------------------
+02A4           1164   ;------------------------------------------------------------
+02A4           1165   ;        D:\clone\LAB5\lab5v1.c:282: unsigned int Get_ADC (void)
+02A4           1166   ;        -----------------------------------------
+02A4           1167   ;         function Get_ADC
+02A4           1168   ;        -----------------------------------------
+02A4           1169   _Get_ADC:
+02A4           1170   ;        D:\clone\LAB5\lab5v1.c:284: ADINT = 0;
+02A4 C2ED      1171            clr     _ADINT
+02A6           1172   ;        D:\clone\LAB5\lab5v1.c:285: ADBUSY = 1;
+02A6 D2EC      1173            setb    _ADBUSY
+02A8           1174   ;        D:\clone\LAB5\lab5v1.c:286: while (!ADINT); // Wait for conversion to complete
+02A8           1175   L016001?:
+02A8 30ED10    1176            jnb     _ADINT,L016001?
+02AB           1177   ;        D:\clone\LAB5\lab5v1.c:287: return (ADC0);
+02AB 85BD82    1178            mov     dpl,_ADC0
+02AE 85BE83    1179            mov     dph,(_ADC0 >> 8)
+02B1 22        1180            ret
+02B2           1181   ;------------------------------------------------------------
+02B2           1182   ;Allocation info for local variables in function 'main'
+02B2           1183   ;------------------------------------------------------------
+02B2           1184   ;period                    Allocated to registers r2 r3 r4 r5 
+02B2           1185   ;mst                       Allocated with name '_main_mst_1_75'
+02B2           1186   ;i                         Allocated with name '_main_i_1_75'
+02B2           1187   ;vmax1                     Allocated with name '_main_vmax1_1_75'
+02B2           1188   ;vmax2                     Allocated with name '_main_vmax2_1_75'
+02B2           1189   ;phase_diff                Allocated to registers r2 r3 r4 r5 
+02B2           1190   ;degrees                   Allocated to registers r2 r3 r4 r5 
+02B2           1191   ;sloc0                     Allocated with name '_main_sloc0_1_0'
+02B2           1192   ;v                         Allocated with name '_main_v_1_75'
+02B2           1193   ;------------------------------------------------------------
+02B2           1194   ;        D:\clone\LAB5\lab5v1.c:292: void main (void)
+02B2           1195   ;        -----------------------------------------
+02B2           1196   ;         function main
+02B2           1197   ;        -----------------------------------------
+02B2           1198   _main:
+02B2           1199   ;        D:\clone\LAB5\lab5v1.c:296: float mst = 0.0;
+02B2 75B000    1200            mov     _main_mst_1_75,#0x00
+02B5 75B100    1201            mov     (_main_mst_1_75 + 1),#0x00
+02B8 75B200    1202            mov     (_main_mst_1_75 + 2),#0x00
+02BB 75B300    1203            mov     (_main_mst_1_75 + 3),#0x00
+02BE           1204   ;        D:\clone\LAB5\lab5v1.c:298: float vmax1=0.0;
+02BE 754000    1205            mov     _main_vmax1_1_75,#0x00
+02C1 754100    1206            mov     (_main_vmax1_1_75 + 1),#0x00
+02C4 754200    1207            mov     (_main_vmax1_1_75 + 2),#0x00
+02C7 754300    1208            mov     (_main_vmax1_1_75 + 3),#0x00
+02CA           1209   ;        D:\clone\LAB5\lab5v1.c:299: float vmax2=0.0;
+02CA 759000    1210            mov     _main_vmax2_1_75,#0x00
+02CD 759100    1211            mov     (_main_vmax2_1_75 + 1),#0x00
+02D0 759200    1212            mov     (_main_vmax2_1_75 + 2),#0x00
+02D3 759300    1213            mov     (_main_vmax2_1_75 + 3),#0x00
+02D6           1214   ;        D:\clone\LAB5\lab5v1.c:302: TIMER0_Init();
+02D6 120000    1215            lcall   _TIMER0_Init
+02D9           1216   ;        D:\clone\LAB5\lab5v1.c:303: LCD_4BIT();
+02D9 120000    1217            lcall   _LCD_4BIT
+02DC           1218   ;        D:\clone\LAB5\lab5v1.c:305: waitms(500); // Give PuTTy a chance to start before sending
+02DC 9001F4    1219            mov     dptr,#0x01F4
+02DF 120000    1220            lcall   _waitms
+02E2           1221   ;        D:\clone\LAB5\lab5v1.c:306: printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
+02E2 7450      1222            mov     a,#__str_0
+02E4 C0E0      1223            push    acc
+02E6 74BB      1224            mov     a,#(__str_0 >> 8)
+02E8 C0E0      1225            push    acc
+02EA 7480      1226            mov     a,#0x80
+02EC C0E0      1227            push    acc
+02EE 120000    1228            lcall   _printf
+02F1 1581      1229            dec     sp
+02F3 1581      1230            dec     sp
+02F5 1581      1231            dec     sp
+02F7           1232   ;        D:\clone\LAB5\lab5v1.c:311: __FILE__, __DATE__, __TIME__);
+02F7           1233   ;        D:\clone\LAB5\lab5v1.c:310: "Compiled: %s, %s\n\n",
+02F7 74D0      1234            mov     a,#__str_4
+02F9 C0E0      1235            push    acc
+02FB 74BB      1236            mov     a,#(__str_4 >> 8)
+02FD C0E0      1237            push    acc
+02FF 7480      1238            mov     a,#0x80
+0301 C0E0      1239            push    acc
+0303 7410      1240            mov     a,#__str_3
+0305 C0E0      1241            push    acc
+0307 74BC      1242            mov     a,#(__str_3 >> 8)
+0309 C0E0      1243            push    acc
+030B 7480      1244            mov     a,#0x80
+030D C0E0      1245            push    acc
+030F 7450      1246            mov     a,#__str_2
+0311 C0E0      1247            push    acc
+0313 74BC      1248            mov     a,#(__str_2 >> 8)
+0315 C0E0      1249            push    acc
+0317 7480      1250            mov     a,#0x80
+0319 C0E0      1251            push    acc
+031B 7490      1252            mov     a,#__str_1
+031D C0E0      1253            push    acc
+031F 74BC      1254            mov     a,#(__str_1 >> 8)
+0321 C0E0      1255            push    acc
+0323 7480      1256            mov     a,#0x80
+0325 C0E0      1257            push    acc
+0327 120000    1258            lcall   _printf
+032A E581      1259            mov     a,sp
+032C 24F4      1260            add     a,#0xf4
+032E F581      1261            mov     sp,a
+0330           1262   ;        D:\clone\LAB5\lab5v1.c:313: InitPinADC(1, 4); // Configure P1.6 as analog input
+0330 75C004    1263            mov     _InitPinADC_PARM_2,#0x04
+0333 758201    1264            mov     dpl,#0x01
+0336 120000    1265            lcall   _InitPinADC
+0339           1266   ;        D:\clone\LAB5\lab5v1.c:314: InitPinADC(1, 5); // Configure P1.7 as analog input
+0339 75C005    1267            mov     _InitPinADC_PARM_2,#0x05
+033C 758201    1268            mov     dpl,#0x01
+033F 120000    1269            lcall   _InitPinADC
+0342           1270   ;        D:\clone\LAB5\lab5v1.c:316: InitADC();
+0342 120000    1271            lcall   _InitADC
+0345           1272   ;        D:\clone\LAB5\lab5v1.c:318: LCDprint("vr:     f:    Hz",1,1);
+0345 757001    1273            mov     _LCDprint_PARM_2,#0x01
+0348 D220      1274            setb    _LCDprint_PARM_3
+034A 90BCD0    1275            mov     dptr,#__str_5
+034D 75F080    1276            mov     b,#0x80
+0350 120000    1277            lcall   _LCDprint
+0353           1278   ;        D:\clone\LAB5\lab5v1.c:319: LCDprint("vt:     pha:    ",2,1);
+0353 757002    1279            mov     _LCDprint_PARM_2,#0x02
+0356 D220      1280            setb    _LCDprint_PARM_3
+0358 90BD10    1281            mov     dptr,#__str_6
+035B 75F080    1282            mov     b,#0x80
+035E 120000    1283            lcall   _LCDprint
+0361           1284   ;        D:\clone\LAB5\lab5v1.c:322: for (i = 0; i < 10; i++){
+0361           1285   L017061?:
+0361 E4        1286            clr     a
+0362 F5F0      1287            mov     _main_i_1_75,a
+0364 F5F1      1288            mov     (_main_i_1_75 + 1),a
+0366           1289   L017040?:
+0366 C3        1290            clr     c
+0367 E5F0      1291            mov     a,_main_i_1_75
+0369 940A      1292            subb    a,#0x0A
+036B E5F1      1293            mov     a,(_main_i_1_75 + 1)
+036D 6480      1294            xrl     a,#0x80
+036F 9480      1295            subb    a,#0x80
+0371 4000      1296            jc      L017075?
+0373 020000    1297            ljmp    L017043?
+0376           1298   L017075?:
+0376           1299   ;        D:\clone\LAB5\lab5v1.c:324: TL0=0; 
+0376 758A00    1300            mov     _TL0,#0x00
+0379           1301   ;        D:\clone\LAB5\lab5v1.c:325: TH0=0;
+0379 758C00    1302            mov     _TH0,#0x00
+037C           1303   ;        D:\clone\LAB5\lab5v1.c:326: TF0=0;
+037C C28D      1304            clr     _TF0
+037E           1305   ;        D:\clone\LAB5\lab5v1.c:327: overflow_count=0;
+037E 75B000    1306            mov     _overflow_count,#0x00
+0381           1307   ;        D:\clone\LAB5\lab5v1.c:328: while(P0_1!=0); // Wait for the signal to be zero
+0381           1308   L017001?:
+0381 208150    1309            jb      _P0_1,L017001?
+0384           1310   ;        D:\clone\LAB5\lab5v1.c:329: while(P0_1!=1); // Wait for the signal to be one
+0384           1311   L017004?:
+0384 308190    1312            jnb     _P0_1,L017004?
+0387           1313   ;        D:\clone\LAB5\lab5v1.c:330: TR0=1; // Start the timer
+0387 D28C      1314            setb    _TR0
+0389           1315   ;        D:\clone\LAB5\lab5v1.c:331: while(P0_1!=0) // Wait for the signal to be zero
+0389           1316   L017009?:
+0389 308110    1317            jnb     _P0_1,L017014?
+038C           1318   ;        D:\clone\LAB5\lab5v1.c:333: if(TF0==1) // Did the 16-bit timer overflow?
+038C           1319   ;        D:\clone\LAB5\lab5v1.c:335: TF0=0;
+038C 108D50    1320            jbc     _TF0,L017079?
+038F 8000      1321            sjmp    L017009?
+0391           1322   L017079?:
+0391           1323   ;        D:\clone\LAB5\lab5v1.c:336: overflow_count++;
+0391 05B0      1324            inc     _overflow_count
+0393           1325   ;        D:\clone\LAB5\lab5v1.c:339: while(P0_1!=1) // Wait for the signal to be one
+0393 8000      1326            sjmp    L017009?
+0395           1327   L017014?:
+0395 208190    1328            jb      _P0_1,L017016?
+0398           1329   ;        D:\clone\LAB5\lab5v1.c:341: if(TF0==1) // Did the 16-bit timer overflow?
+0398           1330   ;        D:\clone\LAB5\lab5v1.c:343: TF0=0;
+0398 108DD0    1331            jbc     _TF0,L017081?
+039B 8000      1332            sjmp    L017014?
+039D           1333   L017081?:
+039D           1334   ;        D:\clone\LAB5\lab5v1.c:344: overflow_count++;
+039D 05B0      1335            inc     _overflow_count
+039F 8000      1336            sjmp    L017014?
+03A1           1337   L017016?:
+03A1           1338   ;        D:\clone\LAB5\lab5v1.c:347: TR0=0; // Stop timer 0, the 24-bit number [overflow_count-TH0-TL0] has the period!
+03A1 C28C      1339            clr     _TR0
+03A3           1340   ;        D:\clone\LAB5\lab5v1.c:348: period=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
+03A3 85B082    1341            mov     dpl,_overflow_count
+03A6 120000    1342            lcall   ___uchar2fs
+03A9 AE82      1343            mov     r6,dpl
+03AB AF83      1344            mov     r7,dph
+03AD AAF0      1345            mov     r2,b
+03AF FB        1346            mov     r3,a
+03B0 C006      1347            push    ar6
+03B2 C007      1348            push    ar7
+03B4 C002      1349            push    ar2
+03B6 C003      1350            push    ar3
+03B8 900000    1351            mov     dptr,#0x0000
+03BB 75F080    1352            mov     b,#0x80
+03BE 7447      1353            mov     a,#0x47
+03C0 120000    1354            lcall   ___fsmul
+03C3 8582D0    1355            mov     _main_sloc0_1_0,dpl
+03C6 8583D1    1356            mov     (_main_sloc0_1_0 + 1),dph
+03C9 85F0D2    1357            mov     (_main_sloc0_1_0 + 2),b
+03CC F5D3      1358            mov     (_main_sloc0_1_0 + 3),a
+03CE E581      1359            mov     a,sp
+03D0 24FC      1360            add     a,#0xfc
+03D2 F581      1361            mov     sp,a
+03D4 858C82    1362            mov     dpl,_TH0
+03D7 120000    1363            lcall   ___uchar2fs
+03DA AE82      1364            mov     r6,dpl
+03DC AF83      1365            mov     r7,dph
+03DE AAF0      1366            mov     r2,b
+03E0 FB        1367            mov     r3,a
+03E1 C006      1368            push    ar6
+03E3 C007      1369            push    ar7
+03E5 C002      1370            push    ar2
+03E7 C003      1371            push    ar3
+03E9 900000    1372            mov     dptr,#0x0000
+03EC 75F080    1373            mov     b,#0x80
+03EF 7443      1374            mov     a,#0x43
+03F1 120000    1375            lcall   ___fsmul
+03F4 AA82      1376            mov     r2,dpl
+03F6 AB83      1377            mov     r3,dph
+03F8 ACF0      1378            mov     r4,b
+03FA FD        1379            mov     r5,a
+03FB E581      1380            mov     a,sp
+03FD 24FC      1381            add     a,#0xfc
+03FF F581      1382            mov     sp,a
+0401 C002      1383            push    ar2
+0403 C003      1384            push    ar3
+0405 C004      1385            push    ar4
+0407 C005      1386            push    ar5
+0409 85D082    1387            mov     dpl,_main_sloc0_1_0
+040C 85D183    1388            mov     dph,(_main_sloc0_1_0 + 1)
+040F 85D2F0    1389            mov     b,(_main_sloc0_1_0 + 2)
+0412 E5D3      1390            mov     a,(_main_sloc0_1_0 + 3)
+0414 120000    1391            lcall   ___fsadd
+0417 8582D0    1392            mov     _main_sloc0_1_0,dpl
+041A 8583D1    1393            mov     (_main_sloc0_1_0 + 1),dph
+041D 85F0D2    1394            mov     (_main_sloc0_1_0 + 2),b
+0420 F5D3      1395            mov     (_main_sloc0_1_0 + 3),a
+0422 E581      1396            mov     a,sp
+0424 24FC      1397            add     a,#0xfc
+0426 F581      1398            mov     sp,a
+0428 AE8A      1399            mov     r6,_TL0
+042A 7F00      1400            mov     r7,#0x00
+042C 8E82      1401            mov     dpl,r6
+042E 8F83      1402            mov     dph,r7
+0430 120000    1403            lcall   ___sint2fs
+0433 AE82      1404            mov     r6,dpl
+0435 AF83      1405            mov     r7,dph
+0437 AAF0      1406            mov     r2,b
+0439 FB        1407            mov     r3,a
+043A C006      1408            push    ar6
+043C C007      1409            push    ar7
+043E C002      1410            push    ar2
+0440 C003      1411            push    ar3
+0442 85D082    1412            mov     dpl,_main_sloc0_1_0
+0445 85D183    1413            mov     dph,(_main_sloc0_1_0 + 1)
+0448 85D2F0    1414            mov     b,(_main_sloc0_1_0 + 2)
+044B E5D3      1415            mov     a,(_main_sloc0_1_0 + 3)
+044D 120000    1416            lcall   ___fsadd
+0450 AA82      1417            mov     r2,dpl
+0452 AB83      1418            mov     r3,dph
+0454 ACF0      1419            mov     r4,b
+0456 FD        1420            mov     r5,a
+0457 E581      1421            mov     a,sp
+0459 24FC      1422            add     a,#0xfc
+045B F581      1423            mov     sp,a
+045D C002      1424            push    ar2
+045F C003      1425            push    ar3
+0461 C004      1426            push    ar4
+0463 C005      1427            push    ar5
+0465 90F4FC    1428            mov     dptr,#0xF4FC
+0468 75F032    1429            mov     b,#0x32
+046B 7434      1430            mov     a,#0x34
+046D 120000    1431            lcall   ___fsmul
+0470 AA82      1432            mov     r2,dpl
+0472 AB83      1433            mov     r3,dph
+0474 ACF0      1434            mov     r4,b
+0476 FD        1435            mov     r5,a
+0477 E581      1436            mov     a,sp
+0479 24FC      1437            add     a,#0xfc
+047B F581      1438            mov     sp,a
+047D           1439   ;        D:\clone\LAB5\lab5v1.c:349: if (period > mst){
+047D C002      1440            push    ar2
+047F C003      1441            push    ar3
+0481 C004      1442            push    ar4
+0483 C005      1443            push    ar5
+0485 C0B0      1444            push    _main_mst_1_75
+0487 C0B1      1445            push    (_main_mst_1_75 + 1)
+0489 C0B2      1446            push    (_main_mst_1_75 + 2)
+048B C0B3      1447            push    (_main_mst_1_75 + 3)
+048D 8A82      1448            mov     dpl,r2
+048F 8B83      1449            mov     dph,r3
+0491 8CF0      1450            mov     b,r4
+0493 ED        1451            mov     a,r5
+0494 120000    1452            lcall   ___fsgt
+0497 AE82      1453            mov     r6,dpl
+0499 E581      1454            mov     a,sp
+049B 24FC      1455            add     a,#0xfc
+049D F581      1456            mov     sp,a
+049F D005      1457            pop     ar5
+04A1 D004      1458            pop     ar4
+04A3 D003      1459            pop     ar3
+04A5 D002      1460            pop     ar2
+04A7 EE        1461            mov     a,r6
+04A8 6000      1462            jz      L017018?
+04AA           1463   ;        D:\clone\LAB5\lab5v1.c:350: mst = period;
+04AA 8AB0      1464            mov     _main_mst_1_75,r2
+04AC 8BB1      1465            mov     (_main_mst_1_75 + 1),r3
+04AE 8CB2      1466            mov     (_main_mst_1_75 + 2),r4
+04B0 8DB3      1467            mov     (_main_mst_1_75 + 3),r5
+04B2           1468   L017018?:
+04B2           1469   ;        D:\clone\LAB5\lab5v1.c:352: waitms(1);
+04B2 900001    1470            mov     dptr,#0x0001
+04B5 120000    1471            lcall   _waitms
+04B8           1472   ;        D:\clone\LAB5\lab5v1.c:322: for (i = 0; i < 10; i++){
+04B8 05F0      1473            inc     _main_i_1_75
+04BA E4        1474            clr     a
+04BB B5F050    1475            cjne    a,_main_i_1_75,L017083?
+04BE 05F1      1476            inc     (_main_i_1_75 + 1)
+04C0           1477   L017083?:
+04C0 020000    1478            ljmp    L017040?
+04C3           1479   L017043?:
+04C3           1480   ;        D:\clone\LAB5\lab5v1.c:354: for(i=0;i<20;i++){
+04C3 7A00      1481            mov     r2,#0x00
+04C5 7B00      1482            mov     r3,#0x00
+04C7           1483   L017044?:
+04C7 C3        1484            clr     c
+04C8 EA        1485            mov     a,r2
+04C9 9414      1486            subb    a,#0x14
+04CB EB        1487            mov     a,r3
+04CC 6480      1488            xrl     a,#0x80
+04CE 9480      1489            subb    a,#0x80
+04D0 4000      1490            jc      L017084?
+04D2 020000    1491            ljmp    L017047?
+04D5           1492   L017084?:
+04D5           1493   ;        D:\clone\LAB5\lab5v1.c:355: v[0] = Volts_at_Pin(QFP32_MUX_P1_4);
+04D5 75820A    1494            mov     dpl,#0x0A
+04D8 C002      1495            push    ar2
+04DA C003      1496            push    ar3
+04DC 120000    1497            lcall   _Volts_at_Pin
+04DF AC82      1498            mov     r4,dpl
+04E1 AD83      1499            mov     r5,dph
+04E3 AEF0      1500            mov     r6,b
+04E5 FF        1501            mov     r7,a
+04E6 7810      1502            mov     r0,#_main_v_1_75
+04E8 A604      1503            mov     @r0,ar4
+04EA 08        1504            inc     r0
+04EB A605      1505            mov     @r0,ar5
+04ED 08        1506            inc     r0
+04EE A606      1507            mov     @r0,ar6
+04F0 08        1508            inc     r0
+04F1 A607      1509            mov     @r0,ar7
+04F3           1510   ;        D:\clone\LAB5\lab5v1.c:356: v[1] = Volts_at_Pin(QFP32_MUX_P1_5);
+04F3 75820B    1511            mov     dpl,#0x0B
+04F6 120000    1512            lcall   _Volts_at_Pin
+04F9 AC82      1513            mov     r4,dpl
+04FB AD83      1514            mov     r5,dph
+04FD AEF0      1515            mov     r6,b
+04FF FF        1516            mov     r7,a
+0500 7814      1517            mov     r0,#(_main_v_1_75 + 0x0004)
+0502 A604      1518            mov     @r0,ar4
+0504 08        1519            inc     r0
+0505 A605      1520            mov     @r0,ar5
+0507 08        1521            inc     r0
+0508 A606      1522            mov     @r0,ar6
+050A 08        1523            inc     r0
+050B A607      1524            mov     @r0,ar7
+050D           1525   ;        D:\clone\LAB5\lab5v1.c:357: if(vmax1<v[0]){
+050D 7810      1526            mov     r0,#_main_v_1_75
+050F 8604      1527            mov     ar4,@r0
+0511 08        1528            inc     r0
+0512 8605      1529            mov     ar5,@r0
+0514 08        1530            inc     r0
+0515 8606      1531            mov     ar6,@r0
+0517 08        1532            inc     r0
+0518 8607      1533            mov     ar7,@r0
+051A C004      1534            push    ar4
+051C C005      1535            push    ar5
+051E C006      1536            push    ar6
+0520 C007      1537            push    ar7
+0522 854082    1538            mov     dpl,_main_vmax1_1_75
+0525 854183    1539            mov     dph,(_main_vmax1_1_75 + 1)
+0528 8542F0    1540            mov     b,(_main_vmax1_1_75 + 2)
+052B E543      1541            mov     a,(_main_vmax1_1_75 + 3)
+052D 120000    1542            lcall   ___fslt
+0530 AC82      1543            mov     r4,dpl
+0532 E581      1544            mov     a,sp
+0534 24FC      1545            add     a,#0xfc
+0536 F581      1546            mov     sp,a
+0538 D003      1547            pop     ar3
+053A D002      1548            pop     ar2
+053C EC        1549            mov     a,r4
+053D 6000      1550            jz      L017020?
+053F           1551   ;        D:\clone\LAB5\lab5v1.c:358: vmax1=v[0];
+053F 7810      1552            mov     r0,#_main_v_1_75
+0541 8640      1553            mov     _main_vmax1_1_75,@r0
+0543 08        1554            inc     r0
+0544 8641      1555            mov     (_main_vmax1_1_75 + 1),@r0
+0546 08        1556            inc     r0
+0547 8642      1557            mov     (_main_vmax1_1_75 + 2),@r0
+0549 08        1558            inc     r0
+054A 8643      1559            mov     (_main_vmax1_1_75 + 3),@r0
+054C           1560   L017020?:
+054C           1561   ;        D:\clone\LAB5\lab5v1.c:360: if(vmax2<v[1]){
+054C 7814      1562            mov     r0,#(_main_v_1_75 + 0x0004)
+054E 8604      1563            mov     ar4,@r0
+0550 08        1564            inc     r0
+0551 8605      1565            mov     ar5,@r0
+0553 08        1566            inc     r0
+0554 8606      1567            mov     ar6,@r0
+0556 08        1568            inc     r0
+0557 8607      1569            mov     ar7,@r0
+0559 C002      1570            push    ar2
+055B C003      1571            push    ar3
+055D C004      1572            push    ar4
+055F C005      1573            push    ar5
+0561 C006      1574            push    ar6
+0563 C007      1575            push    ar7
+0565 859082    1576            mov     dpl,_main_vmax2_1_75
+0568 859183    1577            mov     dph,(_main_vmax2_1_75 + 1)
+056B 8592F0    1578            mov     b,(_main_vmax2_1_75 + 2)
+056E E593      1579            mov     a,(_main_vmax2_1_75 + 3)
+0570 120000    1580            lcall   ___fslt
+0573 AC82      1581            mov     r4,dpl
+0575 E581      1582            mov     a,sp
+0577 24FC      1583            add     a,#0xfc
+0579 F581      1584            mov     sp,a
+057B D003      1585            pop     ar3
+057D D002      1586            pop     ar2
+057F EC        1587            mov     a,r4
+0580 6000      1588            jz      L017022?
+0582           1589   ;        D:\clone\LAB5\lab5v1.c:361: vmax2=v[1];
+0582 7814      1590            mov     r0,#(_main_v_1_75 + 0x0004)
+0584 8690      1591            mov     _main_vmax2_1_75,@r0
+0586 08        1592            inc     r0
+0587 8691      1593            mov     (_main_vmax2_1_75 + 1),@r0
+0589 08        1594            inc     r0
+058A 8692      1595            mov     (_main_vmax2_1_75 + 2),@r0
+058C 08        1596            inc     r0
+058D 8693      1597            mov     (_main_vmax2_1_75 + 3),@r0
+058F           1598   L017022?:
+058F           1599   ;        D:\clone\LAB5\lab5v1.c:363: waitms(1); 
+058F 900001    1600            mov     dptr,#0x0001
+0592 C002      1601            push    ar2
+0594 C003      1602            push    ar3
+0596 120000    1603            lcall   _waitms
+0599 D003      1604            pop     ar3
+059B D002      1605            pop     ar2
+059D           1606   ;        D:\clone\LAB5\lab5v1.c:354: for(i=0;i<20;i++){
+059D 0A        1607            inc     r2
+059E BA0010    1608            cjne    r2,#0x00,L017087?
+05A1 0B        1609            inc     r3
+05A2           1610   L017087?:
+05A2 020000    1611            ljmp    L017044?
+05A5           1612   L017047?:
+05A5           1613   ;        D:\clone\LAB5\lab5v1.c:365: printf("\nperiod=%3.2f\r",mst*1000);
+05A5 C0B0      1614            push    _main_mst_1_75
+05A7 C0B1      1615            push    (_main_mst_1_75 + 1)
+05A9 C0B2      1616            push    (_main_mst_1_75 + 2)
+05AB C0B3      1617            push    (_main_mst_1_75 + 3)
+05AD 900000    1618            mov     dptr,#0x0000
+05B0 75F07A    1619            mov     b,#0x7A
+05B3 7444      1620            mov     a,#0x44
+05B5 120000    1621            lcall   ___fsmul
+05B8 AA82      1622            mov     r2,dpl
+05BA AB83      1623            mov     r3,dph
+05BC ACF0      1624            mov     r4,b
+05BE FD        1625            mov     r5,a
+05BF E581      1626            mov     a,sp
+05C1 24FC      1627            add     a,#0xfc
+05C3 F581      1628            mov     sp,a
+05C5 C002      1629            push    ar2
+05C7 C003      1630            push    ar3
+05C9 C004      1631            push    ar4
+05CB C005      1632            push    ar5
+05CD 7450      1633            mov     a,#__str_7
+05CF C0E0      1634            push    acc
+05D1 74C3      1635            mov     a,#(__str_7 >> 8)
+05D3 C0E0      1636            push    acc
+05D5 7480      1637            mov     a,#0x80
+05D7 C0E0      1638            push    acc
+05D9 120000    1639            lcall   _printf
+05DC E581      1640            mov     a,sp
+05DE 24F9      1641            add     a,#0xf9
+05E0 F581      1642            mov     sp,a
+05E2           1643   ;        D:\clone\LAB5\lab5v1.c:366: printf ("\nV@P1_4=%7.5fV, V@P1_5=%7.5fV\r",vmax1, vmax2);
+05E2 C090      1644            push    _main_vmax2_1_75
+05E4 C091      1645            push    (_main_vmax2_1_75 + 1)
+05E6 C092      1646            push    (_main_vmax2_1_75 + 2)
+05E8 C093      1647            push    (_main_vmax2_1_75 + 3)
+05EA C040      1648            push    _main_vmax1_1_75
+05EC C041      1649            push    (_main_vmax1_1_75 + 1)
+05EE C042      1650            push    (_main_vmax1_1_75 + 2)
+05F0 C043      1651            push    (_main_vmax1_1_75 + 3)
+05F2 7490      1652            mov     a,#__str_8
+05F4 C0E0      1653            push    acc
+05F6 74C3      1654            mov     a,#(__str_8 >> 8)
+05F8 C0E0      1655            push    acc
+05FA 7480      1656            mov     a,#0x80
+05FC C0E0      1657            push    acc
+05FE 120000    1658            lcall   _printf
+0601 E581      1659            mov     a,sp
+0603 24F5      1660            add     a,#0xf5
+0605 F581      1661            mov     sp,a
+0607           1662   ;        D:\clone\LAB5\lab5v1.c:369: TL0=0; TH0=0; TF0=0;overflow_count=0;
+0607 758A00    1663            mov     _TL0,#0x00
+060A 758C00    1664            mov     _TH0,#0x00
+060D C28D      1665            clr     _TF0
+060F 75B000    1666            mov     _overflow_count,#0x00
+0612           1667   ;        D:\clone\LAB5\lab5v1.c:370: while(P0_1==1);
+0612           1668   L017023?:
+0612 2081D0    1669            jb      _P0_1,L017023?
+0615           1670   ;        D:\clone\LAB5\lab5v1.c:371: while(P0_1==0);
+0615           1671   L017026?:
+0615 308110    1672            jnb     _P0_1,L017026?
+0618           1673   ;        D:\clone\LAB5\lab5v1.c:372: while(P0_1==1){
+0618           1674   L017034?:
+0618 308190    1675            jnb     _P0_1,L017036?
+061B           1676   ;        D:\clone\LAB5\lab5v1.c:373: while(P0_2==0){
+061B           1677   L017031?:
+061B 208210    1678            jb      _P0_2,L017033?
+061E           1679   ;        D:\clone\LAB5\lab5v1.c:374: TR0=1;
+061E D28C      1680            setb    _TR0
+0620           1681   ;        D:\clone\LAB5\lab5v1.c:375: if(TF0==1) // Did the 16-bit timer overflow?
+0620           1682   ;        D:\clone\LAB5\lab5v1.c:377: TF0=0;
+0620 108D50    1683            jbc     _TF0,L017092?
+0623 8000      1684            sjmp    L017031?
+0625           1685   L017092?:
+0625           1686   ;        D:\clone\LAB5\lab5v1.c:378: overflow_count++;
+0625 05B0      1687            inc     _overflow_count
+0627 8000      1688            sjmp    L017031?
+0629           1689   L017033?:
+0629           1690   ;        D:\clone\LAB5\lab5v1.c:381: TR0=0; 
+0629 C28C      1691            clr     _TR0
+062B 8000      1692            sjmp    L017034?
+062D           1693   L017036?:
+062D           1694   ;        D:\clone\LAB5\lab5v1.c:383: phase_diff=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
+062D 85B082    1695            mov     dpl,_overflow_count
+0630 120000    1696            lcall   ___uchar2fs
+0633 AA82      1697            mov     r2,dpl
+0635 AB83      1698            mov     r3,dph
+0637 ACF0      1699            mov     r4,b
+0639 FD        1700            mov     r5,a
+063A C002      1701            push    ar2
+063C C003      1702            push    ar3
+063E C004      1703            push    ar4
+0640 C005      1704            push    ar5
+0642 900000    1705            mov     dptr,#0x0000
+0645 75F080    1706            mov     b,#0x80
+0648 7447      1707            mov     a,#0x47
+064A 120000    1708            lcall   ___fsmul
+064D 8582D0    1709            mov     _main_sloc0_1_0,dpl
+0650 8583D1    1710            mov     (_main_sloc0_1_0 + 1),dph
+0653 85F0D2    1711            mov     (_main_sloc0_1_0 + 2),b
+0656 F5D3      1712            mov     (_main_sloc0_1_0 + 3),a
+0658 E581      1713            mov     a,sp
+065A 24FC      1714            add     a,#0xfc
+065C F581      1715            mov     sp,a
+065E 858C82    1716            mov     dpl,_TH0
+0661 120000    1717            lcall   ___uchar2fs
+0664 AE82      1718            mov     r6,dpl
+0666 AF83      1719            mov     r7,dph
+0668 AAF0      1720            mov     r2,b
+066A FB        1721            mov     r3,a
+066B C006      1722            push    ar6
+066D C007      1723            push    ar7
+066F C002      1724            push    ar2
+0671 C003      1725            push    ar3
+0673 900000    1726            mov     dptr,#0x0000
+0676 75F080    1727            mov     b,#0x80
+0679 7443      1728            mov     a,#0x43
+067B 120000    1729            lcall   ___fsmul
+067E AA82      1730            mov     r2,dpl
+0680 AB83      1731            mov     r3,dph
+0682 ACF0      1732            mov     r4,b
+0684 FD        1733            mov     r5,a
+0685 E581      1734            mov     a,sp
+0687 24FC      1735            add     a,#0xfc
+0689 F581      1736            mov     sp,a
+068B C002      1737            push    ar2
+068D C003      1738            push    ar3
+068F C004      1739            push    ar4
+0691 C005      1740            push    ar5
+0693 85D082    1741            mov     dpl,_main_sloc0_1_0
+0696 85D183    1742            mov     dph,(_main_sloc0_1_0 + 1)
+0699 85D2F0    1743            mov     b,(_main_sloc0_1_0 + 2)
+069C E5D3      1744            mov     a,(_main_sloc0_1_0 + 3)
+069E 120000    1745            lcall   ___fsadd
+06A1 8582D0    1746            mov     _main_sloc0_1_0,dpl
+06A4 8583D1    1747            mov     (_main_sloc0_1_0 + 1),dph
+06A7 85F0D2    1748            mov     (_main_sloc0_1_0 + 2),b
+06AA F5D3      1749            mov     (_main_sloc0_1_0 + 3),a
+06AC E581      1750            mov     a,sp
+06AE 24FC      1751            add     a,#0xfc
+06B0 F581      1752            mov     sp,a
+06B2 AE8A      1753            mov     r6,_TL0
+06B4 7F00      1754            mov     r7,#0x00
+06B6 8E82      1755            mov     dpl,r6
+06B8 8F83      1756            mov     dph,r7
+06BA 120000    1757            lcall   ___sint2fs
+06BD AE82      1758            mov     r6,dpl
+06BF AF83      1759            mov     r7,dph
+06C1 AAF0      1760            mov     r2,b
+06C3 FB        1761            mov     r3,a
+06C4 C006      1762            push    ar6
+06C6 C007      1763            push    ar7
+06C8 C002      1764            push    ar2
+06CA C003      1765            push    ar3
+06CC 85D082    1766            mov     dpl,_main_sloc0_1_0
+06CF 85D183    1767            mov     dph,(_main_sloc0_1_0 + 1)
+06D2 85D2F0    1768            mov     b,(_main_sloc0_1_0 + 2)
+06D5 E5D3      1769            mov     a,(_main_sloc0_1_0 + 3)
+06D7 120000    1770            lcall   ___fsadd
+06DA AA82      1771            mov     r2,dpl
+06DC AB83      1772            mov     r3,dph
+06DE ACF0      1773            mov     r4,b
+06E0 FD        1774            mov     r5,a
+06E1 E581      1775            mov     a,sp
+06E3 24FC      1776            add     a,#0xfc
+06E5 F581      1777            mov     sp,a
+06E7 C002      1778            push    ar2
+06E9 C003      1779            push    ar3
+06EB C004      1780            push    ar4
+06ED C005      1781            push    ar5
+06EF 90F4FC    1782            mov     dptr,#0xF4FC
+06F2 75F032    1783            mov     b,#0x32
+06F5 7434      1784            mov     a,#0x34
+06F7 120000    1785            lcall   ___fsmul
+06FA AA82      1786            mov     r2,dpl
+06FC AB83      1787            mov     r3,dph
+06FE ACF0      1788            mov     r4,b
+0700 FD        1789            mov     r5,a
+0701 E581      1790            mov     a,sp
+0703 24FC      1791            add     a,#0xfc
+0705 F581      1792            mov     sp,a
+0707           1793   ;        D:\clone\LAB5\lab5v1.c:384: degrees = phase_diff*360/mst ;
+0707 C002      1794            push    ar2
+0709 C003      1795            push    ar3
+070B C004      1796            push    ar4
+070D C005      1797            push    ar5
+070F 900000    1798            mov     dptr,#0x0000
+0712 75F0B4    1799            mov     b,#0xB4
+0715 7443      1800            mov     a,#0x43
+0717 120000    1801            lcall   ___fsmul
+071A AA82      1802            mov     r2,dpl
+071C AB83      1803            mov     r3,dph
+071E ACF0      1804            mov     r4,b
+0720 FD        1805            mov     r5,a
+0721 E581      1806            mov     a,sp
+0723 24FC      1807            add     a,#0xfc
+0725 F581      1808            mov     sp,a
+0727 C0B0      1809            push    _main_mst_1_75
+0729 C0B1      1810            push    (_main_mst_1_75 + 1)
+072B C0B2      1811            push    (_main_mst_1_75 + 2)
+072D C0B3      1812            push    (_main_mst_1_75 + 3)
+072F 8A82      1813            mov     dpl,r2
+0731 8B83      1814            mov     dph,r3
+0733 8CF0      1815            mov     b,r4
+0735 ED        1816            mov     a,r5
+0736 120000    1817            lcall   ___fsdiv
+0739 AA82      1818            mov     r2,dpl
+073B AB83      1819            mov     r3,dph
+073D ACF0      1820            mov     r4,b
+073F FD        1821            mov     r5,a
+0740 E581      1822            mov     a,sp
+0742 24FC      1823            add     a,#0xfc
+0744 F581      1824            mov     sp,a
+0746           1825   ;        D:\clone\LAB5\lab5v1.c:386: printf("\r\ndegrees: %f", degrees);
+0746 C002      1826            push    ar2
+0748 C003      1827            push    ar3
+074A C004      1828            push    ar4
+074C C005      1829            push    ar5
+074E 7490      1830            mov     a,#__str_9
+0750 C0E0      1831            push    acc
+0752 74C5      1832            mov     a,#(__str_9 >> 8)
+0754 C0E0      1833            push    acc
+0756 7480      1834            mov     a,#0x80
+0758 C0E0      1835            push    acc
+075A 120000    1836            lcall   _printf
+075D E581      1837            mov     a,sp
+075F 24F9      1838            add     a,#0xf9
+0761 F581      1839            mov     sp,a
+0763           1840   ;        D:\clone\LAB5\lab5v1.c:388: waitms(500); 
+0763 9001F4    1841            mov     dptr,#0x01F4
+0766 120000    1842            lcall   _waitms
+0769 020000    1843            ljmp    L017061?
+076C           1844            rseg R_CSEG
+076C           1845   
+0000           1846            rseg R_XINIT
+0000           1847   
+0000           1848            rseg R_CONST
+0000           1849   __str_0:
+0000 1B        1850            db 0x1B
+0001 5B324A    1851            db '[2J'
+0004 00        1852            db 0x00
+0005           1853   __str_1:
+0005 41444320  1854            db 'ADC test program'
      74657374
      2070726F
      6772616D
-0015 0A        1555            db 0x0A
-0016 46696C65  1556            db 'File: %s'
+0015 0A        1855            db 0x0A
+0016 46696C65  1856            db 'File: %s'
      3A202573
-001E 0A        1557            db 0x0A
-001F 436F6D70  1558            db 'Compiled: %s, %s'
+001E 0A        1857            db 0x0A
+001F 436F6D70  1858            db 'Compiled: %s, %s'
      696C6564
      3A202573
      2C202573
-002F 0A        1559            db 0x0A
-0030 0A        1560            db 0x0A
-0031 00        1561            db 0x00
-0032           1562   __str_2:
-0032 443A      1563            db 'D:'
-0034 5C        1564            db 0x5C
-0035 636C6F6E  1565            db 'clone'
+002F 0A        1859            db 0x0A
+0030 0A        1860            db 0x0A
+0031 00        1861            db 0x00
+0032           1862   __str_2:
+0032 443A      1863            db 'D:'
+0034 5C        1864            db 0x5C
+0035 636C6F6E  1865            db 'clone'
      65
-003A 5C        1566            db 0x5C
-003B 4C414235  1567            db 'LAB5'
-003F 5C        1568            db 0x5C
-0040 6C616235  1569            db 'lab5v1.c'
+003A 5C        1866            db 0x5C
+003B 4C414235  1867            db 'LAB5'
+003F 5C        1868            db 0x5C
+0040 6C616235  1869            db 'lab5v1.c'
      76312E63
-0048 00        1570            db 0x00
-0049           1571   __str_3:
-0049 4D617220  1572            db 'Mar  5 2024'
-     20352032
+0048 00        1870            db 0x00
+0049           1871   __str_3:
+0049 4D617220  1872            db 'Mar  6 2024'
+     20362032
      303234
-0054 00        1573            db 0x00
-0055           1574   __str_4:
-0055 31393A35  1575            db '19:50:55'
-     303A3535
-005D 00        1576            db 0x00
-005E           1577   __str_5:
-005E 76723A20  1578            db 'vr:     f:    Hz'
+0054 00        1873            db 0x00
+0055           1874   __str_4:
+0055 31313A33  1875            db '11:32:47'
+     323A3437
+005D 00        1876            db 0x00
+005E           1877   __str_5:
+005E 76723A20  1878            db 'vr:     f:    Hz'
      20202020
      663A2020
      2020487A
-006E 00        1579            db 0x00
-006F           1580   __str_6:
-006F 76743A20  1581            db 'vt:     pha:    '
+006E 00        1879            db 0x00
+006F           1880   __str_6:
+006F 76743A20  1881            db 'vt:     pha:    '
      20202020
      7068613A
      20202020
-007F 00        1582            db 0x00
-0080           1583   __str_7:
-0080 0D        1584            db 0x0D
-0081 0A        1585            db 0x0A
-0082 25332E32  1586            db '%3.2f'
-     66
-0087 00        1587            db 0x00
-0088           1588   __str_8:
-0088 0A        1589            db 0x0A
-0089 56405031  1590            db 'V@P1_4=%7.5fV, V@P1_5=%7.5fV'
+007F 00        1882            db 0x00
+0080           1883   __str_7:
+0080 0A        1884            db 0x0A
+0081 70657269  1885            db 'period=%3.2f'
+     6F643D25
+     332E3266
+008D 0D        1886            db 0x0D
+008E 00        1887            db 0x00
+008F           1888   __str_8:
+008F 0A        1889            db 0x0A
+0090 56405031  1890            db 'V@P1_4=%7.5fV, V@P1_5=%7.5fV'
      5F343D25
      372E3566
      562C2056
      4050315F
      353D2537
      2E356656
-00A5 0D        1591            db 0x0D
-00A6 00        1592            db 0x00
-00A7           1593   
-0003           1594            CSEG
-0003           1595   
-0003           1596   end
+00AC 0D        1891            db 0x0D
+00AD 00        1892            db 0x00
+00AE           1893   __str_9:
+00AE 0D        1894            db 0x0D
+00AF 0A        1895            db 0x0A
+00B0 64656772  1896            db 'degrees: %f'
+     6565733A
+     202566
+00BB 00        1897            db 0x00
+00BC           1898   
+0003           1899            CSEG
+0003           1900   
+0003           1901   end

@@ -264,7 +264,7 @@ void InitPinADC (unsigned char portno, unsigned char pinno)
     SFRPAGE = 0x00;
 }
 
-#define VDD 3.3000 // The measured value of VDD in volts
+#define VDD 3.3058 // The measured value of VDD in volts
 unsigned int ADC_at_Pin(unsigned char pin)
 {
     ADC0MX = pin;   // Select input from pin
@@ -293,8 +293,12 @@ void main (void)
 {
     idata float v[2];
     float period;
-    float mst;
+    float mst = 0.0;
     int i=0;
+    float vmax1=0.0;
+    float vmax2=0.0;
+    float phase_diff = 0.0;
+    float degrees;
     TIMER0_Init();
     LCD_4BIT();
 
@@ -342,32 +346,48 @@ void main (void)
         }
         TR0=0; // Stop timer 0, the 24-bit number [overflow_count-TH0-TL0] has the period!
         period=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
-        if (period > mst) 
-            mst = period;
-            printf("\r\n%3.2f",mst*1000);
-            waitms(1);
+        if (period > mst){
+           mst = period;
+        } 
+         waitms(1);
+        }
+    for(i=0;i<20;i++){
+        v[0] = Volts_at_Pin(QFP32_MUX_P1_4);
+        v[1] = Volts_at_Pin(QFP32_MUX_P1_5);
+        if(vmax1<v[0]){
+          vmax1=v[0];
+        }
+        if(vmax2<v[1]){
+          vmax2=v[1];
+        }
+    waitms(1); 
+    }
+    printf("\nperiod=%3.2f\r",mst*1000);
+    printf ("\nV@P1_4=%7.5fV, V@P1_5=%7.5fV\r",vmax1, vmax2);
+
+
+    TL0=0; TH0=0; TF0=0;overflow_count=0;
+    while(P0_1==1);
+    while(P0_1==0);
+    while(P0_1==1){
+        while(P0_2==0){
+            TR0=1;
+            if(TF0==1) // Did the 16-bit timer overflow?
+            {
+                TF0=0;
+                overflow_count++;
+            }
         
-// Read 14-bit value from the pins configured as analog inputs
-    v[0] = Volts_at_Pin(QFP32_MUX_P1_4);
-    v[1] = Volts_at_Pin(QFP32_MUX_P1_5);
+        } 
+        TR0=0; 
+    }
+    phase_diff=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
+    degrees = phase_diff*360/mst ;
+    //printf("\r\nphase_diff: %f", phase_diff);
+    printf("\r\ndegrees: %f", degrees);
 
-    printf ("\nV@P1_4=%7.5fV, V@P1_5=%7.5fV\r",v[0], v[1]);
-    waitms(500);
-   
-}
+    waitms(500); 
 
-    
-	
-    // Reset the counter
-       /* TL0=0; 
-        TH0=0;
-        TF0=0;
-        overflow_count=0;
-        while(P0_1!=0); // Wait for the signal to be zero
-        while(P0_1!=1); // Wait for the signal to be one
-        TR0=1; // Start the timer
-        waitms(mst*1000/4);
-        */ 
-	}  
+}  
 
 }
