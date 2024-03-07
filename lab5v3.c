@@ -23,9 +23,12 @@
 #define LCD_D6 P1_1
 #define LCD_D7 P1_0
 #define CHARS_PER_LINE 16
+#define LOCK 0
+#define UNLOCK 1
 
+unsigned int state=0;
 unsigned char overflow_count;
-
+unsigned int passcode=292,attempt=0,flag1=0,flag2=0;
 char _c51_external_startup (void)
 {
     // Disable Watchdog with key sequence
@@ -288,6 +291,27 @@ unsigned int Get_ADC (void)
     return (ADC0);
 }
 
+int getsn (char * buff, int len)
+{
+    int j;
+    char c;
+    
+    for(j=0; j<(len-1); j++)
+    {
+        c=getchar();
+        if ( (c=='\n') || (c=='\r') )
+        {
+            buff[j]=0;
+            return j;
+        }
+        else
+        {
+            buff[j]=c;
+        }
+    }
+    buff[j]=0;
+    return len;
+}
 
 
 void main (void)
@@ -296,6 +320,12 @@ void main (void)
     idata char buff1[17];
     idata char buff2[17];
 
+    idata char buff0[17];
+    int num;
+    int num0;
+    int num1;
+    int num2;
+    
     float period;
     float mst = 0.0;
     int i=0;
@@ -307,7 +337,52 @@ void main (void)
 
     TIMER0_Init();
     LCD_4BIT();
-
+    // Display something in the LCD
+	LCDprint("Enter passcode: ", 1, 1);
+	LCDprint("                ", 2, 1);
+	
+	while(state==0)
+	{
+	    waitms(500); // Give PuTTY a chance to start.
+		printf("Type what you want to display in line 2 (16 char max): ");
+		getsn(buff0, sizeof(buff0));
+		printf("\n");
+		LCDprint(buff0, 2, 1);
+		waitms(500); // Give PuTTY a chance to start.
+		num0=buff0[0]-'0';
+		num1=buff0[1]-'0';
+		num2=buff0[2]-'0';
+		num=num0*100+num1*10+num2*1;
+		if(num==passcode)
+		{
+		  state= UNLOCK;
+		  flag1=1;
+		  attempt=0;
+		}
+		else
+		{
+		 LCDprint("Wrong Passcode", 1, 1); 
+		 state= LOCK;  
+		 attempt++;
+		 if(attempt==3)
+		 {
+		  LCDprint("Attempts Over ", 1, 1);
+		  LCDprint("System Hang", 2, 1);
+		  flag2=1;
+		  state= UNLOCK;
+		  }
+		 else
+		 {
+		  LCDprint("Try Again", 1, 1);
+		  }
+		  }
+	}
+	
+    if(flag2==1) goto infinit;
+    else goto start;
+    
+    
+start:
     waitms(500); // Give PuTTy a chance to start before sending
     printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
     
@@ -322,7 +397,7 @@ void main (void)
     InitADC();
     
     
-    while(1){
+    while(flag1){
     for (i = 0; i < 10; i++){
         // Reset the counter
         TL0=0; 
@@ -356,8 +431,10 @@ void main (void)
          waitms(1);
         }
     for(i=0;i<20;i++){
+      
         v[0] = Volts_at_Pin(QFP32_MUX_P1_4);
         v[1] = Volts_at_Pin(QFP32_MUX_P1_5);
+        
         if(vmax1<v[0]){
           vmax1=v[0];
         }
@@ -368,17 +445,20 @@ void main (void)
     }
     printf("\nperiod=%3.2f\r",mst*1000);
     printf ("\nV@P1_4=%7.5fV, V@P1_5=%7.5fV\r",vmax1, vmax2);
-
-    if(P2_6==0) {
-        while(P0_1==0&&P0_2==0);
-        if(P0_1==1){
+    
+    while(Volts_at_Pin(QFP32_MUX_P1_4)<0.02&&Volts_at_Pin(QFP32_MUX_P1_5<0.02));
+        if(Volts_at_Pin(QFP32_MUX_P1_5)>0.02){
             p_n=1;
         }
         else {
             p_n=-1;
         }
-    }
 	waitms(1);
+/*    if(P2_6==0) {
+    
+    }*/
+	
+	     
     TL0=0; TH0=0; TF0=0;overflow_count=0;
     while(P0_1==1);
     while(P0_1==0);
@@ -406,13 +486,14 @@ void main (void)
     // LCDprint("vt:     pha:   C",2,1);
     if (P2_6==0) {
         sprintf(buff1,"vr:%04.2f f:%04.1fHz", (float)vmax1/1.14121356237,(float)1/mst);
-        LCDprint(buff1, 1, 0);
+        LCDprint(buff1, 1, 1);
 
-        sprintf(buff2,"vt:%04.2fV ph:%3.0fC", (float)vmax2/1.14121356237,(float)degrees);
-        LCDprint(buff2, 2, 0);       
+        sprintf(buff2,"vt:%04.2f ph:%4.1f", (float)vmax2/1.14121356237,(float)degrees);
+        LCDprint(buff2, 2, 1);       
     }
     waitms(500); 
 
 }
+infinit:while(1); 
 }  
 
