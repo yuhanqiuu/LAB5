@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by C51
 ; Version 1.0.0 #1170 (Feb 16 2022) (MSVC)
-; This file was generated Wed Mar 06 13:10:57 2024
+; This file was generated Wed Mar 06 19:49:30 2024
 ;--------------------------------------------------------
 $name lab5v1
 $optc51 --model-small
@@ -575,97 +575,97 @@ _LCDprint_PARM_3:
 ;Allocation info for local variables in function '_c51_external_startup'
 ;------------------------------------------------------------
 ;------------------------------------------------------------
-;	D:\clone\LAB5\lab5v1.c:28: char _c51_external_startup (void)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:28: char _c51_external_startup (void)
 ;	-----------------------------------------
 ;	 function _c51_external_startup
 ;	-----------------------------------------
 __c51_external_startup:
 	using	0
-;	D:\clone\LAB5\lab5v1.c:31: SFRPAGE = 0x00;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:31: SFRPAGE = 0x00;
 	mov	_SFRPAGE,#0x00
-;	D:\clone\LAB5\lab5v1.c:32: WDTCN = 0xDE; //First key
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:32: WDTCN = 0xDE; //First key
 	mov	_WDTCN,#0xDE
-;	D:\clone\LAB5\lab5v1.c:33: WDTCN = 0xAD; //Second key
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:33: WDTCN = 0xAD; //Second key
 	mov	_WDTCN,#0xAD
-;	D:\clone\LAB5\lab5v1.c:35: VDM0CN=0x80;       // enable VDD monitor
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:35: VDM0CN=0x80;       // enable VDD monitor
 	mov	_VDM0CN,#0x80
-;	D:\clone\LAB5\lab5v1.c:36: RSTSRC=0x02|0x04;  // Enable reset on missing clock detector and VDD
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:36: RSTSRC=0x02|0x04;  // Enable reset on missing clock detector and VDD
 	mov	_RSTSRC,#0x06
-;	D:\clone\LAB5\lab5v1.c:43: SFRPAGE = 0x10;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:43: SFRPAGE = 0x10;
 	mov	_SFRPAGE,#0x10
-;	D:\clone\LAB5\lab5v1.c:44: PFE0CN  = 0x20; // SYSCLK < 75 MHz.
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:44: PFE0CN  = 0x20; // SYSCLK < 75 MHz.
 	mov	_PFE0CN,#0x20
-;	D:\clone\LAB5\lab5v1.c:45: SFRPAGE = 0x00;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:45: SFRPAGE = 0x00;
 	mov	_SFRPAGE,#0x00
-;	D:\clone\LAB5\lab5v1.c:66: CLKSEL = 0x00;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:66: CLKSEL = 0x00;
 	mov	_CLKSEL,#0x00
-;	D:\clone\LAB5\lab5v1.c:67: CLKSEL = 0x00;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:67: CLKSEL = 0x00;
 	mov	_CLKSEL,#0x00
-;	D:\clone\LAB5\lab5v1.c:68: while ((CLKSEL & 0x80) == 0);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:68: while ((CLKSEL & 0x80) == 0);
 L002001?:
 	mov	a,_CLKSEL
 	jnb	acc.7,L002001?
-;	D:\clone\LAB5\lab5v1.c:69: CLKSEL = 0x03;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:69: CLKSEL = 0x03;
 	mov	_CLKSEL,#0x03
-;	D:\clone\LAB5\lab5v1.c:70: CLKSEL = 0x03;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:70: CLKSEL = 0x03;
 	mov	_CLKSEL,#0x03
-;	D:\clone\LAB5\lab5v1.c:71: while ((CLKSEL & 0x80) == 0);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:71: while ((CLKSEL & 0x80) == 0);
 L002004?:
 	mov	a,_CLKSEL
 	jnb	acc.7,L002004?
-;	D:\clone\LAB5\lab5v1.c:76: P0MDOUT |= 0x10; // Enable UART0 TX as push-pull output
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:76: P0MDOUT |= 0x10; // Enable UART0 TX as push-pull output
 	orl	_P0MDOUT,#0x10
-;	D:\clone\LAB5\lab5v1.c:77: XBR0     = 0x01; // Enable UART0 on P0.4(TX) and P0.5(RX)                     
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:77: XBR0     = 0x01; // Enable UART0 on P0.4(TX) and P0.5(RX)                     
 	mov	_XBR0,#0x01
-;	D:\clone\LAB5\lab5v1.c:78: XBR1     = 0X00;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:78: XBR1     = 0X00;
 	mov	_XBR1,#0x00
-;	D:\clone\LAB5\lab5v1.c:79: XBR2     = 0x40; // Enable crossbar and weak pull-ups
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:79: XBR2     = 0x40; // Enable crossbar and weak pull-ups
 	mov	_XBR2,#0x40
-;	D:\clone\LAB5\lab5v1.c:85: SCON0 = 0x10;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:85: SCON0 = 0x10;
 	mov	_SCON0,#0x10
-;	D:\clone\LAB5\lab5v1.c:86: CKCON0 |= 0b_0000_0000 ; // Timer 1 uses the system clock divided by 12.
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:86: CKCON0 |= 0b_0000_0000 ; // Timer 1 uses the system clock divided by 12.
 	mov	_CKCON0,_CKCON0
-;	D:\clone\LAB5\lab5v1.c:88: TH1 = 0x100-((SYSCLK/BAUDRATE)/(2L*12L));
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:88: TH1 = 0x100-((SYSCLK/BAUDRATE)/(2L*12L));
 	mov	_TH1,#0xE6
-;	D:\clone\LAB5\lab5v1.c:89: TL1 = TH1;      // Init Timer1
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:89: TL1 = TH1;      // Init Timer1
 	mov	_TL1,_TH1
-;	D:\clone\LAB5\lab5v1.c:90: TMOD &= ~0xf0;  // TMOD: timer 1 in 8-bit auto-reload
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:90: TMOD &= ~0xf0;  // TMOD: timer 1 in 8-bit auto-reload
 	anl	_TMOD,#0x0F
-;	D:\clone\LAB5\lab5v1.c:91: TMOD |=  0x20;                       
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:91: TMOD |=  0x20;                       
 	orl	_TMOD,#0x20
-;	D:\clone\LAB5\lab5v1.c:92: TR1 = 1; // START Timer1
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:92: TR1 = 1; // START Timer1
 	setb	_TR1
-;	D:\clone\LAB5\lab5v1.c:93: TI = 1;  // Indicate TX0 ready
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:93: TI = 1;  // Indicate TX0 ready
 	setb	_TI
-;	D:\clone\LAB5\lab5v1.c:95: return 0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:95: return 0;
 	mov	dpl,#0x00
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'InitADC'
 ;------------------------------------------------------------
 ;------------------------------------------------------------
-;	D:\clone\LAB5\lab5v1.c:98: void InitADC (void)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:98: void InitADC (void)
 ;	-----------------------------------------
 ;	 function InitADC
 ;	-----------------------------------------
 _InitADC:
-;	D:\clone\LAB5\lab5v1.c:100: SFRPAGE = 0x00;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:100: SFRPAGE = 0x00;
 	mov	_SFRPAGE,#0x00
-;	D:\clone\LAB5\lab5v1.c:101: ADEN=0; // Disable ADC
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:101: ADEN=0; // Disable ADC
 	clr	_ADEN
-;	D:\clone\LAB5\lab5v1.c:106: (0x0 << 0) ; // Accumulate n conversions: 0x0: 1, 0x1:4, 0x2:8, 0x3:16, 0x4:32
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:106: (0x0 << 0) ; // Accumulate n conversions: 0x0: 1, 0x1:4, 0x2:8, 0x3:16, 0x4:32
 	mov	_ADC0CN1,#0x80
-;	D:\clone\LAB5\lab5v1.c:110: (0x0 << 2); // 0:SYSCLK ADCCLK = SYSCLK. 1:HFOSC0 ADCCLK = HFOSC0.
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:110: (0x0 << 2); // 0:SYSCLK ADCCLK = SYSCLK. 1:HFOSC0 ADCCLK = HFOSC0.
 	mov	_ADC0CF0,#0x20
-;	D:\clone\LAB5\lab5v1.c:114: (0x1E << 0); // Conversion Tracking Time. Tadtk = ADTK / (Fsarclk)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:114: (0x1E << 0); // Conversion Tracking Time. Tadtk = ADTK / (Fsarclk)
 	mov	_ADC0CF1,#0x1E
-;	D:\clone\LAB5\lab5v1.c:123: (0x0 << 0) ; // TEMPE. 0: Disable the Temperature Sensor. 1: Enable the Temperature Sensor.
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:123: (0x0 << 0) ; // TEMPE. 0: Disable the Temperature Sensor. 1: Enable the Temperature Sensor.
 	mov	_ADC0CN0,#0x00
-;	D:\clone\LAB5\lab5v1.c:128: (0x1F << 0); // ADPWR. Power Up Delay Time. Tpwrtime = ((4 * (ADPWR + 1)) + 2) / (Fadcclk)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:128: (0x1F << 0); // ADPWR. Power Up Delay Time. Tpwrtime = ((4 * (ADPWR + 1)) + 2) / (Fadcclk)
 	mov	_ADC0CF2,#0x3F
-;	D:\clone\LAB5\lab5v1.c:132: (0x0 << 0) ; // ADCM. 0x0: ADBUSY, 0x1: TIMER0, 0x2: TIMER2, 0x3: TIMER3, 0x4: CNVSTR, 0x5: CEX5, 0x6: TIMER4, 0x7: TIMER5, 0x8: CLU0, 0x9: CLU1, 0xA: CLU2, 0xB: CLU3
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:132: (0x0 << 0) ; // ADCM. 0x0: ADBUSY, 0x1: TIMER0, 0x2: TIMER2, 0x3: TIMER3, 0x4: CNVSTR, 0x5: CEX5, 0x6: TIMER4, 0x7: TIMER5, 0x8: CLU0, 0x9: CLU1, 0xA: CLU2, 0xB: CLU3
 	mov	_ADC0CN2,#0x00
-;	D:\clone\LAB5\lab5v1.c:134: ADEN=1; // Enable ADC
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:134: ADEN=1; // Enable ADC
 	setb	_ADEN
 	ret
 ;------------------------------------------------------------
@@ -674,40 +674,40 @@ _InitADC:
 ;us                        Allocated to registers r2 
 ;i                         Allocated to registers r3 
 ;------------------------------------------------------------
-;	D:\clone\LAB5\lab5v1.c:138: void Timer3us(unsigned char us)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:138: void Timer3us(unsigned char us)
 ;	-----------------------------------------
 ;	 function Timer3us
 ;	-----------------------------------------
 _Timer3us:
 	mov	r2,dpl
-;	D:\clone\LAB5\lab5v1.c:143: CKCON0|=0b_0100_0000;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:143: CKCON0|=0b_0100_0000;
 	orl	_CKCON0,#0x40
-;	D:\clone\LAB5\lab5v1.c:145: TMR3RL = (-(SYSCLK)/1000000L); // Set Timer3 to overflow in 1us.
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:145: TMR3RL = (-(SYSCLK)/1000000L); // Set Timer3 to overflow in 1us.
 	mov	_TMR3RL,#0xB8
 	mov	(_TMR3RL >> 8),#0xFF
-;	D:\clone\LAB5\lab5v1.c:146: TMR3 = TMR3RL;                 // Initialize Timer3 for first overflow
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:146: TMR3 = TMR3RL;                 // Initialize Timer3 for first overflow
 	mov	_TMR3,_TMR3RL
 	mov	(_TMR3 >> 8),(_TMR3RL >> 8)
-;	D:\clone\LAB5\lab5v1.c:148: TMR3CN0 = 0x04;                 // Sart Timer3 and clear overflow flag
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:148: TMR3CN0 = 0x04;                 // Sart Timer3 and clear overflow flag
 	mov	_TMR3CN0,#0x04
-;	D:\clone\LAB5\lab5v1.c:149: for (i = 0; i < us; i++)       // Count <us> overflows
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:149: for (i = 0; i < us; i++)       // Count <us> overflows
 	mov	r3,#0x00
 L004004?:
 	clr	c
 	mov	a,r3
 	subb	a,r2
 	jnc	L004007?
-;	D:\clone\LAB5\lab5v1.c:151: while (!(TMR3CN0 & 0x80));  // Wait for overflow
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:151: while (!(TMR3CN0 & 0x80));  // Wait for overflow
 L004001?:
 	mov	a,_TMR3CN0
 	jnb	acc.7,L004001?
-;	D:\clone\LAB5\lab5v1.c:152: TMR3CN0 &= ~(0x80);         // Clear overflow indicator
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:152: TMR3CN0 &= ~(0x80);         // Clear overflow indicator
 	anl	_TMR3CN0,#0x7F
-;	D:\clone\LAB5\lab5v1.c:149: for (i = 0; i < us; i++)       // Count <us> overflows
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:149: for (i = 0; i < us; i++)       // Count <us> overflows
 	inc	r3
 	sjmp	L004004?
 L004007?:
-;	D:\clone\LAB5\lab5v1.c:154: TMR3CN0 = 0 ;                   // Stop Timer3 and clear overflow flag
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:154: TMR3CN0 = 0 ;                   // Stop Timer3 and clear overflow flag
 	mov	_TMR3CN0,#0x00
 	ret
 ;------------------------------------------------------------
@@ -717,14 +717,14 @@ L004007?:
 ;j                         Allocated to registers r4 r5 
 ;k                         Allocated to registers r6 
 ;------------------------------------------------------------
-;	D:\clone\LAB5\lab5v1.c:157: void waitms (unsigned int ms)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:157: void waitms (unsigned int ms)
 ;	-----------------------------------------
 ;	 function waitms
 ;	-----------------------------------------
 _waitms:
 	mov	r2,dpl
 	mov	r3,dph
-;	D:\clone\LAB5\lab5v1.c:161: for(j=0; j<ms; j++)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:161: for(j=0; j<ms; j++)
 	mov	r4,#0x00
 	mov	r5,#0x00
 L005005?:
@@ -734,7 +734,7 @@ L005005?:
 	mov	a,r5
 	subb	a,r3
 	jnc	L005009?
-;	D:\clone\LAB5\lab5v1.c:162: for (k=0; k<4; k++) Timer3us(250);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:162: for (k=0; k<4; k++) Timer3us(250);
 	mov	r6,#0x00
 L005001?:
 	cjne	r6,#0x04,L005018?
@@ -755,7 +755,7 @@ L005018?:
 	inc	r6
 	sjmp	L005001?
 L005007?:
-;	D:\clone\LAB5\lab5v1.c:161: for(j=0; j<ms; j++)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:161: for(j=0; j<ms; j++)
 	inc	r4
 	cjne	r4,#0x00,L005005?
 	inc	r5
@@ -766,17 +766,17 @@ L005009?:
 ;Allocation info for local variables in function 'LCD_pulse'
 ;------------------------------------------------------------
 ;------------------------------------------------------------
-;	D:\clone\LAB5\lab5v1.c:165: void LCD_pulse (void)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:165: void LCD_pulse (void)
 ;	-----------------------------------------
 ;	 function LCD_pulse
 ;	-----------------------------------------
 _LCD_pulse:
-;	D:\clone\LAB5\lab5v1.c:167: LCD_E=1;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:167: LCD_E=1;
 	setb	_P2_0
-;	D:\clone\LAB5\lab5v1.c:168: Timer3us(40);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:168: Timer3us(40);
 	mov	dpl,#0x28
 	lcall	_Timer3us
-;	D:\clone\LAB5\lab5v1.c:169: LCD_E=0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:169: LCD_E=0;
 	clr	_P2_0
 	ret
 ;------------------------------------------------------------
@@ -784,66 +784,66 @@ _LCD_pulse:
 ;------------------------------------------------------------
 ;x                         Allocated to registers r2 
 ;------------------------------------------------------------
-;	D:\clone\LAB5\lab5v1.c:172: void LCD_byte (unsigned char x)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:172: void LCD_byte (unsigned char x)
 ;	-----------------------------------------
 ;	 function LCD_byte
 ;	-----------------------------------------
 _LCD_byte:
 	mov	r2,dpl
-;	D:\clone\LAB5\lab5v1.c:175: ACC=x; //Send high nible
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:175: ACC=x; //Send high nible
 	mov	_ACC,r2
-;	D:\clone\LAB5\lab5v1.c:176: LCD_D7=ACC_7;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:176: LCD_D7=ACC_7;
 	mov	c,_ACC_7
 	mov	_P1_0,c
-;	D:\clone\LAB5\lab5v1.c:177: LCD_D6=ACC_6;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:177: LCD_D6=ACC_6;
 	mov	c,_ACC_6
 	mov	_P1_1,c
-;	D:\clone\LAB5\lab5v1.c:178: LCD_D5=ACC_5;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:178: LCD_D5=ACC_5;
 	mov	c,_ACC_5
 	mov	_P1_2,c
-;	D:\clone\LAB5\lab5v1.c:179: LCD_D4=ACC_4;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:179: LCD_D4=ACC_4;
 	mov	c,_ACC_4
 	mov	_P1_3,c
-;	D:\clone\LAB5\lab5v1.c:180: LCD_pulse();
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:180: LCD_pulse();
 	push	ar2
 	lcall	_LCD_pulse
-;	D:\clone\LAB5\lab5v1.c:181: Timer3us(40);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:181: Timer3us(40);
 	mov	dpl,#0x28
 	lcall	_Timer3us
 	pop	ar2
-;	D:\clone\LAB5\lab5v1.c:182: ACC=x; //Send low nible
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:182: ACC=x; //Send low nible
 	mov	_ACC,r2
-;	D:\clone\LAB5\lab5v1.c:183: LCD_D7=ACC_3;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:183: LCD_D7=ACC_3;
 	mov	c,_ACC_3
 	mov	_P1_0,c
-;	D:\clone\LAB5\lab5v1.c:184: LCD_D6=ACC_2;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:184: LCD_D6=ACC_2;
 	mov	c,_ACC_2
 	mov	_P1_1,c
-;	D:\clone\LAB5\lab5v1.c:185: LCD_D5=ACC_1;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:185: LCD_D5=ACC_1;
 	mov	c,_ACC_1
 	mov	_P1_2,c
-;	D:\clone\LAB5\lab5v1.c:186: LCD_D4=ACC_0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:186: LCD_D4=ACC_0;
 	mov	c,_ACC_0
 	mov	_P1_3,c
-;	D:\clone\LAB5\lab5v1.c:187: LCD_pulse();
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:187: LCD_pulse();
 	ljmp	_LCD_pulse
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'WriteData'
 ;------------------------------------------------------------
 ;x                         Allocated to registers r2 
 ;------------------------------------------------------------
-;	D:\clone\LAB5\lab5v1.c:190: void WriteData (unsigned char x)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:190: void WriteData (unsigned char x)
 ;	-----------------------------------------
 ;	 function WriteData
 ;	-----------------------------------------
 _WriteData:
 	mov	r2,dpl
-;	D:\clone\LAB5\lab5v1.c:192: LCD_RS=1;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:192: LCD_RS=1;
 	setb	_P1_7
-;	D:\clone\LAB5\lab5v1.c:193: LCD_byte(x);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:193: LCD_byte(x);
 	mov	dpl,r2
 	lcall	_LCD_byte
-;	D:\clone\LAB5\lab5v1.c:194: waitms(2);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:194: waitms(2);
 	mov	dptr,#0x0002
 	ljmp	_waitms
 ;------------------------------------------------------------
@@ -851,53 +851,53 @@ _WriteData:
 ;------------------------------------------------------------
 ;x                         Allocated to registers r2 
 ;------------------------------------------------------------
-;	D:\clone\LAB5\lab5v1.c:197: void WriteCommand (unsigned char x)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:197: void WriteCommand (unsigned char x)
 ;	-----------------------------------------
 ;	 function WriteCommand
 ;	-----------------------------------------
 _WriteCommand:
 	mov	r2,dpl
-;	D:\clone\LAB5\lab5v1.c:199: LCD_RS=0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:199: LCD_RS=0;
 	clr	_P1_7
-;	D:\clone\LAB5\lab5v1.c:200: LCD_byte(x);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:200: LCD_byte(x);
 	mov	dpl,r2
 	lcall	_LCD_byte
-;	D:\clone\LAB5\lab5v1.c:201: waitms(5);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:201: waitms(5);
 	mov	dptr,#0x0005
 	ljmp	_waitms
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'LCD_4BIT'
 ;------------------------------------------------------------
 ;------------------------------------------------------------
-;	D:\clone\LAB5\lab5v1.c:204: void LCD_4BIT (void)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:204: void LCD_4BIT (void)
 ;	-----------------------------------------
 ;	 function LCD_4BIT
 ;	-----------------------------------------
 _LCD_4BIT:
-;	D:\clone\LAB5\lab5v1.c:206: LCD_E=0; // Resting state of LCD's enable is zero
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:206: LCD_E=0; // Resting state of LCD's enable is zero
 	clr	_P2_0
-;	D:\clone\LAB5\lab5v1.c:208: waitms(20);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:208: waitms(20);
 	mov	dptr,#0x0014
 	lcall	_waitms
-;	D:\clone\LAB5\lab5v1.c:210: WriteCommand(0x33);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:210: WriteCommand(0x33);
 	mov	dpl,#0x33
 	lcall	_WriteCommand
-;	D:\clone\LAB5\lab5v1.c:211: WriteCommand(0x33);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:211: WriteCommand(0x33);
 	mov	dpl,#0x33
 	lcall	_WriteCommand
-;	D:\clone\LAB5\lab5v1.c:212: WriteCommand(0x32); // Change to 4-bit mode
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:212: WriteCommand(0x32); // Change to 4-bit mode
 	mov	dpl,#0x32
 	lcall	_WriteCommand
-;	D:\clone\LAB5\lab5v1.c:215: WriteCommand(0x28);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:215: WriteCommand(0x28);
 	mov	dpl,#0x28
 	lcall	_WriteCommand
-;	D:\clone\LAB5\lab5v1.c:216: WriteCommand(0x0c);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:216: WriteCommand(0x0c);
 	mov	dpl,#0x0C
 	lcall	_WriteCommand
-;	D:\clone\LAB5\lab5v1.c:217: WriteCommand(0x01); // Clear screen command (takes some time)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:217: WriteCommand(0x01); // Clear screen command (takes some time)
 	mov	dpl,#0x01
 	lcall	_WriteCommand
-;	D:\clone\LAB5\lab5v1.c:218: waitms(20); // Wait for clear screen command to finsih.
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:218: waitms(20); // Wait for clear screen command to finsih.
 	mov	dptr,#0x0014
 	ljmp	_waitms
 ;------------------------------------------------------------
@@ -907,7 +907,7 @@ _LCD_4BIT:
 ;string                    Allocated to registers r2 r3 r4 
 ;j                         Allocated to registers r5 r6 
 ;------------------------------------------------------------
-;	D:\clone\LAB5\lab5v1.c:221: void LCDprint(char * string, unsigned char line, bit clear)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:221: void LCDprint(char * string, unsigned char line, bit clear)
 ;	-----------------------------------------
 ;	 function LCDprint
 ;	-----------------------------------------
@@ -915,7 +915,7 @@ _LCDprint:
 	mov	r2,dpl
 	mov	r3,dph
 	mov	r4,b
-;	D:\clone\LAB5\lab5v1.c:225: WriteCommand(line==2?0xc0:0x80);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:225: WriteCommand(line==2?0xc0:0x80);
 	mov	a,#0x02
 	cjne	a,_LCDprint_PARM_2,L011013?
 	mov	r5,#0xC0
@@ -928,13 +928,13 @@ L011014?:
 	push	ar3
 	push	ar4
 	lcall	_WriteCommand
-;	D:\clone\LAB5\lab5v1.c:226: waitms(5);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:226: waitms(5);
 	mov	dptr,#0x0005
 	lcall	_waitms
 	pop	ar4
 	pop	ar3
 	pop	ar2
-;	D:\clone\LAB5\lab5v1.c:227: for(j=0; string[j]!=0; j++) WriteData(string[j]);// Write the message
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:227: for(j=0; string[j]!=0; j++) WriteData(string[j]);// Write the message
 	mov	r5,#0x00
 	mov	r6,#0x00
 L011003?:
@@ -968,7 +968,7 @@ L011003?:
 	inc	r6
 	sjmp	L011003?
 L011006?:
-;	D:\clone\LAB5\lab5v1.c:228: if(clear) for(; j<CHARS_PER_LINE; j++) WriteData(' '); // Clear the rest of the line
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:228: if(clear) for(; j<CHARS_PER_LINE; j++) WriteData(' '); // Clear the rest of the line
 	jnb	_LCDprint_PARM_3,L011011?
 	mov	ar2,r5
 	mov	ar3,r6
@@ -996,16 +996,16 @@ L011011?:
 ;Allocation info for local variables in function 'TIMER0_Init'
 ;------------------------------------------------------------
 ;------------------------------------------------------------
-;	D:\clone\LAB5\lab5v1.c:231: void TIMER0_Init(void)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:231: void TIMER0_Init(void)
 ;	-----------------------------------------
 ;	 function TIMER0_Init
 ;	-----------------------------------------
 _TIMER0_Init:
-;	D:\clone\LAB5\lab5v1.c:233: TMOD&=0b_1111_0000; // Set the bits of Timer/Counter 0 to zero
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:233: TMOD&=0b_1111_0000; // Set the bits of Timer/Counter 0 to zero
 	anl	_TMOD,#0xF0
-;	D:\clone\LAB5\lab5v1.c:234: TMOD|=0b_0000_0001; // Timer/Counter 0 used as a 16-bit timer
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:234: TMOD|=0b_0000_0001; // Timer/Counter 0 used as a 16-bit timer
 	orl	_TMOD,#0x01
-;	D:\clone\LAB5\lab5v1.c:235: TR0=0; // Stop Timer/Counter 0
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:235: TR0=0; // Stop Timer/Counter 0
 	clr	_TR0
 	ret
 ;------------------------------------------------------------
@@ -1015,13 +1015,13 @@ _TIMER0_Init:
 ;portno                    Allocated to registers r2 
 ;mask                      Allocated to registers r3 
 ;------------------------------------------------------------
-;	D:\clone\LAB5\lab5v1.c:240: void InitPinADC (unsigned char portno, unsigned char pinno)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:240: void InitPinADC (unsigned char portno, unsigned char pinno)
 ;	-----------------------------------------
 ;	 function InitPinADC
 ;	-----------------------------------------
 _InitPinADC:
 	mov	r2,dpl
-;	D:\clone\LAB5\lab5v1.c:244: mask=1<<pinno;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:244: mask=1<<pinno;
 	mov	b,_InitPinADC_PARM_2
 	inc	b
 	mov	a,#0x01
@@ -1031,54 +1031,54 @@ L013011?:
 L013013?:
 	djnz	b,L013011?
 	mov	r3,a
-;	D:\clone\LAB5\lab5v1.c:246: SFRPAGE = 0x20;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:246: SFRPAGE = 0x20;
 	mov	_SFRPAGE,#0x20
-;	D:\clone\LAB5\lab5v1.c:247: switch (portno)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:247: switch (portno)
 	cjne	r2,#0x00,L013014?
 	sjmp	L013001?
 L013014?:
 	cjne	r2,#0x01,L013015?
 	sjmp	L013002?
 L013015?:
-;	D:\clone\LAB5\lab5v1.c:249: case 0:
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:249: case 0:
 	cjne	r2,#0x02,L013005?
 	sjmp	L013003?
 L013001?:
-;	D:\clone\LAB5\lab5v1.c:250: P0MDIN &= (~mask); // Set pin as analog input
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:250: P0MDIN &= (~mask); // Set pin as analog input
 	mov	a,r3
 	cpl	a
 	mov	r2,a
 	anl	_P0MDIN,a
-;	D:\clone\LAB5\lab5v1.c:251: P0SKIP |= mask; // Skip Crossbar decoding for this pin
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:251: P0SKIP |= mask; // Skip Crossbar decoding for this pin
 	mov	a,r3
 	orl	_P0SKIP,a
-;	D:\clone\LAB5\lab5v1.c:252: break;
-;	D:\clone\LAB5\lab5v1.c:253: case 1:
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:252: break;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:253: case 1:
 	sjmp	L013005?
 L013002?:
-;	D:\clone\LAB5\lab5v1.c:254: P1MDIN &= (~mask); // Set pin as analog input
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:254: P1MDIN &= (~mask); // Set pin as analog input
 	mov	a,r3
 	cpl	a
 	mov	r2,a
 	anl	_P1MDIN,a
-;	D:\clone\LAB5\lab5v1.c:255: P1SKIP |= mask; // Skip Crossbar decoding for this pin
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:255: P1SKIP |= mask; // Skip Crossbar decoding for this pin
 	mov	a,r3
 	orl	_P1SKIP,a
-;	D:\clone\LAB5\lab5v1.c:256: break;
-;	D:\clone\LAB5\lab5v1.c:257: case 2:
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:256: break;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:257: case 2:
 	sjmp	L013005?
 L013003?:
-;	D:\clone\LAB5\lab5v1.c:258: P2MDIN &= (~mask); // Set pin as analog input
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:258: P2MDIN &= (~mask); // Set pin as analog input
 	mov	a,r3
 	cpl	a
 	mov	r2,a
 	anl	_P2MDIN,a
-;	D:\clone\LAB5\lab5v1.c:259: P2SKIP |= mask; // Skip Crossbar decoding for this pin
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:259: P2SKIP |= mask; // Skip Crossbar decoding for this pin
 	mov	a,r3
 	orl	_P2SKIP,a
-;	D:\clone\LAB5\lab5v1.c:263: }
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:263: }
 L013005?:
-;	D:\clone\LAB5\lab5v1.c:264: SFRPAGE = 0x00;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:264: SFRPAGE = 0x00;
 	mov	_SFRPAGE,#0x00
 	ret
 ;------------------------------------------------------------
@@ -1086,20 +1086,20 @@ L013005?:
 ;------------------------------------------------------------
 ;pin                       Allocated to registers 
 ;------------------------------------------------------------
-;	D:\clone\LAB5\lab5v1.c:268: unsigned int ADC_at_Pin(unsigned char pin)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:268: unsigned int ADC_at_Pin(unsigned char pin)
 ;	-----------------------------------------
 ;	 function ADC_at_Pin
 ;	-----------------------------------------
 _ADC_at_Pin:
 	mov	_ADC0MX,dpl
-;	D:\clone\LAB5\lab5v1.c:271: ADINT = 0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:271: ADINT = 0;
 	clr	_ADINT
-;	D:\clone\LAB5\lab5v1.c:272: ADBUSY = 1;     // Convert voltage at the pin
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:272: ADBUSY = 1;     // Convert voltage at the pin
 	setb	_ADBUSY
-;	D:\clone\LAB5\lab5v1.c:273: while (!ADINT); // Wait for conversion to complete
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:273: while (!ADINT); // Wait for conversion to complete
 L014001?:
 	jnb	_ADINT,L014001?
-;	D:\clone\LAB5\lab5v1.c:274: return (ADC0);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:274: return (ADC0);
 	mov	dpl,_ADC0
 	mov	dph,(_ADC0 >> 8)
 	ret
@@ -1108,12 +1108,12 @@ L014001?:
 ;------------------------------------------------------------
 ;pin                       Allocated to registers r2 
 ;------------------------------------------------------------
-;	D:\clone\LAB5\lab5v1.c:277: float Volts_at_Pin(unsigned char pin)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:277: float Volts_at_Pin(unsigned char pin)
 ;	-----------------------------------------
 ;	 function Volts_at_Pin
 ;	-----------------------------------------
 _Volts_at_Pin:
-;	D:\clone\LAB5\lab5v1.c:279: return ((ADC_at_Pin(pin)*VDD)/0b_0011_1111_1111_1111);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:279: return ((ADC_at_Pin(pin)*VDD)/0b_0011_1111_1111_1111);
 	lcall	_ADC_at_Pin
 	lcall	___uint2fs
 	mov	r2,dpl
@@ -1164,19 +1164,19 @@ _Volts_at_Pin:
 ;Allocation info for local variables in function 'Get_ADC'
 ;------------------------------------------------------------
 ;------------------------------------------------------------
-;	D:\clone\LAB5\lab5v1.c:282: unsigned int Get_ADC (void)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:282: unsigned int Get_ADC (void)
 ;	-----------------------------------------
 ;	 function Get_ADC
 ;	-----------------------------------------
 _Get_ADC:
-;	D:\clone\LAB5\lab5v1.c:284: ADINT = 0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:284: ADINT = 0;
 	clr	_ADINT
-;	D:\clone\LAB5\lab5v1.c:285: ADBUSY = 1;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:285: ADBUSY = 1;
 	setb	_ADBUSY
-;	D:\clone\LAB5\lab5v1.c:286: while (!ADINT); // Wait for conversion to complete
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:286: while (!ADINT); // Wait for conversion to complete
 L016001?:
 	jnb	_ADINT,L016001?
-;	D:\clone\LAB5\lab5v1.c:287: return (ADC0);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:287: return (ADC0);
 	mov	dpl,_ADC0
 	mov	dph,(_ADC0 >> 8)
 	ret
@@ -1194,39 +1194,39 @@ L016001?:
 ;sloc0                     Allocated with name '_main_sloc0_1_0'
 ;v                         Allocated with name '_main_v_1_75'
 ;------------------------------------------------------------
-;	D:\clone\LAB5\lab5v1.c:292: void main (void)
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:292: void main (void)
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-;	D:\clone\LAB5\lab5v1.c:296: float mst = 0.0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:296: float mst = 0.0;
 	mov	_main_mst_1_75,#0x00
 	mov	(_main_mst_1_75 + 1),#0x00
 	mov	(_main_mst_1_75 + 2),#0x00
 	mov	(_main_mst_1_75 + 3),#0x00
-;	D:\clone\LAB5\lab5v1.c:298: float vmax1=0.0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:298: float vmax1=0.0;
 	mov	_main_vmax1_1_75,#0x00
 	mov	(_main_vmax1_1_75 + 1),#0x00
 	mov	(_main_vmax1_1_75 + 2),#0x00
 	mov	(_main_vmax1_1_75 + 3),#0x00
-;	D:\clone\LAB5\lab5v1.c:299: float vmax2=0.0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:299: float vmax2=0.0;
 	mov	_main_vmax2_1_75,#0x00
 	mov	(_main_vmax2_1_75 + 1),#0x00
 	mov	(_main_vmax2_1_75 + 2),#0x00
 	mov	(_main_vmax2_1_75 + 3),#0x00
-;	D:\clone\LAB5\lab5v1.c:302: float p_n=0.0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:302: float p_n=0.0;
 	mov	_main_p_n_1_75,#0x00
 	mov	(_main_p_n_1_75 + 1),#0x00
 	mov	(_main_p_n_1_75 + 2),#0x00
 	mov	(_main_p_n_1_75 + 3),#0x00
-;	D:\clone\LAB5\lab5v1.c:303: TIMER0_Init();
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:303: TIMER0_Init();
 	lcall	_TIMER0_Init
-;	D:\clone\LAB5\lab5v1.c:304: LCD_4BIT();
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:304: LCD_4BIT();
 	lcall	_LCD_4BIT
-;	D:\clone\LAB5\lab5v1.c:306: waitms(500); // Give PuTTy a chance to start before sending
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:306: waitms(500); // Give PuTTy a chance to start before sending
 	mov	dptr,#0x01F4
 	lcall	_waitms
-;	D:\clone\LAB5\lab5v1.c:307: printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:307: printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
 	mov	a,#__str_0
 	push	acc
 	mov	a,#(__str_0 >> 8)
@@ -1237,8 +1237,8 @@ _main:
 	dec	sp
 	dec	sp
 	dec	sp
-;	D:\clone\LAB5\lab5v1.c:312: __FILE__, __DATE__, __TIME__);
-;	D:\clone\LAB5\lab5v1.c:311: "Compiled: %s, %s\n\n",
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:312: __FILE__, __DATE__, __TIME__);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:311: "Compiled: %s, %s\n\n",
 	mov	a,#__str_4
 	push	acc
 	mov	a,#(__str_4 >> 8)
@@ -1267,29 +1267,29 @@ _main:
 	mov	a,sp
 	add	a,#0xf4
 	mov	sp,a
-;	D:\clone\LAB5\lab5v1.c:314: InitPinADC(1, 4); // Configure P1.6 as analog input
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:314: InitPinADC(1, 4); // Configure P1.6 as analog input
 	mov	_InitPinADC_PARM_2,#0x04
 	mov	dpl,#0x01
 	lcall	_InitPinADC
-;	D:\clone\LAB5\lab5v1.c:315: InitPinADC(1, 5); // Configure P1.7 as analog input
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:315: InitPinADC(1, 5); // Configure P1.7 as analog input
 	mov	_InitPinADC_PARM_2,#0x05
 	mov	dpl,#0x01
 	lcall	_InitPinADC
-;	D:\clone\LAB5\lab5v1.c:317: InitADC();
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:317: InitADC();
 	lcall	_InitADC
-;	D:\clone\LAB5\lab5v1.c:319: LCDprint("vr:     f:    Hz",1,1);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:319: LCDprint("vr:     f:    Hz",1,1);
 	mov	_LCDprint_PARM_2,#0x01
 	setb	_LCDprint_PARM_3
 	mov	dptr,#__str_5
 	mov	b,#0x80
 	lcall	_LCDprint
-;	D:\clone\LAB5\lab5v1.c:320: LCDprint("vt:     pha:    ",2,1);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:320: LCDprint("vt:     pha:    ",2,1);
 	mov	_LCDprint_PARM_2,#0x02
 	setb	_LCDprint_PARM_3
 	mov	dptr,#__str_6
 	mov	b,#0x80
 	lcall	_LCDprint
-;	D:\clone\LAB5\lab5v1.c:323: for (i = 0; i < 10; i++){
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:323: for (i = 0; i < 10; i++){
 L017070?:
 	clr	a
 	mov	_main_i_1_75,a
@@ -1304,48 +1304,48 @@ L017049?:
 	jc	L017089?
 	ljmp	L017052?
 L017089?:
-;	D:\clone\LAB5\lab5v1.c:325: TL0=0; 
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:325: TL0=0; 
 	mov	_TL0,#0x00
-;	D:\clone\LAB5\lab5v1.c:326: TH0=0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:326: TH0=0;
 	mov	_TH0,#0x00
-;	D:\clone\LAB5\lab5v1.c:327: TF0=0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:327: TF0=0;
 	clr	_TF0
-;	D:\clone\LAB5\lab5v1.c:328: overflow_count=0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:328: overflow_count=0;
 	mov	_overflow_count,#0x00
-;	D:\clone\LAB5\lab5v1.c:329: while(P0_1!=0); // Wait for the signal to be zero
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:329: while(P0_1!=0); // Wait for the signal to be zero
 L017001?:
 	jb	_P0_1,L017001?
-;	D:\clone\LAB5\lab5v1.c:330: while(P0_1!=1); // Wait for the signal to be one
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:330: while(P0_1!=1); // Wait for the signal to be one
 L017004?:
 	jnb	_P0_1,L017004?
-;	D:\clone\LAB5\lab5v1.c:331: TR0=1; // Start the timer
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:331: TR0=1; // Start the timer
 	setb	_TR0
-;	D:\clone\LAB5\lab5v1.c:332: while(P0_1!=0) // Wait for the signal to be zero
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:332: while(P0_1!=0) // Wait for the signal to be zero
 L017009?:
 	jnb	_P0_1,L017014?
-;	D:\clone\LAB5\lab5v1.c:334: if(TF0==1) // Did the 16-bit timer overflow?
-;	D:\clone\LAB5\lab5v1.c:336: TF0=0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:334: if(TF0==1) // Did the 16-bit timer overflow?
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:336: TF0=0;
 	jbc	_TF0,L017093?
 	sjmp	L017009?
 L017093?:
-;	D:\clone\LAB5\lab5v1.c:337: overflow_count++;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:337: overflow_count++;
 	inc	_overflow_count
-;	D:\clone\LAB5\lab5v1.c:340: while(P0_1!=1) // Wait for the signal to be one
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:340: while(P0_1!=1) // Wait for the signal to be one
 	sjmp	L017009?
 L017014?:
 	jb	_P0_1,L017016?
-;	D:\clone\LAB5\lab5v1.c:342: if(TF0==1) // Did the 16-bit timer overflow?
-;	D:\clone\LAB5\lab5v1.c:344: TF0=0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:342: if(TF0==1) // Did the 16-bit timer overflow?
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:344: TF0=0;
 	jbc	_TF0,L017095?
 	sjmp	L017014?
 L017095?:
-;	D:\clone\LAB5\lab5v1.c:345: overflow_count++;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:345: overflow_count++;
 	inc	_overflow_count
 	sjmp	L017014?
 L017016?:
-;	D:\clone\LAB5\lab5v1.c:348: TR0=0; // Stop timer 0, the 24-bit number [overflow_count-TH0-TL0] has the period!
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:348: TR0=0; // Stop timer 0, the 24-bit number [overflow_count-TH0-TL0] has the period!
 	clr	_TR0
-;	D:\clone\LAB5\lab5v1.c:349: period=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:349: period=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
 	mov	dpl,_overflow_count
 	lcall	___uchar2fs
 	mov	r6,dpl
@@ -1444,7 +1444,7 @@ L017016?:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	D:\clone\LAB5\lab5v1.c:350: if (period > mst){
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:350: if (period > mst){
 	push	ar2
 	push	ar3
 	push	ar4
@@ -1468,16 +1468,16 @@ L017016?:
 	pop	ar2
 	mov	a,r6
 	jz	L017018?
-;	D:\clone\LAB5\lab5v1.c:351: mst = period;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:351: mst = period;
 	mov	_main_mst_1_75,r2
 	mov	(_main_mst_1_75 + 1),r3
 	mov	(_main_mst_1_75 + 2),r4
 	mov	(_main_mst_1_75 + 3),r5
 L017018?:
-;	D:\clone\LAB5\lab5v1.c:353: waitms(1);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:353: waitms(1);
 	mov	dptr,#0x0001
 	lcall	_waitms
-;	D:\clone\LAB5\lab5v1.c:323: for (i = 0; i < 10; i++){
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:323: for (i = 0; i < 10; i++){
 	inc	_main_i_1_75
 	clr	a
 	cjne	a,_main_i_1_75,L017097?
@@ -1485,7 +1485,7 @@ L017018?:
 L017097?:
 	ljmp	L017049?
 L017052?:
-;	D:\clone\LAB5\lab5v1.c:355: for(i=0;i<20;i++){
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:355: for(i=0;i<20;i++){
 	mov	r2,#0x00
 	mov	r3,#0x00
 L017053?:
@@ -1498,7 +1498,7 @@ L017053?:
 	jc	L017098?
 	ljmp	L017056?
 L017098?:
-;	D:\clone\LAB5\lab5v1.c:356: v[0] = Volts_at_Pin(QFP32_MUX_P1_4);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:356: v[0] = Volts_at_Pin(QFP32_MUX_P1_4);
 	mov	dpl,#0x0A
 	push	ar2
 	push	ar3
@@ -1515,7 +1515,7 @@ L017098?:
 	mov	@r0,ar6
 	inc	r0
 	mov	@r0,ar7
-;	D:\clone\LAB5\lab5v1.c:357: v[1] = Volts_at_Pin(QFP32_MUX_P1_5);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:357: v[1] = Volts_at_Pin(QFP32_MUX_P1_5);
 	mov	dpl,#0x0B
 	lcall	_Volts_at_Pin
 	mov	r4,dpl
@@ -1530,7 +1530,7 @@ L017098?:
 	mov	@r0,ar6
 	inc	r0
 	mov	@r0,ar7
-;	D:\clone\LAB5\lab5v1.c:358: if(vmax1<v[0]){
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:358: if(vmax1<v[0]){
 	mov	r0,#_main_v_1_75
 	mov	ar4,@r0
 	inc	r0
@@ -1556,7 +1556,7 @@ L017098?:
 	pop	ar2
 	mov	a,r4
 	jz	L017020?
-;	D:\clone\LAB5\lab5v1.c:359: vmax1=v[0];
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:359: vmax1=v[0];
 	mov	r0,#_main_v_1_75
 	mov	_main_vmax1_1_75,@r0
 	inc	r0
@@ -1566,7 +1566,7 @@ L017098?:
 	inc	r0
 	mov	(_main_vmax1_1_75 + 3),@r0
 L017020?:
-;	D:\clone\LAB5\lab5v1.c:361: if(vmax2<v[1]){
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:361: if(vmax2<v[1]){
 	mov	r0,#(_main_v_1_75 + 0x0004)
 	mov	ar4,@r0
 	inc	r0
@@ -1594,7 +1594,7 @@ L017020?:
 	pop	ar2
 	mov	a,r4
 	jz	L017022?
-;	D:\clone\LAB5\lab5v1.c:362: vmax2=v[1];
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:362: vmax2=v[1];
 	mov	r0,#(_main_v_1_75 + 0x0004)
 	mov	_main_vmax2_1_75,@r0
 	inc	r0
@@ -1604,21 +1604,21 @@ L017020?:
 	inc	r0
 	mov	(_main_vmax2_1_75 + 3),@r0
 L017022?:
-;	D:\clone\LAB5\lab5v1.c:364: waitms(1); 
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:364: waitms(1); 
 	mov	dptr,#0x0001
 	push	ar2
 	push	ar3
 	lcall	_waitms
 	pop	ar3
 	pop	ar2
-;	D:\clone\LAB5\lab5v1.c:355: for(i=0;i<20;i++){
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:355: for(i=0;i<20;i++){
 	inc	r2
 	cjne	r2,#0x00,L017101?
 	inc	r3
 L017101?:
 	ljmp	L017053?
 L017056?:
-;	D:\clone\LAB5\lab5v1.c:366: printf("\nperiod=%3.2f\r",mst*1000);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:366: printf("\nperiod=%3.2f\r",mst*1000);
 	push	_main_mst_1_75
 	push	(_main_mst_1_75 + 1)
 	push	(_main_mst_1_75 + 2)
@@ -1648,7 +1648,7 @@ L017056?:
 	mov	a,sp
 	add	a,#0xf9
 	mov	sp,a
-;	D:\clone\LAB5\lab5v1.c:367: printf ("\nV@P1_4=%7.5fV, V@P1_5=%7.5fV\r",vmax1, vmax2);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:367: printf ("\nV@P1_4=%7.5fV, V@P1_5=%7.5fV\r",vmax1, vmax2);
 	push	_main_vmax2_1_75
 	push	(_main_vmax2_1_75 + 1)
 	push	(_main_vmax2_1_75 + 2)
@@ -1667,64 +1667,64 @@ L017056?:
 	mov	a,sp
 	add	a,#0xf5
 	mov	sp,a
-;	D:\clone\LAB5\lab5v1.c:369: while(P0_1==0&&P0_2==0);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:369: while(P0_1==0&&P0_2==0);
 L017024?:
 	jb	_P0_1,L017026?
 	jnb	_P0_2,L017024?
 L017026?:
-;	D:\clone\LAB5\lab5v1.c:370: if(P0_1==1){
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:370: if(P0_1==1){
 	jnb	_P0_1,L017028?
-;	D:\clone\LAB5\lab5v1.c:371: p_n=1;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:371: p_n=1;
 	mov	_main_p_n_1_75,#0x00
 	mov	(_main_p_n_1_75 + 1),#0x00
 	mov	(_main_p_n_1_75 + 2),#0x80
 	mov	(_main_p_n_1_75 + 3),#0x3F
 L017028?:
-;	D:\clone\LAB5\lab5v1.c:373: if(P0_2==1){
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:373: if(P0_2==1){
 	jnb	_P0_2,L017030?
-;	D:\clone\LAB5\lab5v1.c:374: p_n=-1;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:374: p_n=-1;
 	mov	_main_p_n_1_75,#0x00
 	mov	(_main_p_n_1_75 + 1),#0x00
 	mov	(_main_p_n_1_75 + 2),#0x80
 	mov	(_main_p_n_1_75 + 3),#0xBF
 L017030?:
-;	D:\clone\LAB5\lab5v1.c:376: waitms(1);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:376: waitms(1);
 	mov	dptr,#0x0001
 	lcall	_waitms
-;	D:\clone\LAB5\lab5v1.c:377: TL0=0; TH0=0; TF0=0;overflow_count=0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:377: TL0=0; TH0=0; TF0=0;overflow_count=0;
 	mov	_TL0,#0x00
 	mov	_TH0,#0x00
 	clr	_TF0
 	mov	_overflow_count,#0x00
-;	D:\clone\LAB5\lab5v1.c:378: while(P0_1==1);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:378: while(P0_1==1);
 L017031?:
 	jb	_P0_1,L017031?
-;	D:\clone\LAB5\lab5v1.c:379: while(P0_1==0);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:379: while(P0_1==0);
 L017034?:
 	jnb	_P0_1,L017034?
-;	D:\clone\LAB5\lab5v1.c:380: while(P0_1==1){
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:380: while(P0_1==1){
 L017043?:
 	jnb	_P0_1,L017045?
-;	D:\clone\LAB5\lab5v1.c:381: while(P0_2==0&&P0_1==1){
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:381: while(P0_2==0&&P0_1==1){
 L017040?:
 	jb	_P0_2,L017042?
 	jnb	_P0_1,L017042?
-;	D:\clone\LAB5\lab5v1.c:382: TR0=1;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:382: TR0=1;
 	setb	_TR0
-;	D:\clone\LAB5\lab5v1.c:383: if(TF0==1) // Did the 16-bit timer overflow?
-;	D:\clone\LAB5\lab5v1.c:385: TF0=0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:383: if(TF0==1) // Did the 16-bit timer overflow?
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:385: TF0=0;
 	jbc	_TF0,L017111?
 	sjmp	L017040?
 L017111?:
-;	D:\clone\LAB5\lab5v1.c:386: overflow_count++;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:386: overflow_count++;
 	inc	_overflow_count
 	sjmp	L017040?
 L017042?:
-;	D:\clone\LAB5\lab5v1.c:390: TR0=0; 
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:390: TR0=0; 
 	clr	_TR0
 	sjmp	L017043?
 L017045?:
-;	D:\clone\LAB5\lab5v1.c:392: phase_diff=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:392: phase_diff=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
 	mov	dpl,_overflow_count
 	lcall	___uchar2fs
 	mov	r2,dpl
@@ -1823,7 +1823,7 @@ L017045?:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	D:\clone\LAB5\lab5v1.c:394: degrees = p_n*phase_diff*360/mst ;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:394: degrees = p_n*phase_diff*360/mst ;
 	push	ar2
 	push	ar3
 	push	ar4
@@ -1871,7 +1871,7 @@ L017045?:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	D:\clone\LAB5\lab5v1.c:396: printf("\r\ndegrees: %f", degrees);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:396: printf("\r\ndegrees: %f", degrees);
 	push	ar2
 	push	ar3
 	push	ar4
@@ -1886,7 +1886,7 @@ L017045?:
 	mov	a,sp
 	add	a,#0xf9
 	mov	sp,a
-;	D:\clone\LAB5\lab5v1.c:398: waitms(500); 
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v1.c:398: waitms(500); 
 	mov	dptr,#0x01F4
 	lcall	_waitms
 	ljmp	L017070?
@@ -1909,9 +1909,17 @@ __str_1:
 	db 0x0A
 	db 0x00
 __str_2:
-	db 'D:'
+	db 'C:'
 	db 0x5C
-	db 'clone'
+	db 'Users'
+	db 0x5C
+	db 'qiuyu'
+	db 0x5C
+	db 'OneDrive'
+	db 0x5C
+	db 'Documents'
+	db 0x5C
+	db 'GitHub'
 	db 0x5C
 	db 'LAB5'
 	db 0x5C
@@ -1921,7 +1929,7 @@ __str_3:
 	db 'Mar  6 2024'
 	db 0x00
 __str_4:
-	db '13:10:56'
+	db '19:49:30'
 	db 0x00
 __str_5:
 	db 'vr:     f:    Hz'
