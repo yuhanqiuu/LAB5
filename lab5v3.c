@@ -295,8 +295,6 @@ void main (void)
     idata float v[2];
     idata char buff1[17];
     idata char buff2[17];
-    idata char buff3[17];
-    idata char buff4[17];
 
     float period;
     float mst = 0.0;
@@ -306,6 +304,7 @@ void main (void)
     float phase_diff = 0.0;
     float degrees;
     float p_n=0.0;
+
     TIMER0_Init();
     LCD_4BIT();
 
@@ -321,9 +320,7 @@ void main (void)
     InitPinADC(1, 5); // Configure P1.7 as analog input
 
     InitADC();
-    //        0123456789012345
-    LCDprint("vr:   V f:    Hz",1,1);
-    LCDprint("vt:   V  pha:   C",2,1);
+    
     
     while(1){
     for (i = 0; i < 10; i++){
@@ -372,13 +369,15 @@ void main (void)
     printf("\nperiod=%3.2f\r",mst*1000);
     printf ("\nV@P1_4=%7.5fV, V@P1_5=%7.5fV\r",vmax1, vmax2);
 
-    while(P0_1==0&&P0_2==0);
-    if(P0_1==1){
-	  p_n=1;
-	}
-	if(P0_2==1){
-	  p_n=-1;
-	}
+    if(P2_6==0) {
+        while(P0_1==0&&P0_2==0);
+        if(P0_1==1){
+            p_n=1;
+        }
+        else {
+            p_n=-1;
+        }
+    }
 	waitms(1);
     TL0=0; TH0=0; TF0=0;overflow_count=0;
     while(P0_1==1);
@@ -400,15 +399,18 @@ void main (void)
     degrees = p_n*phase_diff*360/mst ;
     //printf("\r\nphase_diff: %f", phase_diff);
     printf("\r\ndegrees: %f", degrees);
-                
-    sprintf(buff1,"%04.2f", (float)vmax1/1.14121356237);
-    LCDprint(buff1, 1, 4);
-    sprintf(buff2,"%04.1f", (float)1/mst*1000);
-    LCDprint(buff2, 1, 11);
-    sprintf(buff3,"%04.2f", (float)vmax2/1.14121356237);
-    LCDprint(buff3, 2, 4);
-    sprintf(buff3,"%04.0f", (float)degrees);
-    LCDprint(buff4, 2, 13);
+    
+ 
+    // //        0123456789012345
+    // LCDprint("vr:     f:    Hz",1,1);
+    // LCDprint("vt:     pha:   C",2,1);
+    if (P2_6==0) {
+        sprintf(buff1,"vr:%04.2f f:%04.1fHz", (float)vmax1/1.14121356237,(float)1/mst);
+        LCDprint(buff1, 1, 0);
+
+        sprintf(buff2,"vt:%04.2fV ph:%3.0fC", (float)vmax2/1.14121356237,(float)degrees);
+        LCDprint(buff2, 2, 0);       
+    }
     waitms(500); 
 
 }

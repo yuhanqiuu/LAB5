@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by C51
 ; Version 1.0.0 #1170 (Feb 16 2022) (MSVC)
-; This file was generated Wed Mar 06 20:41:57 2024
+; This file was generated Wed Mar 06 21:29:15 2024
 ;--------------------------------------------------------
 $name lab5v3
 $optc51 --model-small
@@ -527,10 +527,6 @@ _main_v_1_97:
 _main_buff1_1_97:
 	ds 17
 _main_buff2_1_97:
-	ds 17
-_main_buff3_1_97:
-	ds 17
-_main_buff4_1_97:
 	ds 17
 ;--------------------------------------------------------
 ; absolute internal ram data
@@ -1205,42 +1201,40 @@ L016001?:
 ;v                         Allocated with name '_main_v_1_97'
 ;buff1                     Allocated with name '_main_buff1_1_97'
 ;buff2                     Allocated with name '_main_buff2_1_97'
-;buff3                     Allocated with name '_main_buff3_1_97'
-;buff4                     Allocated with name '_main_buff4_1_97'
 ;------------------------------------------------------------
 ;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:293: void main (void)
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:302: float mst = 0.0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:300: float mst = 0.0;
 	mov	_main_mst_1_97,#0x00
 	mov	(_main_mst_1_97 + 1),#0x00
 	mov	(_main_mst_1_97 + 2),#0x00
 	mov	(_main_mst_1_97 + 3),#0x00
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:304: float vmax1=0.0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:302: float vmax1=0.0;
 	mov	_main_vmax1_1_97,#0x00
 	mov	(_main_vmax1_1_97 + 1),#0x00
 	mov	(_main_vmax1_1_97 + 2),#0x00
 	mov	(_main_vmax1_1_97 + 3),#0x00
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:305: float vmax2=0.0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:303: float vmax2=0.0;
 	mov	_main_vmax2_1_97,#0x00
 	mov	(_main_vmax2_1_97 + 1),#0x00
 	mov	(_main_vmax2_1_97 + 2),#0x00
 	mov	(_main_vmax2_1_97 + 3),#0x00
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:308: float p_n=0.0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:306: float p_n=0.0;
 	mov	_main_p_n_1_97,#0x00
 	mov	(_main_p_n_1_97 + 1),#0x00
 	mov	(_main_p_n_1_97 + 2),#0x00
 	mov	(_main_p_n_1_97 + 3),#0x00
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:309: TIMER0_Init();
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:308: TIMER0_Init();
 	lcall	_TIMER0_Init
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:310: LCD_4BIT();
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:309: LCD_4BIT();
 	lcall	_LCD_4BIT
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:312: waitms(500); // Give PuTTy a chance to start before sending
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:311: waitms(500); // Give PuTTy a chance to start before sending
 	mov	dptr,#0x01F4
 	lcall	_waitms
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:313: printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:312: printf("\x1b[2J"); // Clear screen using ANSI escape sequence.
 	mov	a,#__str_0
 	push	acc
 	mov	a,#(__str_0 >> 8)
@@ -1251,8 +1245,8 @@ _main:
 	dec	sp
 	dec	sp
 	dec	sp
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:318: __FILE__, __DATE__, __TIME__);
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:317: "Compiled: %s, %s\n\n",
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:317: __FILE__, __DATE__, __TIME__);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:316: "Compiled: %s, %s\n\n",
 	mov	a,#__str_4
 	push	acc
 	mov	a,#(__str_4 >> 8)
@@ -1281,85 +1275,73 @@ _main:
 	mov	a,sp
 	add	a,#0xf4
 	mov	sp,a
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:320: InitPinADC(1, 4); // Configure P1.6 as analog input
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:319: InitPinADC(1, 4); // Configure P1.6 as analog input
 	mov	_InitPinADC_PARM_2,#0x04
 	mov	dpl,#0x01
 	lcall	_InitPinADC
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:321: InitPinADC(1, 5); // Configure P1.7 as analog input
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:320: InitPinADC(1, 5); // Configure P1.7 as analog input
 	mov	_InitPinADC_PARM_2,#0x05
 	mov	dpl,#0x01
 	lcall	_InitPinADC
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:323: InitADC();
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:322: InitADC();
 	lcall	_InitADC
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:325: LCDprint("vr:   V f:    Hz",1,1);
-	mov	_LCDprint_PARM_2,#0x01
-	setb	_LCDprint_PARM_3
-	mov	dptr,#__str_5
-	mov	b,#0x80
-	lcall	_LCDprint
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:326: LCDprint("vt:   V  pha:   C",2,1);
-	mov	_LCDprint_PARM_2,#0x02
-	setb	_LCDprint_PARM_3
-	mov	dptr,#__str_6
-	mov	b,#0x80
-	lcall	_LCDprint
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:329: for (i = 0; i < 10; i++){
-L017070?:
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:326: for (i = 0; i < 10; i++){
+L017073?:
 	clr	a
 	mov	_main_i_1_97,a
 	mov	(_main_i_1_97 + 1),a
-L017049?:
+L017052?:
 	clr	c
 	mov	a,_main_i_1_97
 	subb	a,#0x0A
 	mov	a,(_main_i_1_97 + 1)
 	xrl	a,#0x80
 	subb	a,#0x80
-	jc	L017089?
-	ljmp	L017052?
-L017089?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:331: TL0=0; 
+	jc	L017092?
+	ljmp	L017055?
+L017092?:
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:328: TL0=0; 
 	mov	_TL0,#0x00
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:332: TH0=0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:329: TH0=0;
 	mov	_TH0,#0x00
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:333: TF0=0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:330: TF0=0;
 	clr	_TF0
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:334: overflow_count=0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:331: overflow_count=0;
 	mov	_overflow_count,#0x00
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:335: while(P0_1!=0); // Wait for the signal to be zero
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:332: while(P0_1!=0); // Wait for the signal to be zero
 L017001?:
 	jb	_P0_1,L017001?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:336: while(P0_1!=1); // Wait for the signal to be one
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:333: while(P0_1!=1); // Wait for the signal to be one
 L017004?:
 	jnb	_P0_1,L017004?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:337: TR0=1; // Start the timer
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:334: TR0=1; // Start the timer
 	setb	_TR0
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:338: while(P0_1!=0) // Wait for the signal to be zero
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:335: while(P0_1!=0) // Wait for the signal to be zero
 L017009?:
 	jnb	_P0_1,L017014?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:340: if(TF0==1) // Did the 16-bit timer overflow?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:342: TF0=0;
-	jbc	_TF0,L017093?
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:337: if(TF0==1) // Did the 16-bit timer overflow?
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:339: TF0=0;
+	jbc	_TF0,L017096?
 	sjmp	L017009?
-L017093?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:343: overflow_count++;
+L017096?:
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:340: overflow_count++;
 	inc	_overflow_count
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:346: while(P0_1!=1) // Wait for the signal to be one
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:343: while(P0_1!=1) // Wait for the signal to be one
 	sjmp	L017009?
 L017014?:
 	jb	_P0_1,L017016?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:348: if(TF0==1) // Did the 16-bit timer overflow?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:350: TF0=0;
-	jbc	_TF0,L017095?
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:345: if(TF0==1) // Did the 16-bit timer overflow?
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:347: TF0=0;
+	jbc	_TF0,L017098?
 	sjmp	L017014?
-L017095?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:351: overflow_count++;
+L017098?:
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:348: overflow_count++;
 	inc	_overflow_count
 	sjmp	L017014?
 L017016?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:354: TR0=0; // Stop timer 0, the 24-bit number [overflow_count-TH0-TL0] has the period!
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:351: TR0=0; // Stop timer 0, the 24-bit number [overflow_count-TH0-TL0] has the period!
 	clr	_TR0
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:355: period=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:352: period=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
 	mov	dpl,_overflow_count
 	lcall	___uchar2fs
 	mov	r6,dpl
@@ -1458,7 +1440,7 @@ L017016?:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:356: if (period > mst){
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:353: if (period > mst){
 	push	ar2
 	push	ar3
 	push	ar4
@@ -1482,37 +1464,37 @@ L017016?:
 	pop	ar2
 	mov	a,r6
 	jz	L017018?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:357: mst = period;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:354: mst = period;
 	mov	_main_mst_1_97,r2
 	mov	(_main_mst_1_97 + 1),r3
 	mov	(_main_mst_1_97 + 2),r4
 	mov	(_main_mst_1_97 + 3),r5
 L017018?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:359: waitms(1);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:356: waitms(1);
 	mov	dptr,#0x0001
 	lcall	_waitms
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:329: for (i = 0; i < 10; i++){
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:326: for (i = 0; i < 10; i++){
 	inc	_main_i_1_97
 	clr	a
-	cjne	a,_main_i_1_97,L017097?
+	cjne	a,_main_i_1_97,L017100?
 	inc	(_main_i_1_97 + 1)
-L017097?:
-	ljmp	L017049?
-L017052?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:361: for(i=0;i<20;i++){
+L017100?:
+	ljmp	L017052?
+L017055?:
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:358: for(i=0;i<20;i++){
 	mov	r2,#0x00
 	mov	r3,#0x00
-L017053?:
+L017056?:
 	clr	c
 	mov	a,r2
 	subb	a,#0x14
 	mov	a,r3
 	xrl	a,#0x80
 	subb	a,#0x80
-	jc	L017098?
-	ljmp	L017056?
-L017098?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:362: v[0] = Volts_at_Pin(QFP32_MUX_P1_4);
+	jc	L017101?
+	ljmp	L017059?
+L017101?:
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:359: v[0] = Volts_at_Pin(QFP32_MUX_P1_4);
 	mov	dpl,#0x0A
 	push	ar2
 	push	ar3
@@ -1529,7 +1511,7 @@ L017098?:
 	mov	@r0,ar6
 	inc	r0
 	mov	@r0,ar7
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:363: v[1] = Volts_at_Pin(QFP32_MUX_P1_5);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:360: v[1] = Volts_at_Pin(QFP32_MUX_P1_5);
 	mov	dpl,#0x0B
 	lcall	_Volts_at_Pin
 	mov	r4,dpl
@@ -1544,7 +1526,7 @@ L017098?:
 	mov	@r0,ar6
 	inc	r0
 	mov	@r0,ar7
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:364: if(vmax1<v[0]){
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:361: if(vmax1<v[0]){
 	mov	r0,#_main_v_1_97
 	mov	ar4,@r0
 	inc	r0
@@ -1570,7 +1552,7 @@ L017098?:
 	pop	ar2
 	mov	a,r4
 	jz	L017020?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:365: vmax1=v[0];
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:362: vmax1=v[0];
 	mov	r0,#_main_v_1_97
 	mov	_main_vmax1_1_97,@r0
 	inc	r0
@@ -1580,7 +1562,7 @@ L017098?:
 	inc	r0
 	mov	(_main_vmax1_1_97 + 3),@r0
 L017020?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:367: if(vmax2<v[1]){
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:364: if(vmax2<v[1]){
 	mov	r0,#(_main_v_1_97 + 0x0004)
 	mov	ar4,@r0
 	inc	r0
@@ -1608,7 +1590,7 @@ L017020?:
 	pop	ar2
 	mov	a,r4
 	jz	L017022?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:368: vmax2=v[1];
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:365: vmax2=v[1];
 	mov	r0,#(_main_v_1_97 + 0x0004)
 	mov	_main_vmax2_1_97,@r0
 	inc	r0
@@ -1618,21 +1600,21 @@ L017020?:
 	inc	r0
 	mov	(_main_vmax2_1_97 + 3),@r0
 L017022?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:370: waitms(1); 
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:367: waitms(1); 
 	mov	dptr,#0x0001
 	push	ar2
 	push	ar3
 	lcall	_waitms
 	pop	ar3
 	pop	ar2
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:361: for(i=0;i<20;i++){
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:358: for(i=0;i<20;i++){
 	inc	r2
-	cjne	r2,#0x00,L017101?
+	cjne	r2,#0x00,L017104?
 	inc	r3
-L017101?:
-	ljmp	L017053?
-L017056?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:372: printf("\nperiod=%3.2f\r",mst*1000);
+L017104?:
+	ljmp	L017056?
+L017059?:
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:369: printf("\nperiod=%3.2f\r",mst*1000);
 	push	_main_mst_1_97
 	push	(_main_mst_1_97 + 1)
 	push	(_main_mst_1_97 + 2)
@@ -1652,9 +1634,9 @@ L017056?:
 	push	ar3
 	push	ar4
 	push	ar5
-	mov	a,#__str_7
+	mov	a,#__str_5
 	push	acc
-	mov	a,#(__str_7 >> 8)
+	mov	a,#(__str_5 >> 8)
 	push	acc
 	mov	a,#0x80
 	push	acc
@@ -1662,7 +1644,7 @@ L017056?:
 	mov	a,sp
 	add	a,#0xf9
 	mov	sp,a
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:373: printf ("\nV@P1_4=%7.5fV, V@P1_5=%7.5fV\r",vmax1, vmax2);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:370: printf ("\nV@P1_4=%7.5fV, V@P1_5=%7.5fV\r",vmax1, vmax2);
 	push	_main_vmax2_1_97
 	push	(_main_vmax2_1_97 + 1)
 	push	(_main_vmax2_1_97 + 2)
@@ -1671,9 +1653,9 @@ L017056?:
 	push	(_main_vmax1_1_97 + 1)
 	push	(_main_vmax1_1_97 + 2)
 	push	(_main_vmax1_1_97 + 3)
-	mov	a,#__str_8
+	mov	a,#__str_6
 	push	acc
-	mov	a,#(__str_8 >> 8)
+	mov	a,#(__str_6 >> 8)
 	push	acc
 	mov	a,#0x80
 	push	acc
@@ -1681,64 +1663,65 @@ L017056?:
 	mov	a,sp
 	add	a,#0xf5
 	mov	sp,a
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:375: while(P0_1==0&&P0_2==0);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:372: if(P2_6==0) {
+	jb	_P2_6,L017031?
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:373: while(P0_1==0&&P0_2==0);
 L017024?:
 	jb	_P0_1,L017026?
 	jnb	_P0_2,L017024?
 L017026?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:376: if(P0_1==1){
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:374: if(P0_1==1){
 	jnb	_P0_1,L017028?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:377: p_n=1;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:375: p_n=1;
 	mov	_main_p_n_1_97,#0x00
 	mov	(_main_p_n_1_97 + 1),#0x00
 	mov	(_main_p_n_1_97 + 2),#0x80
 	mov	(_main_p_n_1_97 + 3),#0x3F
+	sjmp	L017031?
 L017028?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:379: if(P0_2==1){
-	jnb	_P0_2,L017030?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:380: p_n=-1;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:378: p_n=-1;
 	mov	_main_p_n_1_97,#0x00
 	mov	(_main_p_n_1_97 + 1),#0x00
 	mov	(_main_p_n_1_97 + 2),#0x80
 	mov	(_main_p_n_1_97 + 3),#0xBF
-L017030?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:382: waitms(1);
+L017031?:
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:381: waitms(1);
 	mov	dptr,#0x0001
 	lcall	_waitms
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:383: TL0=0; TH0=0; TF0=0;overflow_count=0;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:382: TL0=0; TH0=0; TF0=0;overflow_count=0;
 	mov	_TL0,#0x00
 	mov	_TH0,#0x00
 	clr	_TF0
 	mov	_overflow_count,#0x00
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:384: while(P0_1==1);
-L017031?:
-	jb	_P0_1,L017031?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:385: while(P0_1==0);
-L017034?:
-	jnb	_P0_1,L017034?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:386: while(P0_1==1){
-L017043?:
-	jnb	_P0_1,L017045?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:387: while(P0_2==0&&P0_1==1){
-L017040?:
-	jb	_P0_2,L017042?
-	jnb	_P0_1,L017042?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:388: TR0=1;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:383: while(P0_1==1);
+L017032?:
+	jb	_P0_1,L017032?
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:384: while(P0_1==0);
+L017035?:
+	jnb	_P0_1,L017035?
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:385: while(P0_1==1){
+L017044?:
+	jnb	_P0_1,L017046?
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:386: while(P0_2==0&&P0_1==1){
+L017041?:
+	jb	_P0_2,L017043?
+	jnb	_P0_1,L017043?
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:387: TR0=1;
 	setb	_TR0
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:389: if(TF0==1) // Did the 16-bit timer overflow?
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:391: TF0=0;
-	jbc	_TF0,L017111?
-	sjmp	L017040?
-L017111?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:392: overflow_count++;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:388: if(TF0==1) // Did the 16-bit timer overflow?
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:390: TF0=0;
+	jbc	_TF0,L017114?
+	sjmp	L017041?
+L017114?:
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:391: overflow_count++;
 	inc	_overflow_count
-	sjmp	L017040?
-L017042?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:396: TR0=0; 
+	sjmp	L017041?
+L017043?:
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:395: TR0=0; 
 	clr	_TR0
-	sjmp	L017043?
-L017045?:
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:398: phase_diff=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
+	sjmp	L017044?
+L017046?:
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:397: phase_diff=(overflow_count*65536.0+TH0*256.0+TL0)*(12.0/SYSCLK);
 	mov	dpl,_overflow_count
 	lcall	___uchar2fs
 	mov	r2,dpl
@@ -1837,7 +1820,7 @@ L017045?:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:400: degrees = p_n*phase_diff*360/mst ;
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:399: degrees = p_n*phase_diff*360/mst ;
 	push	ar2
 	push	ar3
 	push	ar4
@@ -1885,14 +1868,14 @@ L017045?:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:402: printf("\r\ndegrees: %f", degrees);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:401: printf("\r\ndegrees: %f", degrees);
 	push	_main_degrees_1_97
 	push	(_main_degrees_1_97 + 1)
 	push	(_main_degrees_1_97 + 2)
 	push	(_main_degrees_1_97 + 3)
-	mov	a,#__str_9
+	mov	a,#__str_7
 	push	acc
-	mov	a,#(__str_9 >> 8)
+	mov	a,#(__str_7 >> 8)
 	push	acc
 	mov	a,#0x80
 	push	acc
@@ -1900,7 +1883,26 @@ L017045?:
 	mov	a,sp
 	add	a,#0xf9
 	mov	sp,a
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:404: sprintf(buff1,"%04.2f", (float)vmax1/1.14121356237);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:407: if (P2_6==0) {
+	jnb	_P2_6,L017115?
+	ljmp	L017048?
+L017115?:
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:408: sprintf(buff1,"vr:%04.2f f:%04.1fHz", (float)vmax1/1.14121356237,(float)1/mst);
+	push	_main_mst_1_97
+	push	(_main_mst_1_97 + 1)
+	push	(_main_mst_1_97 + 2)
+	push	(_main_mst_1_97 + 3)
+	mov	dptr,#0x0000
+	mov	b,#0x80
+	mov	a,#0x3F
+	lcall	___fsdiv
+	mov	_main_sloc0_1_0,dpl
+	mov	(_main_sloc0_1_0 + 1),dph
+	mov	(_main_sloc0_1_0 + 2),b
+	mov	(_main_sloc0_1_0 + 3),a
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
 	mov	a,#0x49
 	push	acc
 	mov	a,#0x13
@@ -1914,20 +1916,24 @@ L017045?:
 	mov	b,(_main_vmax1_1_97 + 2)
 	mov	a,(_main_vmax1_1_97 + 3)
 	lcall	___fsdiv
-	mov	r6,dpl
-	mov	r7,dph
+	mov	r4,dpl
+	mov	r5,dph
 	mov	r2,b
 	mov	r3,a
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-	push	ar6
-	push	ar7
+	push	_main_sloc0_1_0
+	push	(_main_sloc0_1_0 + 1)
+	push	(_main_sloc0_1_0 + 2)
+	push	(_main_sloc0_1_0 + 3)
+	push	ar4
+	push	ar5
 	push	ar2
 	push	ar3
-	mov	a,#__str_10
+	mov	a,#__str_8
 	push	acc
-	mov	a,#(__str_10 >> 8)
+	mov	a,#(__str_8 >> 8)
 	push	acc
 	mov	a,#0x80
 	push	acc
@@ -1939,72 +1945,15 @@ L017045?:
 	push	acc
 	lcall	_sprintf
 	mov	a,sp
-	add	a,#0xf6
+	add	a,#0xf2
 	mov	sp,a
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:405: LCDprint(buff1, 1, 4);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:409: LCDprint(buff1, 1, 0);
 	mov	_LCDprint_PARM_2,#0x01
-	setb	_LCDprint_PARM_3
+	clr	_LCDprint_PARM_3
 	mov	dptr,#_main_buff1_1_97
 	mov	b,#0x40
 	lcall	_LCDprint
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:406: sprintf(buff2,"%04.1f", (float)1/mst*1000);
-	push	_main_mst_1_97
-	push	(_main_mst_1_97 + 1)
-	push	(_main_mst_1_97 + 2)
-	push	(_main_mst_1_97 + 3)
-	mov	dptr,#0x0000
-	mov	b,#0x80
-	mov	a,#0x3F
-	lcall	___fsdiv
-	mov	r2,dpl
-	mov	r3,dph
-	mov	r4,b
-	mov	r5,a
-	mov	a,sp
-	add	a,#0xfc
-	mov	sp,a
-	push	ar2
-	push	ar3
-	push	ar4
-	push	ar5
-	mov	dptr,#0x0000
-	mov	b,#0x7A
-	mov	a,#0x44
-	lcall	___fsmul
-	mov	r2,dpl
-	mov	r3,dph
-	mov	r4,b
-	mov	r5,a
-	mov	a,sp
-	add	a,#0xfc
-	mov	sp,a
-	push	ar2
-	push	ar3
-	push	ar4
-	push	ar5
-	mov	a,#__str_11
-	push	acc
-	mov	a,#(__str_11 >> 8)
-	push	acc
-	mov	a,#0x80
-	push	acc
-	mov	a,#_main_buff2_1_97
-	push	acc
-	mov	a,#(_main_buff2_1_97 >> 8)
-	push	acc
-	mov	a,#0x40
-	push	acc
-	lcall	_sprintf
-	mov	a,sp
-	add	a,#0xf6
-	mov	sp,a
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:407: LCDprint(buff2, 1, 11);
-	mov	_LCDprint_PARM_2,#0x01
-	setb	_LCDprint_PARM_3
-	mov	dptr,#_main_buff2_1_97
-	mov	b,#0x40
-	lcall	_LCDprint
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:408: sprintf(buff3,"%04.2f", (float)vmax2/1.14121356237);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:411: sprintf(buff2,"vt:%04.2fV ph:%3.0fC", (float)vmax2/1.14121356237,(float)degrees);
 	mov	a,#0x49
 	push	acc
 	mov	a,#0x13
@@ -2025,63 +1974,41 @@ L017045?:
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-	push	ar2
-	push	ar3
-	push	ar4
-	push	ar5
-	mov	a,#__str_10
-	push	acc
-	mov	a,#(__str_10 >> 8)
-	push	acc
-	mov	a,#0x80
-	push	acc
-	mov	a,#_main_buff3_1_97
-	push	acc
-	mov	a,#(_main_buff3_1_97 >> 8)
-	push	acc
-	mov	a,#0x40
-	push	acc
-	lcall	_sprintf
-	mov	a,sp
-	add	a,#0xf6
-	mov	sp,a
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:409: LCDprint(buff3, 2, 4);
-	mov	_LCDprint_PARM_2,#0x02
-	setb	_LCDprint_PARM_3
-	mov	dptr,#_main_buff3_1_97
-	mov	b,#0x40
-	lcall	_LCDprint
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:410: sprintf(buff3,"%04.0f", (float)degrees);
 	push	_main_degrees_1_97
 	push	(_main_degrees_1_97 + 1)
 	push	(_main_degrees_1_97 + 2)
 	push	(_main_degrees_1_97 + 3)
-	mov	a,#__str_12
+	push	ar2
+	push	ar3
+	push	ar4
+	push	ar5
+	mov	a,#__str_9
 	push	acc
-	mov	a,#(__str_12 >> 8)
+	mov	a,#(__str_9 >> 8)
 	push	acc
 	mov	a,#0x80
 	push	acc
-	mov	a,#_main_buff3_1_97
+	mov	a,#_main_buff2_1_97
 	push	acc
-	mov	a,#(_main_buff3_1_97 >> 8)
+	mov	a,#(_main_buff2_1_97 >> 8)
 	push	acc
 	mov	a,#0x40
 	push	acc
 	lcall	_sprintf
 	mov	a,sp
-	add	a,#0xf6
+	add	a,#0xf2
 	mov	sp,a
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:411: LCDprint(buff4, 2, 13);
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:412: LCDprint(buff2, 2, 0);       
 	mov	_LCDprint_PARM_2,#0x02
-	setb	_LCDprint_PARM_3
-	mov	dptr,#_main_buff4_1_97
+	clr	_LCDprint_PARM_3
+	mov	dptr,#_main_buff2_1_97
 	mov	b,#0x40
 	lcall	_LCDprint
-;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:412: waitms(500); 
+L017048?:
+;	C:\Users\qiuyu\OneDrive\Documents\GitHub\LAB5\lab5v3.c:414: waitms(500); 
 	mov	dptr,#0x01F4
 	lcall	_waitms
-	ljmp	L017070?
+	ljmp	L017073?
 	rseg R_CSEG
 
 	rseg R_XINIT
@@ -2121,37 +2048,28 @@ __str_3:
 	db 'Mar  6 2024'
 	db 0x00
 __str_4:
-	db '20:41:57'
+	db '21:29:15'
 	db 0x00
 __str_5:
-	db 'vr:   V f:    Hz'
-	db 0x00
-__str_6:
-	db 'vt:   V  pha:   C'
-	db 0x00
-__str_7:
 	db 0x0A
 	db 'period=%3.2f'
 	db 0x0D
 	db 0x00
-__str_8:
+__str_6:
 	db 0x0A
 	db 'V@P1_4=%7.5fV, V@P1_5=%7.5fV'
 	db 0x0D
 	db 0x00
-__str_9:
+__str_7:
 	db 0x0D
 	db 0x0A
 	db 'degrees: %f'
 	db 0x00
-__str_10:
-	db '%04.2f'
+__str_8:
+	db 'vr:%04.2f f:%04.1fHz'
 	db 0x00
-__str_11:
-	db '%04.1f'
-	db 0x00
-__str_12:
-	db '%04.0f'
+__str_9:
+	db 'vt:%04.2fV ph:%3.0fC'
 	db 0x00
 
 	CSEG
