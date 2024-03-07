@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by C51
 ; Version 1.0.0 #1170 (Feb 16 2022) (MSVC)
-; This file was generated Wed Mar 06 19:49:30 2024
+; This file was generated Wed Mar 06 19:51:04 2024
 ;--------------------------------------------------------
 $name lab5v1
 $optc51 --model-small
@@ -1929,7 +1929,7 @@ __str_3:
 	db 'Mar  6 2024'
 	db 0x00
 __str_4:
-	db '19:49:30'
+	db '19:51:04'
 	db 0x00
 __str_5:
 	db 'vr:     f:    Hz'

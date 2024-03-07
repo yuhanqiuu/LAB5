@@ -292,6 +292,11 @@ unsigned int Get_ADC (void)
 void main (void)
 {
     idata float v[2];
+    idata char buff1[17];
+    idata char buff2[17];
+    idata char buff3[17];
+    idata char buff4[17];
+
     float period;
     float mst = 0.0;
     int i=0;
@@ -317,7 +322,7 @@ void main (void)
     InitADC();
     //        0123456789012345
     LCDprint("vr:     f:    Hz",1,1);
-    LCDprint("vt:     pha:    ",2,1);
+    LCDprint("vt:      pha:    ",2,1);
     
     while(1){
     for (i = 0; i < 10; i++){
@@ -394,7 +399,13 @@ void main (void)
     degrees = p_n*phase_diff*360/mst ;
     //printf("\r\nphase_diff: %f", phase_diff);
     printf("\r\ndegrees: %f", degrees);
-
+                
+    sprintf(buff1,"%03.2f", (float)vmax1/sqrt(2));
+    LCDprint(buff1, 1, 4);
+    sprintf(buff2,"%03.2f", (float)vmax1/sqrt(2));
+    LCDprint(buff2, 1, 4);
+    sprintf(buff3,"%03.2f", (float)vmax2/sqrt(2));
+    LCDprint(buff2, 2, 1);
     waitms(500); 
 
 }
