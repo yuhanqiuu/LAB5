@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <EFM8LB1.h>
+#include <math.h>
 
 // ~C51~  
 
@@ -321,8 +322,8 @@ void main (void)
 
     InitADC();
     //        0123456789012345
-    LCDprint("vr:     f:    Hz",1,1);
-    LCDprint("vt:      pha:    ",2,1);
+    LCDprint("vr:   V f:    Hz",1,1);
+    LCDprint("vt:   V  pha:   C",2,1);
     
     while(1){
     for (i = 0; i < 10; i++){
@@ -400,12 +401,14 @@ void main (void)
     //printf("\r\nphase_diff: %f", phase_diff);
     printf("\r\ndegrees: %f", degrees);
                 
-    sprintf(buff1,"%03.2f", (float)vmax1/sqrt(2));
+    sprintf(buff1,"%04.2f", (float)vmax1/1.14121356237);
     LCDprint(buff1, 1, 4);
-    sprintf(buff2,"%03.2f", (float)vmax1/sqrt(2));
-    LCDprint(buff2, 1, 4);
-    sprintf(buff3,"%03.2f", (float)vmax2/sqrt(2));
-    LCDprint(buff2, 2, 1);
+    sprintf(buff2,"%04.1f", (float)1/mst*1000);
+    LCDprint(buff2, 1, 11);
+    sprintf(buff3,"%04.2f", (float)vmax2/1.14121356237);
+    LCDprint(buff3, 2, 4);
+    sprintf(buff3,"%04.0f", (float)degrees);
+    LCDprint(buff4, 2, 13);
     waitms(500); 
 
 }
